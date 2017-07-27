@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.5.0)
-  - ERNiftyExtensions (2.3.3)
+  - ERNiftyExtensions (2.3.4)
   - ERNiftyFoundation (0.1.2):
     - Alamofire
     - ERNiftyExtensions
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
-  ERNiftyExtensions: 21e3ea30aca6d18072bc59b83520071210003812
+  ERNiftyExtensions: c80f1b3ddd7f5249de93fe130d40d0c7b7ba31d3
   ERNiftyFoundation: ed8e812d8cef34dc1c3fda62d48c2ae5e0fbc661
   Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
 

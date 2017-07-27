@@ -8,7 +8,8 @@
 
 import UIKit
 import ERNiftyFoundation
-import AVFoundation
+import ERNiftyExtensions
+import Unbox
 
 class LogInViewController: UIViewController {
   
@@ -31,8 +32,6 @@ class LogInViewController: UIViewController {
     "Share playlists for every occassion.",
     "Log in and let's get started."
   ]
-  
-  private var player: AVAudioPlayer!
   
   private let fadeDuration: TimeInterval = 0.6
   
@@ -66,8 +65,6 @@ class LogInViewController: UIViewController {
     
     loadStrings()
     
-    //playAmbience()
-    
     fadeInContainerView()
   }
   
@@ -86,21 +83,6 @@ class LogInViewController: UIViewController {
     loadSubtitle()
     
     loadTerms()
-  }
-  
-  private func playAmbience() {
-    
-    guard let url = Bundle.main.url(forResource: "login_ambient", withExtension: "aiff") else {return}
-    
-    guard let player = try? AVAudioPlayer(contentsOf: url) else {return}
-    
-    player.prepareToPlay()
-    
-    //player.numberOfLoops = -1
-    
-    player.play()
-    
-    self.player = player
   }
   
   private func fadeInContainerView() {
@@ -145,6 +127,13 @@ class LogInViewController: UIViewController {
         self?.label.setTextAnimated(string, duration: 1.0)
       }
     }
+  }
+  
+  private func test() {
+    
+    let a: JSONObject = ["hey": "there"]
+    
+    guard let b: Beast = a.unboxedObject() else {return}
   }
   
   //**************************************************//
@@ -193,4 +182,15 @@ class LogInViewController: UIViewController {
   // MARK: Configuration
   
   //**************************************************//
+}
+
+class Beast: Unboxable {
+  
+  init() {
+    
+  }
+  
+  required convenience init(unboxer: Unboxer) throws {
+    self.init()
+  }
 }

@@ -7,12 +7,11 @@
 //
 
 import Foundation
-import ERNiftyExtensions
 import Unbox
 
-extension Dictionary where Key == String, Value == Any {
+extension Dictionary where Key == String, Value: Any {
   
-  func unboxedObject<T:Unboxable>() -> T? {
+  public func unboxedObject<T:Unboxable>() -> T? {
     
     var dic = JSONObject()
     
@@ -36,7 +35,7 @@ extension Dictionary where Key == String, Value == Any {
 
 extension Sequence where Iterator.Element == UnboxableDictionary {
   
-  func unboxedObjects<T:Unboxable>() -> [T]? {
+  public func unboxedObjects<T:Unboxable>() -> [T]? {
     
     guard let dics = self as? [UnboxableDictionary] else {return nil}
     

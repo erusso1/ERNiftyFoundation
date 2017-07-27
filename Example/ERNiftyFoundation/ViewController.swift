@@ -8,7 +8,6 @@
 
 import UIKit
 import ERNiftyFoundation
-import ERNiftyExtensions
 import Unbox
 
 class LogInViewController: UIViewController {
@@ -127,13 +126,6 @@ class LogInViewController: UIViewController {
         self?.label.setTextAnimated(string, duration: 1.0)
       }
     }
-  }
-  
-  private func test() {
-    
-    let a: JSONObject = ["hey": "there"]
-    
-    guard let b: Beast = a.unboxedObject() else {return}
   }
   
   //**************************************************//

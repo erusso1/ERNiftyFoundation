@@ -1,0 +1,6 @@
+framework module ERNiftyFoundation {
+  umbrella header "ERNiftyFoundation-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - ERNiftyFoundation (0.1.0)
+
+DEPENDENCIES:
+  - ERNiftyFoundation (from `../`)
+
+EXTERNAL SOURCES:
+  ERNiftyFoundation:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ERNiftyFoundation: 2d9756966d3c7d4150df522118d0b1d9e2afeb1c
+
+PODFILE CHECKSUM: c7a610c45e337ca27d2430708c16f8e716099ddb
+
+COCOAPODS: 1.2.1

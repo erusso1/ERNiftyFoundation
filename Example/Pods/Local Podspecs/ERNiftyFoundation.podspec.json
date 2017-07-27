@@ -1,0 +1,22 @@
+{
+  "name": "ERNiftyFoundation",
+  "version": "0.1.0",
+  "summary": "A short description of ERNiftyFoundation.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/erusso1/ERNiftyFoundation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "erusso1": "ephraim.s.russo@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/erusso1/ERNiftyFoundation.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ERNiftyFoundation/Classes/**/*"
+}

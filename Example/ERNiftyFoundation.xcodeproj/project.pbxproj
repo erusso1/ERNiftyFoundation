@@ -42,9 +42,9 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		9DDB56DC6ADADE2A303FE216 /* Pods-ERNiftyFoundation_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERNiftyFoundation_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ERNiftyFoundation_Example/Pods-ERNiftyFoundation_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B1E59D588285705CE3CF8F41 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		CF41586E3EF638426DE4ABE0 /* ERNiftyFoundation.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = ERNiftyFoundation.podspec; path = ../ERNiftyFoundation.podspec; sourceTree = "<group>"; };
-		E01C061917B4C5CDC57BD51C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		B1E59D588285705CE3CF8F41 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		CF41586E3EF638426DE4ABE0 /* ERNiftyFoundation.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ERNiftyFoundation.podspec; path = ../ERNiftyFoundation.podspec; sourceTree = "<group>"; };
+		E01C061917B4C5CDC57BD51C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E391986C3C24A1D6A9702E6A /* Pods-ERNiftyFoundation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERNiftyFoundation_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERNiftyFoundation_Example/Pods-ERNiftyFoundation_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FB0EF48DFCE8D080DDC6386E /* Pods-ERNiftyFoundation_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERNiftyFoundation_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ERNiftyFoundation_Tests/Pods-ERNiftyFoundation_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,10 +215,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2LAEPWAXJY;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2LAEPWAXJY;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -496,6 +498,7 @@
 			baseConfigurationReference = 9DDB56DC6ADADE2A303FE216 /* Pods-ERNiftyFoundation_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2LAEPWAXJY;
 				INFOPLIST_FILE = ERNiftyFoundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -510,6 +513,7 @@
 			baseConfigurationReference = E391986C3C24A1D6A9702E6A /* Pods-ERNiftyFoundation_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2LAEPWAXJY;
 				INFOPLIST_FILE = ERNiftyFoundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -523,10 +527,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB0EF48DFCE8D080DDC6386E /* Pods-ERNiftyFoundation_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				DEVELOPMENT_TEAM = 2LAEPWAXJY;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -543,10 +545,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 255962034B8E014513235122 /* Pods-ERNiftyFoundation_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				DEVELOPMENT_TEAM = 2LAEPWAXJY;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";

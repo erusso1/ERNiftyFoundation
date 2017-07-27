@@ -1,5 +1,7 @@
 use_frameworks!
 
+platform :ios, '10.3'
+
 target 'ERNiftyFoundation_Example' do
  
  pod 'ERNiftyFoundation', :path => '../'

@@ -41,4 +41,6 @@ Pod::Spec.new do |s|
 
   s.dependency 'ERNiftyExtensions'
 
+  s.dependency 'Unbox'
+
 end

@@ -1,6 +1,8 @@
 PODS:
+  - Alamofire (4.5.0)
   - ERNiftyExtensions (2.3.1)
   - ERNiftyFoundation (0.1.2):
+    - Alamofire
     - ERNiftyExtensions
 
 DEPENDENCIES:
@@ -11,8 +13,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   ERNiftyExtensions: 42120dbf92f27d99a67edb1e1300c7de70c0959f
-  ERNiftyFoundation: 487c3651156076b972c6026b6ea5ae6ed3cd019c
+  ERNiftyFoundation: 55c4b0d415616f59fb65975780ef968610162c28
 
 PODFILE CHECKSUM: ae17d64df0605b2fad286971f77fac175c31eb4a
 

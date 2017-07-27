@@ -1,5 +1,7 @@
 PODS:
-  - ERNiftyFoundation (0.1.0)
+  - ERNiftyExtensions (2.2)
+  - ERNiftyFoundation (0.1.0):
+    - ERNiftyExtensions
 
 DEPENDENCIES:
   - ERNiftyFoundation (from `../`)
@@ -9,8 +11,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ERNiftyFoundation: 2d9756966d3c7d4150df522118d0b1d9e2afeb1c
+  ERNiftyExtensions: 8538e080503f7f3afe676472cab111a4c320dc6a
+  ERNiftyFoundation: 3ee86e167233a498c25b41986963c7781559fe3a
 
-PODFILE CHECKSUM: c7a610c45e337ca27d2430708c16f8e716099ddb
+PODFILE CHECKSUM: 371712327a56a5a7da2d6da2a920e7a0ec718ce4
 
 COCOAPODS: 1.2.1

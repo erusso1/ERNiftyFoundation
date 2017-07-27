@@ -1,10 +1,12 @@
 use_frameworks!
 
 target 'ERNiftyFoundation_Example' do
-  pod 'ERNiftyFoundation', :path => '../'
+ 
+ pod 'ERNiftyFoundation', :path => '../'
 
   target 'ERNiftyFoundation_Tests' do
-    inherit! :search_paths
+   
+   inherit! :search_paths
 
     
   end

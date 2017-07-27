@@ -1,16 +1,15 @@
 //
-//  ViewController.swift
+//  Tests.swift
 //  ERNiftyFoundation
 //
-//  Created by erusso1 on 07/26/2017.
-//  Copyright (c) 2017 erusso1. All rights reserved.
+//  Created by Ephraim Russo on 7/27/17.
+//  Copyright © 2017 CocoaPods. All rights reserved.
 //
 
+import Foundation
 import UIKit
-import ERNiftyFoundation
-import Unbox
 
-class LogInViewController: UIViewController {
+class SomeController: UIViewController {
   
   //**************************************************//
   
@@ -24,16 +23,6 @@ class LogInViewController: UIViewController {
   
   // MARK: Private Variables
   
-  private let strings = [
-    "Discover new people with the music you love.",
-    "Meet like-minded personalities.",
-    "Stream together with Apple Music.",
-    "Share playlists for every occassion.",
-    "Log in and let's get started."
-  ]
-  
-  private let fadeDuration: TimeInterval = 0.6
-  
   //**************************************************//
   
   // MARK: Computed Variables
@@ -46,10 +35,6 @@ class LogInViewController: UIViewController {
   
   // MARK: IBOutlets
   
-  @IBOutlet fileprivate weak var label: UILabel!
-  
-  @IBOutlet fileprivate weak var termsTextView: ERTextView!
-  
   //**************************************************//
   
   // MARK: IBActions
@@ -59,74 +44,9 @@ class LogInViewController: UIViewController {
   // MARK: View Loading
   
   override func viewDidLoad() {
-    
     super.viewDidLoad()
-    
-    loadStrings()
-    
-    fadeInContainerView()
   }
   
-  private func loadStrings() {
-    
-    func loadSubtitle() {
-      
-      label.text = strings.first
-    }
-    
-    func loadTerms() {
-      
-      termsTextView.configureFor(termsOfUseURL: URL(string: "http://natgeo.com")!, privacyPolicyURL: URL(string: "http://nshipster.com")!)
-    }
-    
-    loadSubtitle()
-    
-    loadTerms()
-  }
-  
-  private func fadeInContainerView() {
-    
-    guard let container = self.view.viewWithTag(1) else {return}
-    
-    guard let bottom = self.view.viewWithTag(2) else {return}
-    
-    container.alpha = 0
-    
-    bottom.alpha = 0
-    
-    self.label.alpha = 0
-    
-    UIView.animate(withDuration: 6*self.fadeDuration, delay: 0.0, options: .curveEaseInOut, animations: {
-      
-      container.alpha = 1
-      
-    }) { _ in
-      
-      UIView.animate(withDuration: self.fadeDuration, animations: {
-        
-        bottom.alpha = 1
-        
-        self.label.alpha = 1
-        
-      }) { _ in
-        
-        self.beginSlideShow()
-      }
-    }
-  }
-  
-  private func beginSlideShow() {
-    
-    let displayInterval: TimeInterval = 4.0
-    
-    for (index, string) in self.strings.enumerated() {
-      
-      afterDelay(Double(index)*displayInterval) { [weak self] in
-        
-        self?.label.setTextAnimated(string, duration: 1.0)
-      }
-    }
-  }
   
   //**************************************************//
   
@@ -138,7 +58,7 @@ class LogInViewController: UIViewController {
   }
   
   override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)    
+    super.viewDidAppear(animated)
   }
   
   override func viewDidLayoutSubviews() {

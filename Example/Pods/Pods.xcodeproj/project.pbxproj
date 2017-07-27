@@ -112,6 +112,8 @@
 		ED23F7E60DADA2698C2CB07AD23ABB5C /* UnboxPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B806A3314E6B5BE06EDD2C028D29464 /* UnboxPath.swift */; };
 		EF1B263D39735782C9CE435F18877631 /* UnboxableEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF3BFCCB78C0A96E6F8338CD89214B /* UnboxableEnum.swift */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C269A3083BEA0EBF000D66C567FB2C /* Notifications.swift */; };
+		F306E13D1F2A8F10008CD9D8 /* ERAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306E13C1F2A8F10008CD9D8 /* ERAPIEndpoint.swift */; };
+		F306E1461F2A951E008CD9D8 /* ERAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306E1451F2A951E008CD9D8 /* ERAPIManager.swift */; };
 		F5160310049484E64CDCB3A3C99034E8 /* UnboxableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C96A6CDE3E7C12C84D77445346A3C /* UnboxableCollection.swift */; };
 		F658A70EB218D8DA5C0713A413C388D0 /* URL+Unbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BA0F75CCFEFF5DA34E69FE3AF04E0 /* URL+Unbox.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2E92779FD231C59910BFEE700542B /* ResponseSerialization.swift */; };
@@ -181,9 +183,9 @@
 		056C96A6CDE3E7C12C84D77445346A3C /* UnboxableCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxableCollection.swift; path = Sources/UnboxableCollection.swift; sourceTree = "<group>"; };
 		0576293A6C445F9FD648D933DD9C27F5 /* IndexPath+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IndexPath+Nifty.swift"; path = "ERNiftyExtensions/Classes/IndexPath+Nifty.swift"; sourceTree = "<group>"; };
 		0F351680227D0B17D13AD03FE3AA6714 /* Int64+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Int64+Unbox.swift"; path = "Sources/Int64+Unbox.swift"; sourceTree = "<group>"; };
-		0FA6C0A4F11CA3BBE3FBE1123FE07C8F /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		0FA6C0A4F11CA3BBE3FBE1123FE07C8F /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		0FC3F93839AB1E115164720DBD1B7C6B /* Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Unbox.swift; path = Sources/Unbox.swift; sourceTree = "<group>"; };
-		10D4495F023DF145E19889EC348EE810 /* ERNiftyExtensions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ERNiftyExtensions.modulemap; sourceTree = "<group>"; };
+		10D4495F023DF145E19889EC348EE810 /* ERNiftyExtensions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ERNiftyExtensions.modulemap; sourceTree = "<group>"; };
 		12A2E92779FD231C59910BFEE700542B /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		151D2F221C901722F87C0C37AFE24DC2 /* CALayer+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CALayer+Nifty.swift"; path = "ERNiftyExtensions/Classes/CALayer+Nifty.swift"; sourceTree = "<group>"; };
 		1762A88F691AAB0DA41AC2DECC190562 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
@@ -218,7 +220,7 @@
 		473654BA88D659F626C883ABE3E29992 /* CGSize+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGSize+Nifty.swift"; path = "ERNiftyExtensions/Classes/CGSize+Nifty.swift"; sourceTree = "<group>"; };
 		48C8965BD17A2F1E66523EB0A766757A /* UnboxCompatible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxCompatible.swift; path = Sources/UnboxCompatible.swift; sourceTree = "<group>"; };
 		4AC34A37195FB106C616DC43C82E322C /* NSArray+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSArray+Unbox.swift"; path = "Sources/NSArray+Unbox.swift"; sourceTree = "<group>"; };
-		4D7EBD5DB55374611CEB704C3CAB75C1 /* ERNiftyFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ERNiftyFoundation.framework; path = ERNiftyFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D7EBD5DB55374611CEB704C3CAB75C1 /* ERNiftyFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ERNiftyFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EDAB9D99B96665D636005EEC4ADE693 /* Pods-ERNiftyFoundation_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ERNiftyFoundation_Tests-dummy.m"; sourceTree = "<group>"; };
 		50CCDACFE85E8ECD40DF7E5D9C9F9189 /* Pods-ERNiftyFoundation_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ERNiftyFoundation_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		518C2212D87FA1B44AA613304F0D24D6 /* ERNiftyExtensions-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ERNiftyExtensions-umbrella.h"; sourceTree = "<group>"; };
@@ -227,15 +229,15 @@
 		5215A8AE342B1E487A8DD2155FA2B17F /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		54C91DEFC36E3719A7670C0534FB164B /* UITextField+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Nifty.swift"; path = "ERNiftyExtensions/Classes/UITextField+Nifty.swift"; sourceTree = "<group>"; };
 		54DD4BC37F07A51369B66655D57D9E5B /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
-		568042D0CE10E579B28D749C4E4D8876 /* ERNiftyExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ERNiftyExtensions.framework; path = ERNiftyExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		568042D0CE10E579B28D749C4E4D8876 /* ERNiftyExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ERNiftyExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58DAFC67E44E31AA53FAF541F7CAF7F5 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		5B0F0F749E72A9FF78F3FD97D5E1C668 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0F0F749E72A9FF78F3FD97D5E1C668 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B806A3314E6B5BE06EDD2C028D29464 /* UnboxPath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxPath.swift; path = Sources/UnboxPath.swift; sourceTree = "<group>"; };
 		5C129A63328C80C3ED3F259DBE3A252B /* Date+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Nifty.swift"; path = "ERNiftyExtensions/Classes/Date+Nifty.swift"; sourceTree = "<group>"; };
 		5DDD9651ADBE0E2652F42B9047D1B0E8 /* UnboxError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxError.swift; path = Sources/UnboxError.swift; sourceTree = "<group>"; };
 		6098520F6BB3690022F2E3F5BB45FB76 /* ERGlobals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ERGlobals.swift; sourceTree = "<group>"; };
 		63FD70EB7EE4E859B86077A6FDB253D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		6539B95C60B22F0BEA2E34E730EF8FFB /* ERNiftyFoundation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ERNiftyFoundation.modulemap; sourceTree = "<group>"; };
+		6539B95C60B22F0BEA2E34E730EF8FFB /* ERNiftyFoundation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ERNiftyFoundation.modulemap; sourceTree = "<group>"; };
 		655E9B9E1C2E8E10C0D8825E0BA01C64 /* UITableViewCell+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITableViewCell+Nifty.swift"; path = "ERNiftyExtensions/Classes/UITableViewCell+Nifty.swift"; sourceTree = "<group>"; };
 		67D57C3314816829F368D0217E45C8AF /* Pods-ERNiftyFoundation_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ERNiftyFoundation_Tests-umbrella.h"; sourceTree = "<group>"; };
 		67E0C119C1A4746105776FC3C72FFEB3 /* Unbox.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Unbox.xcconfig; sourceTree = "<group>"; };
@@ -245,7 +247,7 @@
 		6BD9CCA3AC0A7D5FA6051BB8824C6FE8 /* Int32+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Int32+Unbox.swift"; path = "Sources/Int32+Unbox.swift"; sourceTree = "<group>"; };
 		6CCD9C074AE15B1A5BD4F946DE4BDDFA /* DateFormatter+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DateFormatter+Unbox.swift"; path = "Sources/DateFormatter+Unbox.swift"; sourceTree = "<group>"; };
 		6DCD37E1E551A53AC8E6DCEF09481D05 /* Double+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Double+Unbox.swift"; path = "Sources/Double+Unbox.swift"; sourceTree = "<group>"; };
-		73399D5B355D58795DA535439E1C9E79 /* Pods-ERNiftyFoundation_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ERNiftyFoundation_Example.modulemap"; sourceTree = "<group>"; };
+		73399D5B355D58795DA535439E1C9E79 /* Pods-ERNiftyFoundation_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ERNiftyFoundation_Example.modulemap"; sourceTree = "<group>"; };
 		748EDFB8B9F55A37E0447A4ECF9AC796 /* Data+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Nifty.swift"; path = "ERNiftyExtensions/Classes/Data+Nifty.swift"; sourceTree = "<group>"; };
 		76EDA6122D3FF758978A054E9063EEBF /* Pods-ERNiftyFoundation_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ERNiftyFoundation_Example-umbrella.h"; sourceTree = "<group>"; };
 		7703794E175C87E26B77EB75CF7B69CB /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
@@ -258,12 +260,12 @@
 		8CD107E20CCF4690E1DF0F706C3A211F /* UnboxFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxFormatter.swift; path = Sources/UnboxFormatter.swift; sourceTree = "<group>"; };
 		8CE8324A0C9D23FB30593EAF43EBA69E /* UIViewController+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Nifty.swift"; path = "ERNiftyExtensions/Classes/UIViewController+Nifty.swift"; sourceTree = "<group>"; };
 		8CF9EBB7EF2F66BA2EBDA845BA8DC965 /* JSONSerialization+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JSONSerialization+Unbox.swift"; path = "Sources/JSONSerialization+Unbox.swift"; sourceTree = "<group>"; };
-		8E75D05660CA8F3DD3E9451C0550871F /* Unbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Unbox.framework; path = Unbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E75D05660CA8F3DD3E9451C0550871F /* Unbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Unbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91AF841E24DE3C4B00F283B4E22D5D12 /* UICollectionView+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Nifty.swift"; path = "ERNiftyExtensions/Classes/UICollectionView+Nifty.swift"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93DE710D64B3FFC1862BD0AA9B9D3296 /* RawRepresentable+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RawRepresentable+Nifty.swift"; path = "ERNiftyExtensions/Classes/RawRepresentable+Nifty.swift"; sourceTree = "<group>"; };
 		9436485B8B6F18F27D718250AE772A02 /* Double+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Double+Nifty.swift"; path = "ERNiftyExtensions/Classes/Double+Nifty.swift"; sourceTree = "<group>"; };
-		944B6144FCF9867536BEDD09E0A1FE80 /* Pods_ERNiftyFoundation_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ERNiftyFoundation_Example.framework; path = "Pods-ERNiftyFoundation_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		944B6144FCF9867536BEDD09E0A1FE80 /* Pods_ERNiftyFoundation_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERNiftyFoundation_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		948D12261A803A09C1781495E45AC1AF /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		957E221EB84E9F9AB6FE0C50B3548C8B /* Pods-ERNiftyFoundation_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ERNiftyFoundation_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9609313E0C628A7D8536E849090D399E /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
@@ -286,7 +288,7 @@
 		C2C01093A7F958835FB03E60A15D4EF1 /* NSObject+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSObject+Nifty.swift"; path = "ERNiftyExtensions/Classes/NSObject+Nifty.swift"; sourceTree = "<group>"; };
 		C2F263273602EC98C100DE99FECC6F59 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44802A9D10D9F529561C145A256B100 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		C6E23193744D6AA8FBE9F6D3BD0BA929 /* Pods_ERNiftyFoundation_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ERNiftyFoundation_Tests.framework; path = "Pods-ERNiftyFoundation_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6E23193744D6AA8FBE9F6D3BD0BA929 /* Pods_ERNiftyFoundation_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERNiftyFoundation_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72939B7CB0AC95E23F6ED417338DB63 /* Bundle+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Bundle+Nifty.swift"; path = "ERNiftyExtensions/Classes/Bundle+Nifty.swift"; sourceTree = "<group>"; };
 		C7F91B48D5E65CE7293054E4B4204F24 /* Int+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Int+Nifty.swift"; path = "ERNiftyExtensions/Classes/Int+Nifty.swift"; sourceTree = "<group>"; };
 		C9B8A008140F1ADC29338CCDF7B47CD3 /* Optional+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Optional+Unbox.swift"; path = "Sources/Optional+Unbox.swift"; sourceTree = "<group>"; };
@@ -311,9 +313,11 @@
 		E30C78E2835CAAC123965ECD6AAEBF01 /* Pods-ERNiftyFoundation_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ERNiftyFoundation_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		E7A9BC5850BE114B98F1AC257CF74AC3 /* NSDictionary+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSDictionary+Unbox.swift"; path = "Sources/NSDictionary+Unbox.swift"; sourceTree = "<group>"; };
 		EFBCDA10DC0D1B9FE1869528B6D6F454 /* UnboxableWithContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxableWithContext.swift; path = Sources/UnboxableWithContext.swift; sourceTree = "<group>"; };
-		F4F61DC19B4550B26C77141D598494AD /* Unbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Unbox.modulemap; sourceTree = "<group>"; };
+		F306E13C1F2A8F10008CD9D8 /* ERAPIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERAPIEndpoint.swift; sourceTree = "<group>"; };
+		F306E1451F2A951E008CD9D8 /* ERAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERAPIManager.swift; sourceTree = "<group>"; };
+		F4F61DC19B4550B26C77141D598494AD /* Unbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Unbox.modulemap; sourceTree = "<group>"; };
 		F80D35724A45250208E138DD0BC1CD2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		F89638B7E4A595FA55CC34329E108EE5 /* Pods-ERNiftyFoundation_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ERNiftyFoundation_Tests.modulemap"; sourceTree = "<group>"; };
+		F89638B7E4A595FA55CC34329E108EE5 /* Pods-ERNiftyFoundation_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ERNiftyFoundation_Tests.modulemap"; sourceTree = "<group>"; };
 		FA642DF772DAB11DB543F4A46F42F230 /* CAGradientLayer+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CAGradientLayer+Nifty.swift"; path = "ERNiftyExtensions/Classes/CAGradientLayer+Nifty.swift"; sourceTree = "<group>"; };
 		FCEC771DE208A4C59FBA2B8B7ABCECE2 /* ERDependencyExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ERDependencyExtensions.swift; sourceTree = "<group>"; };
 		FDA26D05A25CEF86824AFBC547FB2373 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -391,11 +395,12 @@
 		1FC084E19E04A3155B50F85565968D8A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F306E13C1F2A8F10008CD9D8 /* ERAPIEndpoint.swift */,
+				F306E1451F2A951E008CD9D8 /* ERAPIManager.swift */,
 				FCEC771DE208A4C59FBA2B8B7ABCECE2 /* ERDependencyExtensions.swift */,
 				6098520F6BB3690022F2E3F5BB45FB76 /* ERGlobals.swift */,
 				CD274F39FCB2A6877F8957870B15A486 /* ERTextView.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -404,7 +409,6 @@
 			children = (
 				1FC084E19E04A3155B50F85565968D8A /* Classes */,
 			);
-			name = ERNiftyFoundation;
 			path = ERNiftyFoundation;
 			sourceTree = "<group>";
 		};
@@ -480,7 +484,6 @@
 				CE6EC6F121874B63E0C631C89D3D53B3 /* Validation.swift */,
 				7C8043DDC6BABA8786E531181E89F2FE /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -585,7 +588,6 @@
 				056BA0F75CCFEFF5DA34E69FE3AF04E0 /* URL+Unbox.swift */,
 				45D43C6F4CA43D86818DA8382E3C7DD9 /* Support Files */,
 			);
-			name = Unbox;
 			path = Unbox;
 			sourceTree = "<group>";
 		};
@@ -656,7 +658,6 @@
 				8CE8324A0C9D23FB30593EAF43EBA69E /* UIViewController+Nifty.swift */,
 				27D71C75140B738D98F49560D43BBF69 /* Support Files */,
 			);
-			name = ERNiftyExtensions;
 			path = ERNiftyExtensions;
 			sourceTree = "<group>";
 		};
@@ -970,6 +971,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F306E13D1F2A8F10008CD9D8 /* ERAPIEndpoint.swift in Sources */,
+				F306E1461F2A951E008CD9D8 /* ERAPIManager.swift in Sources */,
 				612F4B7CA171EE42FF26478FC28FD771 /* ERDependencyExtensions.swift in Sources */,
 				2E28668F97CD34F05A4A2110083AD3BE /* ERGlobals.swift in Sources */,
 				B8E5A6752E8A4EAFD37A0B1AD05E3C38 /* ERNiftyFoundation-dummy.m in Sources */,

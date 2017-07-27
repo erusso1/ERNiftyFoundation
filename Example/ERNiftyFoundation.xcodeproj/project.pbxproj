@@ -14,6 +14,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B8F7A9B9C3E55E0D27DEE280 /* Pods_ERNiftyFoundation_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BD979D0655560C0C6BC68A /* Pods_ERNiftyFoundation_Example.framework */; };
+		F306E13F1F2A9334008CD9D8 /* SomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306E13E1F2A9334008CD9D8 /* SomeController.swift */; };
+		F306E1441F2A938D008CD9D8 /* SomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306E1431F2A938D008CD9D8 /* SomeManager.swift */; };
 		F3A83A811F29C5A200409341 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A83A7F1F29C5A200409341 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		CF41586E3EF638426DE4ABE0 /* ERNiftyFoundation.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ERNiftyFoundation.podspec; path = ../ERNiftyFoundation.podspec; sourceTree = "<group>"; };
 		E01C061917B4C5CDC57BD51C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E391986C3C24A1D6A9702E6A /* Pods-ERNiftyFoundation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERNiftyFoundation_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERNiftyFoundation_Example/Pods-ERNiftyFoundation_Example.release.xcconfig"; sourceTree = "<group>"; };
+		F306E13E1F2A9334008CD9D8 /* SomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeController.swift; sourceTree = "<group>"; };
+		F306E1431F2A938D008CD9D8 /* SomeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeManager.swift; sourceTree = "<group>"; };
 		F3A83A801F29C5A200409341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB0EF48DFCE8D080DDC6386E /* Pods-ERNiftyFoundation_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERNiftyFoundation_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ERNiftyFoundation_Tests/Pods-ERNiftyFoundation_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +101,9 @@
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				F3A83A7F1F29C5A200409341 /* LaunchScreen.storyboard */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				F306E1401F2A9362008CD9D8 /* Controllers */,
+				F306E1411F2A9369008CD9D8 /* Managers */,
+				F306E1421F2A9371008CD9D8 /* Models */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
@@ -157,6 +164,29 @@
 				255962034B8E014513235122 /* Pods-ERNiftyFoundation_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F306E1401F2A9362008CD9D8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F306E13E1F2A9334008CD9D8 /* SomeController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F306E1411F2A9369008CD9D8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F306E1431F2A938D008CD9D8 /* SomeManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		F306E1421F2A9371008CD9D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,7 +394,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				F306E13F1F2A9334008CD9D8 /* SomeController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				F306E1441F2A938D008CD9D8 /* SomeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

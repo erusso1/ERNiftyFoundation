@@ -114,6 +114,10 @@
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C269A3083BEA0EBF000D66C567FB2C /* Notifications.swift */; };
 		F306E13D1F2A8F10008CD9D8 /* ERAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306E13C1F2A8F10008CD9D8 /* ERAPIEndpoint.swift */; };
 		F306E1461F2A951E008CD9D8 /* ERAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306E1451F2A951E008CD9D8 /* ERAPIManager.swift */; };
+		F3D5AA811F2AE87B00413AA0 /* ERAPIRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D5AA801F2AE87B00413AA0 /* ERAPIRequestMethod.swift */; };
+		F3D5AA831F2AE8BE00413AA0 /* ERAPIParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D5AA821F2AE8BE00413AA0 /* ERAPIParameterEncoding.swift */; };
+		F3D5AA851F2AE8E600413AA0 /* ERAPIPathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D5AA841F2AE8E600413AA0 /* ERAPIPathComponent.swift */; };
+		F3D5AA871F2AEEEA00413AA0 /* ERAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D5AA861F2AEEEA00413AA0 /* ERAPIError.swift */; };
 		F5160310049484E64CDCB3A3C99034E8 /* UnboxableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056C96A6CDE3E7C12C84D77445346A3C /* UnboxableCollection.swift */; };
 		F658A70EB218D8DA5C0713A413C388D0 /* URL+Unbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056BA0F75CCFEFF5DA34E69FE3AF04E0 /* URL+Unbox.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2E92779FD231C59910BFEE700542B /* ResponseSerialization.swift */; };
@@ -315,6 +319,10 @@
 		EFBCDA10DC0D1B9FE1869528B6D6F454 /* UnboxableWithContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxableWithContext.swift; path = Sources/UnboxableWithContext.swift; sourceTree = "<group>"; };
 		F306E13C1F2A8F10008CD9D8 /* ERAPIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERAPIEndpoint.swift; sourceTree = "<group>"; };
 		F306E1451F2A951E008CD9D8 /* ERAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERAPIManager.swift; sourceTree = "<group>"; };
+		F3D5AA801F2AE87B00413AA0 /* ERAPIRequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERAPIRequestMethod.swift; sourceTree = "<group>"; };
+		F3D5AA821F2AE8BE00413AA0 /* ERAPIParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERAPIParameterEncoding.swift; sourceTree = "<group>"; };
+		F3D5AA841F2AE8E600413AA0 /* ERAPIPathComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERAPIPathComponent.swift; sourceTree = "<group>"; };
+		F3D5AA861F2AEEEA00413AA0 /* ERAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERAPIError.swift; sourceTree = "<group>"; };
 		F4F61DC19B4550B26C77141D598494AD /* Unbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Unbox.modulemap; sourceTree = "<group>"; };
 		F80D35724A45250208E138DD0BC1CD2A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		F89638B7E4A595FA55CC34329E108EE5 /* Pods-ERNiftyFoundation_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ERNiftyFoundation_Tests.modulemap"; sourceTree = "<group>"; };
@@ -396,7 +404,11 @@
 			isa = PBXGroup;
 			children = (
 				F306E13C1F2A8F10008CD9D8 /* ERAPIEndpoint.swift */,
+				F3D5AA861F2AEEEA00413AA0 /* ERAPIError.swift */,
 				F306E1451F2A951E008CD9D8 /* ERAPIManager.swift */,
+				F3D5AA821F2AE8BE00413AA0 /* ERAPIParameterEncoding.swift */,
+				F3D5AA841F2AE8E600413AA0 /* ERAPIPathComponent.swift */,
+				F3D5AA801F2AE87B00413AA0 /* ERAPIRequestMethod.swift */,
 				FCEC771DE208A4C59FBA2B8B7ABCECE2 /* ERDependencyExtensions.swift */,
 				6098520F6BB3690022F2E3F5BB45FB76 /* ERGlobals.swift */,
 				CD274F39FCB2A6877F8957870B15A486 /* ERTextView.swift */,
@@ -971,9 +983,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D5AA831F2AE8BE00413AA0 /* ERAPIParameterEncoding.swift in Sources */,
 				F306E13D1F2A8F10008CD9D8 /* ERAPIEndpoint.swift in Sources */,
 				F306E1461F2A951E008CD9D8 /* ERAPIManager.swift in Sources */,
 				612F4B7CA171EE42FF26478FC28FD771 /* ERDependencyExtensions.swift in Sources */,
+				F3D5AA871F2AEEEA00413AA0 /* ERAPIError.swift in Sources */,
+				F3D5AA811F2AE87B00413AA0 /* ERAPIRequestMethod.swift in Sources */,
+				F3D5AA851F2AE8E600413AA0 /* ERAPIPathComponent.swift in Sources */,
 				2E28668F97CD34F05A4A2110083AD3BE /* ERGlobals.swift in Sources */,
 				B8E5A6752E8A4EAFD37A0B1AD05E3C38 /* ERNiftyFoundation-dummy.m in Sources */,
 				3A3AF5C6BEF3DFCDCBC729A66C4DC70C /* ERTextView.swift in Sources */,

@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import Alamofire
 import Unbox
+
+extension DataResponse {
+  
+  var isSuccess: Bool { return self.response?.statusCode == 200 && self.result.isSuccess }
+}
 
 extension Dictionary where Key == String, Value: Any {
   

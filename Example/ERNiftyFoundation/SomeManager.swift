@@ -9,15 +9,7 @@
 import Foundation
 import ERNiftyFoundation
 
-final class SomeManager {
-  
-  //**************************************************//
-  
-  // MARK: Singleton
-  
-  static let shared: SomeManager = {
-    return SomeManager()
-  }()
+struct SomeManager {
   
   //**************************************************//
   
@@ -31,7 +23,7 @@ final class SomeManager {
   
   // MARK: Functions
   
-  func getAllUsers() {
+  static func getAllUsers() {
     
     let endpoint = ERAPIEndpoint(components: .users)
     

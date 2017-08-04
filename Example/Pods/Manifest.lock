@@ -4,7 +4,9 @@ PODS:
   - ERNiftyFoundation (0.1.2):
     - Alamofire
     - ERNiftyExtensions
+    - Starscream
     - Unbox
+  - Starscream (2.1.0)
   - Unbox (2.5.0)
 
 DEPENDENCIES:
@@ -17,7 +19,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   ERNiftyExtensions: c80f1b3ddd7f5249de93fe130d40d0c7b7ba31d3
-  ERNiftyFoundation: ed8e812d8cef34dc1c3fda62d48c2ae5e0fbc661
+  ERNiftyFoundation: 6282b58fca1d35d63bddcef507124aa17122a07d
+  Starscream: 168fd64c345fb2dea71b0a869c482aeffcf866e4
   Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
 
 PODFILE CHECKSUM: ae17d64df0605b2fad286971f77fac175c31eb4a

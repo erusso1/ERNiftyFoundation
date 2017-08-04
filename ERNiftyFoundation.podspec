@@ -43,4 +43,6 @@ Pod::Spec.new do |s|
 
   s.dependency 'Unbox'
 
+  s.dependency 'Starscream'
+
 end

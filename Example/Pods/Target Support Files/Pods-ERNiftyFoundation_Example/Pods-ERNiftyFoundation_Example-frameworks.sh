@@ -92,12 +92,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ERNiftyExtensions/ERNiftyExtensions.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ERNiftyFoundation/ERNiftyFoundation.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Starscream/Starscream.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Unbox/Unbox.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ERNiftyExtensions/ERNiftyExtensions.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ERNiftyFoundation/ERNiftyFoundation.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Starscream/Starscream.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Unbox/Unbox.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

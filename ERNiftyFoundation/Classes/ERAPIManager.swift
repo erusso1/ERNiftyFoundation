@@ -30,20 +30,21 @@ public struct ERAPIManager { }
 
 extension ERAPIManager {
   
-  public static var developmentURLString: String!
+  fileprivate static var development: ERAPIEnvironment!
   
-  public static var developmentURL: URL? { return URL(string: developmentURLString) }
+  fileprivate static var production: ERAPIEnvironment!
   
-  public static var productionURLString: String!
-  
-  public static var productionURL: URL? { return URL(string: productionURLString) }
+  fileprivate static let localHost = ERAPIEnvironment(type: .development, apiURL: "http://localhost:8080", webSocketURL: "ws://localhost:8080/ws")
   
   fileprivate static var networkErrorMessage: String?
   
-  public static func configureFor(development: String, production: String, networkErrorMessage message: String? = "Your network connection seems to be acting strange. Please try again.") {
+  fileprivate static var usesLocalHost: Bool = false
+  
+  public static func configureFor(development: ERAPIEnvironment, production: ERAPIEnvironment, usesLocalHost: Bool = false, networkErrorMessage message: String? = "Your network connection seems to be acting strange. Please try again.") {
     
-    self.developmentURLString = development
-    self.productionURLString = production
+    self.development = development
+    self.production = production
+    self.usesLocalHost = usesLocalHost
     self.networkErrorMessage = message
   }
 }
@@ -57,13 +58,19 @@ extension ERAPIManager {
   public static var environment: ERAPIEnvironment {
     
     #if DEBUG
-      return .development
+      
+      if usesLocalHost { return localHost }
+        
+      else {
+        assert(development != nil, "The development environment has not been set. Please make sure to call `ERAPIManager.configureFor(development: _, production: _`")
+        return development
+      }
+    
     #else
-    return .production
+      assert(production != nil, "The production environment has not been set. Please make sure to call `ERAPIManager.configureFor(development: _, production: _`")
+    return production
     #endif
   }
-  
-  public static var baseURL: URL? { return environment == .development ? developmentURL : productionURL }
 }
 
 //**************************************************//
@@ -74,9 +81,7 @@ extension ERAPIManager {
   
   public static func endpoint(components: ERAPIPathComponent...) -> ERAPIEndpoint {
 
-    assert(baseURL != nil, "The base URL set for the \(environment.rawValue) environment is invalid. Please make sure to call `ERAPIManager.configureFor(development: _, production: _)` using a valid URL string for your API.")
-
-    return ERAPIEndpoint(baseURL: baseURL!, components: components)
+    return ERAPIEndpoint(baseURL: environment.apiURL, components: components)
   }
 }
 

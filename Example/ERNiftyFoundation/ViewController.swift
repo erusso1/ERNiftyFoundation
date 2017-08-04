@@ -65,6 +65,8 @@ class LogInViewController: UIViewController {
     loadStrings()
     
     fadeInContainerView()
+    
+    loadSocket()
   }
   
   private func loadStrings() {
@@ -126,6 +128,11 @@ class LogInViewController: UIViewController {
         self?.label.setTextAnimated(string, duration: 1.0)
       }
     }
+  }
+  
+  private func loadSocket() {
+    
+    ERSocketManager.shared.connect()
   }
   
   //**************************************************//

@@ -29,3 +29,8 @@ public struct ERAPIEndpoint {
   
   public var url: URL? { return URL(string: urlString) }
 }
+
+extension ERAPIEndpoint: CustomStringConvertible {
+  
+  public var description: String { return "Endpoint: \(urlString)" }
+}

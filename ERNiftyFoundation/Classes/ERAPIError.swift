@@ -10,12 +10,12 @@ import Foundation
 
 public struct ERAPIError {
   
-  public let details: String
+  public let details: String?
   
-  public init(_ details: String) { self.details = details }
+  public init(_ details: String?) { self.details = details }
 }
 
 extension ERAPIError: CustomStringConvertible {
 
-  public var description: String { return details }
+  public var description: String { return details ?? "No details have been given." }
 }

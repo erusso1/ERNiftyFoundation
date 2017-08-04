@@ -23,15 +23,22 @@ struct SomeManager {
   
   // MARK: Functions
   
-  static func getAllUsers() {
+  static func getAllPosts() {
+
+    let endpoint = ERAPIManager.endpoint(components: .posts, .id("oid:5982e7e20ade59030ade5903"))
     
-    let endpoint = ERAPIEndpoint(components: .users)
-    
-    let parameters: JSONObject = [:]
-    
-    ERAPIManager.request(on: endpoint, parameters: parameters)
-    
+    ERAPIManager.request(on: endpoint) { (post: Post?, error) in
+      
+      guard let post = post else {return}
+      print("Here is the post - ID: \(post.id)  Content: \(post.content)")
+    }
   }
   
   //**************************************************//
+}
+
+extension ERAPIPathComponent {
+  
+  public static var posts: ERAPIPathComponent { return ERAPIPathComponent("posts") }
+
 }

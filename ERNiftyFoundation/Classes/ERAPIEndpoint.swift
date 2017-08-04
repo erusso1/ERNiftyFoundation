@@ -11,13 +11,21 @@ import Alamofire
 
 public struct ERAPIEndpoint {
   
-  public let components:[ERAPIPathComponent]
+  private let components:[ERAPIPathComponent]
   
-  public init(components:ERAPIPathComponent...) {
+  private let baseURL: URL
+  
+  internal init(baseURL: URL, components:ERAPIPathComponent...) {
+    self.baseURL = baseURL
     self.components = components
   }
   
-  public var urlString:String { return self.components.reduce("http://google.com", {$0 + $1.pathValue}) }
+  internal init(baseURL: URL, components: [ERAPIPathComponent]) {
+    self.baseURL = baseURL
+    self.components = components
+  }
+  
+  public var urlString:String { return self.components.reduce(baseURL.absoluteString, {$0 + $1.pathValue}) }
   
   public var url: URL? { return URL(string: urlString) }
 }

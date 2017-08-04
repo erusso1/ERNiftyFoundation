@@ -17,6 +17,7 @@
 		F306E13F1F2A9334008CD9D8 /* SomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306E13E1F2A9334008CD9D8 /* SomeController.swift */; };
 		F306E1441F2A938D008CD9D8 /* SomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306E1431F2A938D008CD9D8 /* SomeManager.swift */; };
 		F3A83A811F29C5A200409341 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A83A7F1F29C5A200409341 /* LaunchScreen.storyboard */; };
+		F3F90EEA1F3455C200ADB1EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F90EE91F3455C200ADB1EB /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		F306E13E1F2A9334008CD9D8 /* SomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeController.swift; sourceTree = "<group>"; };
 		F306E1431F2A938D008CD9D8 /* SomeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeManager.swift; sourceTree = "<group>"; };
 		F3A83A801F29C5A200409341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F3F90EE91F3455C200ADB1EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB0EF48DFCE8D080DDC6386E /* Pods-ERNiftyFoundation_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERNiftyFoundation_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ERNiftyFoundation_Tests/Pods-ERNiftyFoundation_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +187,7 @@
 		F306E1421F2A9371008CD9D8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F3F90EE91F3455C200ADB1EB /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				F306E13F1F2A9334008CD9D8 /* SomeController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				F3F90EEA1F3455C200ADB1EB /* User.swift in Sources */,
 				F306E1441F2A938D008CD9D8 /* SomeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

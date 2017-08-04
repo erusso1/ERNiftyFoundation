@@ -25,4 +25,6 @@ extension ERAPIPathComponent {
   public static var users: ERAPIPathComponent { return ERAPIPathComponent("users") }
   
   public static var tokens: ERAPIPathComponent { return ERAPIPathComponent("tokens") }
+  
+  public static func id(_ value: String) -> ERAPIPathComponent { return ERAPIPathComponent(value) }
 }

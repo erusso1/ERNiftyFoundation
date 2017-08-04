@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ERNiftyFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+
+      ERAPIManager.configureFor(development: "https://afternoon-coast-37174.herokuapp.com", production: "")
+      
+      return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

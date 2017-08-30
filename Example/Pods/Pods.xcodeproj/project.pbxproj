@@ -87,7 +87,6 @@
 		910C5858AEDA95C0AABE2677897A44E4 /* UITableView+Nifty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077CA8BE375A2D378DCF1360EB0609C /* UITableView+Nifty.swift */; };
 		91258CCB65C240D576012B6A31B6999B /* Error+Nifty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE94D90A4CA7FC6044178F1098D59BC /* Error+Nifty.swift */; };
 		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5701028D002BBCC86093D31F9CCC14E /* AFError.swift */; };
-		A095FC6EE78025C60E094DD6E008E761 /* ERAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E402E6183DB772E40DCDA1D29F4E76C /* ERAPIError.swift */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A5BF8E5E8AA2028C9C14A1796A80B3 /* NetworkReachabilityManager.swift */; };
 		A3E91F63DC3396DB9F686C27EE0DC8ED /* Array+Unbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94277D2EE7CDB547AD5602C901CF820 /* Array+Unbox.swift */; };
 		A47CC9AC864DDE85706B96245756D539 /* ERNiftyExtensions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4318E295C32B5C259E162D7DCDA670E8 /* ERNiftyExtensions-dummy.m */; };
@@ -129,6 +128,8 @@
 		EB8F8A5E7BC23B317C609AA501CAE56B /* IndexPath+Nifty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E018573379F28B3E6728817B50EB31 /* IndexPath+Nifty.swift */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56551FBA445E7E08A9E6BACE1C93B02 /* Notifications.swift */; };
 		F13BF95C8A78F6566357DA66B3863D74 /* Unboxable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD01A017C7EF97275C75B2E754AD339 /* Unboxable.swift */; };
+		F3B0B0D31F573B600048D5B5 /* ERScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0B0D21F573B600048D5B5 /* ERScreenSize.swift */; };
+		F3B0B0D51F573B710048D5B5 /* ERDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0B0D41F573B710048D5B5 /* ERDevice.swift */; };
 		F3F90EE61F3446A800ADB1EB /* ERSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F90EE51F3446A800ADB1EB /* ERSocketManager.swift */; };
 		F3F90EE81F344AEC00ADB1EB /* ERAPIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F90EE71F344AEC00ADB1EB /* ERAPIEnvironment.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43C73E7B8730041ACE9CD296ECAEB1D /* ResponseSerialization.swift */; };
@@ -271,7 +272,6 @@
 		6A8CC01409B41B0E49B0548991FA6A22 /* Pods-ERNiftyFoundation_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ERNiftyFoundation_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		6B9B866EF24504D6196E29A0692F4B59 /* Int32+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Int32+Unbox.swift"; path = "Sources/Int32+Unbox.swift"; sourceTree = "<group>"; };
 		6D4EB1603878AFCD25E1C4ED18A826C0 /* Double+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Double+Unbox.swift"; path = "Sources/Double+Unbox.swift"; sourceTree = "<group>"; };
-		6E402E6183DB772E40DCDA1D29F4E76C /* ERAPIError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ERAPIError.swift; sourceTree = "<group>"; };
 		6FDD3361FF282716719E4E312CB2D758 /* Starscream.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.xcconfig; sourceTree = "<group>"; };
 		71986BAFEB1C322E2F65105CE5CCC831 /* ERNiftyExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ERNiftyExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		724ACD088466619EC5E9ABFBE125FA6F /* Pods_ERNiftyFoundation_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERNiftyFoundation_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -357,6 +357,8 @@
 		ECAFBC6D5658BD10426A4B0B71DD614D /* UIView+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Nifty.swift"; path = "ERNiftyExtensions/Classes/UIView+Nifty.swift"; sourceTree = "<group>"; };
 		EEC89EBD92F860EAD0E5EDA146728898 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF540E0A6127867A0735F16BA35FB183 /* NSDictionary+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSDictionary+Unbox.swift"; path = "Sources/NSDictionary+Unbox.swift"; sourceTree = "<group>"; };
+		F3B0B0D21F573B600048D5B5 /* ERScreenSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERScreenSize.swift; sourceTree = "<group>"; };
+		F3B0B0D41F573B710048D5B5 /* ERDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERDevice.swift; sourceTree = "<group>"; };
 		F3F380C8339C5A40340A006B2C22DC11 /* UICollectionView+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Nifty.swift"; path = "ERNiftyExtensions/Classes/UICollectionView+Nifty.swift"; sourceTree = "<group>"; };
 		F3F90EE51F3446A800ADB1EB /* ERSocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERSocketManager.swift; sourceTree = "<group>"; };
 		F3F90EE71F344AEC00ADB1EB /* ERAPIEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERAPIEnvironment.swift; sourceTree = "<group>"; };
@@ -506,7 +508,6 @@
 			children = (
 				5506A8CF2D282C7184AACB831881385F /* ERAPIEndpoint.swift */,
 				F3F90EE71F344AEC00ADB1EB /* ERAPIEnvironment.swift */,
-				6E402E6183DB772E40DCDA1D29F4E76C /* ERAPIError.swift */,
 				402DE01E63B2DDF9DC358D876350F70A /* ERAPIManager.swift */,
 				D87221F5BD4647802F143D8065EF2BB4 /* ERAPIParameterEncoding.swift */,
 				5B5BCB66BC02694A40379C5E89466B28 /* ERAPIPathComponent.swift */,
@@ -515,6 +516,8 @@
 				84C0D3A2D54A9BE14576B6099C641375 /* ERGlobals.swift */,
 				F3F90EE51F3446A800ADB1EB /* ERSocketManager.swift */,
 				B8CD97C61AE3AD3A7956531926468DE0 /* ERTextView.swift */,
+				F3B0B0D21F573B600048D5B5 /* ERScreenSize.swift */,
+				F3B0B0D41F573B710048D5B5 /* ERDevice.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1029,14 +1032,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				224AE8463A76F937D960167828B3D1FB /* ERAPIEndpoint.swift in Sources */,
-				A095FC6EE78025C60E094DD6E008E761 /* ERAPIError.swift in Sources */,
 				511493D2D06DAE471D62FBD25FF5661A /* ERAPIManager.swift in Sources */,
 				8A5AF403C63276F7B015908AC882B071 /* ERAPIParameterEncoding.swift in Sources */,
 				8A60FC85FBFD5812C5DD440F5A65BDAC /* ERAPIPathComponent.swift in Sources */,
 				65F0FFD52DB010EAF6BC7ACC758FFBE8 /* ERAPIRequestMethod.swift in Sources */,
+				F3B0B0D31F573B600048D5B5 /* ERScreenSize.swift in Sources */,
 				F3F90EE61F3446A800ADB1EB /* ERSocketManager.swift in Sources */,
 				445C72BCD37678CC655689CEB566BD40 /* ERDependencyExtensions.swift in Sources */,
 				B9F46FE0CDF04F2122C24827BB2E4FAD /* ERGlobals.swift in Sources */,
+				F3B0B0D51F573B710048D5B5 /* ERDevice.swift in Sources */,
 				D1AE295B60A13E709BAB2046C6142859 /* ERNiftyFoundation-dummy.m in Sources */,
 				65D2A7089B5D02F12F2964A9273081FA /* ERTextView.swift in Sources */,
 				F3F90EE81F344AEC00ADB1EB /* ERAPIEnvironment.swift in Sources */,

@@ -12,7 +12,12 @@ import Unbox
 
 extension DataResponse {
   
-  var isSuccess: Bool { return self.response?.statusCode == 200 && self.result.isSuccess }
+  public var isSuccess: Bool { return self.response?.statusCode == 200 && self.result.isSuccess }
+  
+//  public var error: ERAPIError {
+//    
+//    return .networkFailure
+//  }
 }
 
 extension Dictionary where Key == String, Value: Any {

@@ -28,3 +28,12 @@ extension ERAPIPathComponent {
   
   public static func id(_ value: String) -> ERAPIPathComponent { return ERAPIPathComponent(value) }
 }
+
+extension ERAPIPathComponent: ExpressibleByStringLiteral {
+  
+  public init(stringLiteral value: String) { self.init(value) }
+  
+  public init(unicodeScalarLiteral value: String) { self.init(stringLiteral: value) }
+  
+  public init(extendedGraphemeClusterLiteral value: String) { self.init(stringLiteral: value) }
+}

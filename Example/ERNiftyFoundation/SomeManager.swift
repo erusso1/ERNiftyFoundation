@@ -39,6 +39,6 @@ struct SomeManager {
 
 extension ERAPIPathComponent {
   
-  public static var posts: ERAPIPathComponent { return ERAPIPathComponent("posts") }
+  public static var posts: ERAPIPathComponent { return "posts" }
 
 }

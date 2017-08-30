@@ -12,11 +12,13 @@ import Unbox
 
 fileprivate typealias ERAPIRequestHeaders = [String: String]
 
-public typealias ERAPIJSONResponse = (JSONObject?, ERAPIError?) -> Void
+public typealias ERAPIJSONResponse = (JSONObject?, Error?) -> Void
 
-public typealias ERAPIItemResponse<T:Unboxable> = (T?, ERAPIError?) -> Void
+public typealias ERAPIMultipleJSONResponse = ([JSONObject]?, Error?) -> Void
 
-public typealias ERAPIMultipleResponse<T:Unboxable> = ([T]?, ERAPIError?) -> Void
+public typealias ERAPIItemResponse<T:Unboxable> = (T?, Error?) -> Void
+
+public typealias ERAPIMultipleItemResponse<T:Unboxable> = ([T]?, Error?) -> Void
 
 //**************************************************//
 
@@ -128,18 +130,23 @@ extension ERAPIManager {
     
     Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
       
-      guard alamofireResponse.isSuccess else {
-        
-        let error = ERAPIError(self.networkErrorMessage)
-        
-        response?(nil, error)
-        
-        return
-      }
-      
+      guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
+
       let JSON = alamofireResponse.result.value as? JSONObject
       
       response?(JSON, nil)
+    }
+  }
+  
+  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIMultipleJSONResponse? = nil) {
+    
+    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
+      
+      guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
+      
+      let JSONs = alamofireResponse.result.value as? [JSONObject]
+      
+      response?(JSONs, nil)
     }
   }
   
@@ -147,14 +154,7 @@ extension ERAPIManager {
     
     Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
       
-      guard alamofireResponse.isSuccess else {
-        
-        let error = ERAPIError(self.networkErrorMessage)
-        
-        response?(nil, error)
-        
-        return
-      }
+      guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
       
       let JSON = alamofireResponse.result.value as? JSONObject
       
@@ -164,19 +164,12 @@ extension ERAPIManager {
     }
   }
   
-  public static func request<T: Unboxable>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIMultipleResponse<T>? = nil) {
+  public static func request<T: Unboxable>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIMultipleItemResponse<T>? = nil) {
     
     Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
       
-      guard alamofireResponse.isSuccess else {
-        
-        let error = ERAPIError(self.networkErrorMessage)
-        
-        response?(nil, error)
-        
-        return
-      }
-      
+      guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
+
       let JSONs = alamofireResponse.result.value as? [JSONObject]
       
       let unboxed: [T]? = JSONs?.unboxedObjects()

@@ -47,6 +47,7 @@ public final class ERSocketManager {
   private func setupSocket() {
     
     socket = WebSocket(url: ERAPIManager.environment.webSocketURL)
+    socket.headers = ["Authorization" : "some-hashed-token"]
     socket.delegate = self
   }
   

@@ -8,14 +8,16 @@
 
 import Foundation
 
-public struct ERAPIError {
+public enum ERAPIError: Error {
   
-  public let details: String?
+  case invalidAuthCredentials
   
-  public init(_ details: String?) { self.details = details }
+  case networkFailure
+  
+  case unknown(details: String)
 }
 
 extension ERAPIError: CustomStringConvertible {
 
-  public var description: String { return details ?? "No details have been given." }
+  public var description: String { return "API Error: \(self)" }
 }

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ERNiftyFoundation'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A library of dependencies, models, and managers useful to start any iOS project.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'ERNiftyFoundation/Classes/**/*'
+  s.source_files = 'ERNiftyFoundation/Source/**/*'
   
   # s.resource_bundles = {
   #   'ERNiftyFoundation' => ['ERNiftyFoundation/Assets/*.png']
@@ -48,5 +48,7 @@ Pod::Spec.new do |s|
   s.dependency 'Starscream'
 
   s.dependency 'Unbox'
+
+  s.dependency 'Wrap'
 
 end

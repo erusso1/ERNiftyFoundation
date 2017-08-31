@@ -8,7 +8,6 @@
 
 import UIKit
 import ERNiftyFoundation
-import Unbox
 
 class LogInViewController: UIViewController {
   
@@ -63,10 +62,10 @@ class LogInViewController: UIViewController {
     super.viewDidLoad()
     
     loadStrings()
-    
     fadeInContainerView()
-    
     loadSocket()
+    test()
+    
   }
   
   private func loadStrings() {
@@ -133,6 +132,20 @@ class LogInViewController: UIViewController {
   private func loadSocket() {
     
     ERSocketManager.shared.connect()
+  }
+  
+  private func test() {
+    
+    let u = User(id: "34fi8g34iuyb3foibvu34g", fullName: "Ephraim Russo")
+    
+    guard let JSON = u.JSON else {return}
+
+    printPretty(JSON)
+
+    guard let b = try? User(JSON: JSON) else {return}
+    
+    printPretty(b)
+    
   }
   
   //**************************************************//

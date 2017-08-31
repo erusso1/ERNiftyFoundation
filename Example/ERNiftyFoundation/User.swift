@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import ERNiftyFoundation
 import Unbox
+import Wrap
 
 public final class Post: Unboxable {
   
@@ -28,4 +30,31 @@ public final class Post: Unboxable {
     
     self.init(content: content, id: id)
   }
+}
+
+public final class User {
+  
+  public let id: String
+
+  public let fullName: String
+  
+  init(id: String, fullName: String) {
+    self.id = id
+    self.fullName = fullName
+  }
+}
+
+extension User: ERModelType {
+  
+  public var wrapKeyStyle: WrapKeyStyle { return .convertToSnakeCase }
+
+  public convenience init(unboxer: Unboxer) throws {
+    
+    let id: String = try unboxer.unbox(key: "id")
+    
+    let fullName: String = try unboxer.unbox(key: "full_name")
+    
+    self.init(id: id, fullName: fullName)
+  }
+  
 }

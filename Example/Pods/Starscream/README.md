@@ -192,7 +192,7 @@ socket.connect()
 ```swift
 socket = WebSocket(url: URL(string: "ws://localhost:8080/")!, protocols: ["chat","superchat"])
 
-//set this you want to ignore SSL cert validation, so a self signed SSL certificate can be used.
+//set this if you want to ignore SSL cert validation, so a self signed SSL certificate can be used.
 socket.disableSSLCertValidation = true
 ```
 
@@ -207,6 +207,19 @@ socket.security = SSLSecurity(certs: [SSLCert(data: data)], usePublicKeys: true)
 //socket.security = SSLSecurity() //uses the .cer files in your app's bundle
 ```
 You load either a `Data` blob of your certificate or you can use a `SecKeyRef` if you have a public key you want to use. The `usePublicKeys` bool is whether to use the certificates for validation or the public keys. The public keys will be extracted from the certificates automatically if `usePublicKeys` is choosen.
+
+### SSL Cipher Suites
+
+To use an SSL encrypted connection, you need to tell Starscream about the cipher suites your server supports. 
+
+```swift
+socket = WebSocket(url: URL(string: "wss://localhost:8080/")!, protocols: ["chat","superchat"])
+
+// Set enabled cipher suites to AES 256 and AES 128
+socket.enabledSSLCipherSuites = [TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256] 
+```
+
+If you don't know which cipher suites are supported by your server, you can try pointing [SSL Labs](https://www.ssllabs.com/ssltest/) at it and checking the results.
 
 ### Compression Extensions
 

@@ -1,25 +1,7 @@
 PODS:
   - Alamofire (4.5.0)
   - ERNiftyExtensions (2.3.4)
-  - ERNiftyFoundation (1.0.1):
-    - Alamofire
-    - ERNiftyExtensions
-    - ERNiftyFoundation/Classes (= 1.0.1)
-    - ERNiftyFoundation/Protocols (= 1.0.1)
-    - NVActivityIndicatorView
-    - PhoneNumberKit
-    - Starscream
-    - Unbox
-    - Wrap
-  - ERNiftyFoundation/Classes (1.0.1):
-    - Alamofire
-    - ERNiftyExtensions
-    - NVActivityIndicatorView
-    - PhoneNumberKit
-    - Starscream
-    - Unbox
-    - Wrap
-  - ERNiftyFoundation/Protocols (1.0.1):
+  - ERNiftyFoundation (1.0.2):
     - Alamofire
     - ERNiftyExtensions
     - NVActivityIndicatorView
@@ -50,7 +32,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   ERNiftyExtensions: c80f1b3ddd7f5249de93fe130d40d0c7b7ba31d3
-  ERNiftyFoundation: ef5bd81a450d3119549e8675885a31bce9f8f731
+  ERNiftyFoundation: 1944cd00b288c417e0f6bbb263380ad23d5f93b7
   NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
   PhoneNumberKit: 08aaf1968ea41a114327e9223cbb0391d76ae145
   Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f

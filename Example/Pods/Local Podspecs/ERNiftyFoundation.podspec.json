@@ -18,7 +18,6 @@
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "ERNiftyFoundation/Source/**/*",
   "dependencies": {
     "Alamofire": [
 
@@ -41,5 +40,15 @@
     "Wrap": [
 
     ]
-  }
+  },
+  "subspecs": [
+    {
+      "name": "Classes",
+      "source_files": "ERNiftyFoundation/Source/Classes/*"
+    },
+    {
+      "name": "Protocols",
+      "source_files": "ERNiftyFoundation/Source/Protocols/*"
+    }
+  ]
 }

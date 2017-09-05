@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 import Starscream
 
 //**************************************************//
@@ -35,6 +36,10 @@ public final class ERSocketManager {
   
   internal var shouldReconnect: Bool = false
   
+  fileprivate var audioPlayer: AVAudioPlayer?
+  
+  fileprivate var connectCompletionHandler: VoidCompletionHandler?
+  
   //**************************************************//
   
   // MARK: Initialization
@@ -47,7 +52,6 @@ public final class ERSocketManager {
   private func setupSocket() {
     
     socket = WebSocket(url: ERAPIManager.environment.webSocketURL)
-    socket.headers = ["Authorization" : "some-hashed-token"]
     socket.delegate = self
   }
   
@@ -62,9 +66,27 @@ public final class ERSocketManager {
   
   //**************************************************//
   
+  // MARK: Append Headers
+  
+  public func appendHeaders(headers: [String: String]) {
+    socket.headers += headers
+  }
+  
+  //**************************************************//
+  
+  // MARK: Sound
+  
+  public func applyNotificationSoundURL(_ url: URL) {
+    
+    self.audioPlayer = try? AVAudioPlayer(contentsOf: url)
+  }
+  
+  //**************************************************//
+  
   // MARK: Connect
   
-  public func connect() {
+  public func connect(completion: VoidCompletionHandler?=nil) {
+    connectCompletionHandler = completion
     socket.connect()
   }
   
@@ -84,7 +106,11 @@ extension ERSocketManager: WebSocketDelegate {
   public func websocketDidConnect(socket: WebSocket) {
    
     print("The web socket has connected to \(socket.currentURL)")
+    
     shouldReconnect = true
+    
+    connectCompletionHandler?()
+    connectCompletionHandler = nil
   }
   
   public func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
@@ -99,7 +125,9 @@ extension ERSocketManager: WebSocketDelegate {
   
   public func websocketDidReceiveMessage(socket: WebSocket, text: String) {
     
-    print("The web socket as received a message: \(text)")
+    print("The web socket has received a message: \(text)")
+    
+    audioPlayer?.play()
   }
   
   public func websocketDidReceiveData(socket: WebSocket, data: Data) {
@@ -119,9 +147,9 @@ extension ERSocketManager {
     
     guard shouldReconnect else {return}
     
-    connect()
-    
     shouldReconnect = false
+
+    connect()
   }
   
   @objc internal func receivedApplicationWillTerminateNotification(_ notification: Notification) {

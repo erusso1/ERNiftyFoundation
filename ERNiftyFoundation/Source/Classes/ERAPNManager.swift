@@ -26,7 +26,7 @@ public final class ERAPNManager {
   
   // MARK: Singleton
   
-  static let shared:ERAPNManager = {
+  public static let shared:ERAPNManager = {
     return ERAPNManager()
   }()
   

@@ -229,6 +229,38 @@ func getAllUsers() {
 ```
 
 
+### Web Sockets
+
+ERNiftyFoundation provides not only an APIManager, but also a SocketManager, so you dont have to worry about maintaining connection, threadding, and timers. It will even handle Application lifetime events such as entering background/foreground to connect and reconnect. It's a simple as using the following two lines whenever you wish:
+
+```Swift
+ERSocketManager.shared.connect()
+```
+
+```Swift
+ERSocketManager.shared.disconnect()
+```
+
+The connection URL will be taken from the ERAPIManager's current environemnt's webSocketURL. 
+
+
+
+### Push Notifications
+
+
+Every great app informs its users why they should return or ever better, what they're missing out on. ERNiftyFoundation supplies a manager to do just that. When your user has successfully authenticated with your API, it's a good place to setup the APN manager:
+
+
+
+```Swift
+ERAPNManager.shared.setup(options: [.badge, .alert, .sound]) { error in
+        print("Something went wrong: \(error)")       
+}
+```
+
+
+This simple yet effective function requests an APN token from the device, and if it obtains one call the completion handler without error. If not, the APNManager will automatically display a popup informing the user that Push Notifications are disabled and they must allow this in the Settings Application.
+
 ### Misc
 
 

@@ -200,6 +200,7 @@
 		F09AD907CC71E169A75C9002CFB99BA5 /* Wrap-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DAC1A02F206BFBE005505C352AE626F9 /* Wrap-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F16C7AA6A4BED7AF1BF24BD7F21F860E /* MetadataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD964126A19D6E07627F8DE2166B82D /* MetadataManager.swift */; };
 		F227524B0E53D9F348EC5FFC6A20A981 /* Bool+Unbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5489C0640AC7C99C314D5C08F66F23B4 /* Bool+Unbox.swift */; };
+		F3095E9C1F5DD55A00AC2299 /* ERAPNManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3095E9B1F5DD55A00AC2299 /* ERAPNManager.swift */; };
 		F3FC81B93356AB9FE514DBA09ECD779C /* UnboxPathError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935FBEEAEEB062E7C0C13BD123C299D /* UnboxPathError.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943A8A5BFC483CB3035652883A2E4D66 /* ResponseSerialization.swift */; };
 		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1510CB08F60C2B102C5FA4655AF2B98D /* Alamofire.swift */; };
@@ -336,14 +337,14 @@
 		14E40DB7FE35DBF3D58FFE3B9E8D368C /* ERNiftyFoundation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ERNiftyFoundation-umbrella.h"; sourceTree = "<group>"; };
 		1510CB08F60C2B102C5FA4655AF2B98D /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		16B6FDD8DF0FC7C195580E839108025D /* Int+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Int+Unbox.swift"; path = "Sources/Int+Unbox.swift"; sourceTree = "<group>"; };
-		16D4E3BA480599249ABD6BFF2B0AF059 /* Unbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Unbox.modulemap; sourceTree = "<group>"; };
+		16D4E3BA480599249ABD6BFF2B0AF059 /* Unbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Unbox.modulemap; sourceTree = "<group>"; };
 		16F06E37F4CEA8C4A7675165BDE0CE43 /* TextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextField.swift; path = PhoneNumberKit/UI/TextField.swift; sourceTree = "<group>"; };
 		1727C86EC0B89A8833F81328946BAEA0 /* PartialFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PartialFormatter.swift; path = PhoneNumberKit/PartialFormatter.swift; sourceTree = "<group>"; };
 		1739DE7F265888D8E252CD2BC2B060C5 /* UIStoryboard+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Nifty.swift"; path = "ERNiftyExtensions/Classes/UIStoryboard+Nifty.swift"; sourceTree = "<group>"; };
 		18B3BA814FF4A87F9394E71226ED13FF /* ParseManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParseManager.swift; path = PhoneNumberKit/ParseManager.swift; sourceTree = "<group>"; };
 		1935FBEEAEEB062E7C0C13BD123C299D /* UnboxPathError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxPathError.swift; path = Sources/UnboxPathError.swift; sourceTree = "<group>"; };
 		1B04CDA0A2F71A5178E737A92724738A /* UInt64+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UInt64+Unbox.swift"; path = "Sources/UInt64+Unbox.swift"; sourceTree = "<group>"; };
-		1BD3324B89DAE8D762A5608CED68F68A /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NVActivityIndicatorView.framework; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BD3324B89DAE8D762A5608CED68F68A /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C611EE715CB816285574970EFB004E8 /* Pods-ERNiftyFoundation_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ERNiftyFoundation_Example-frameworks.sh"; sourceTree = "<group>"; };
 		1C977E9B64ADECEAF70253A046874F64 /* NVActivityIndicatorAnimationBallScale.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallScale.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationBallScale.swift; sourceTree = "<group>"; };
 		200E843127B96C5921F353C8D7E99483 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
@@ -354,13 +355,13 @@
 		246BAD498A52F89F7FC0862C8876CCEE /* Double+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Double+Nifty.swift"; path = "ERNiftyExtensions/Classes/Double+Nifty.swift"; sourceTree = "<group>"; };
 		2515AFBFBF905EE3B0CC5ACDEF93ED8E /* Double+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Double+Unbox.swift"; path = "Sources/Double+Unbox.swift"; sourceTree = "<group>"; };
 		27B0DD0383E1D41F7D798455FDDA6EB8 /* NSMutableAttributedString+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSMutableAttributedString+Nifty.swift"; path = "ERNiftyExtensions/Classes/NSMutableAttributedString+Nifty.swift"; sourceTree = "<group>"; };
-		28CF942468AE1839E1A616E47AB2C08E /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
+		28CF942468AE1839E1A616E47AB2C08E /* PhoneNumberMetadata.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = PhoneNumberMetadata.json; path = PhoneNumberKit/Resources/PhoneNumberMetadata.json; sourceTree = "<group>"; };
 		2AF8130DA15C48699C9AF25189FB667B /* NVActivityIndicatorView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NVActivityIndicatorView-umbrella.h"; sourceTree = "<group>"; };
-		2B8CD5312DB35B3E80D2DC960D960D81 /* ERNiftyExtensions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ERNiftyExtensions.modulemap; sourceTree = "<group>"; };
+		2B8CD5312DB35B3E80D2DC960D960D81 /* ERNiftyExtensions.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ERNiftyExtensions.modulemap; sourceTree = "<group>"; };
 		2BC215C6D2D2C4E1D489B26B1C2A79D6 /* Wrap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wrap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E16CE4765081BE9FC55AA4E54BA3610 /* UnboxableRawType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxableRawType.swift; path = Sources/UnboxableRawType.swift; sourceTree = "<group>"; };
 		2E1E0754E9579BDC8A2B24AAE479DCB0 /* Unbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Unbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E4FF2C348EA087D69BDBAA6BC7AE5EE /* ERNiftyFoundation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ERNiftyFoundation.modulemap; sourceTree = "<group>"; };
+		2E4FF2C348EA087D69BDBAA6BC7AE5EE /* ERNiftyFoundation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ERNiftyFoundation.modulemap; sourceTree = "<group>"; };
 		2F142601409D2B025DFBC16547BC9846 /* ERNiftyExtensions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ERNiftyExtensions-prefix.pch"; sourceTree = "<group>"; };
 		2F7EE81CE40C7CF61767A6C0720E257A /* UnboxFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxFormatter.swift; path = Sources/UnboxFormatter.swift; sourceTree = "<group>"; };
 		30CBFB2A1720D929FFD3773D1AFD0812 /* ERNiftyFoundation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ERNiftyFoundation-prefix.pch"; sourceTree = "<group>"; };
@@ -375,7 +376,7 @@
 		386D93A823632D2FBC17A438F162E92E /* PhoneNumberKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-prefix.pch"; sourceTree = "<group>"; };
 		3915CC5978295A8382714EC62BF66F3D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39FCD058118D1C4A71CF8E91F38A74AE /* ERAPIPathComponent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ERAPIPathComponent.swift; path = ERNiftyFoundation/Source/Classes/ERAPIPathComponent.swift; sourceTree = "<group>"; };
-		3AC0257C7E04756B34BBEB5CF3C3266F /* Pods_ERNiftyFoundation_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ERNiftyFoundation_Tests.framework; path = "Pods-ERNiftyFoundation_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC0257C7E04756B34BBEB5CF3C3266F /* Pods_ERNiftyFoundation_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERNiftyFoundation_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C663F42A289A46836A0AB83785C47FE /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
 		3CAFC4213A5877AF9B65F632D2879C2C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4529538DC89E327575825D85E77D62 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
@@ -391,7 +392,7 @@
 		470975CE685109DDD1ABBADCAF9E3460 /* Wrap-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Wrap-prefix.pch"; sourceTree = "<group>"; };
 		47FF9D7529936AF614035721331273D8 /* PhoneNumberKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PhoneNumberKit-umbrella.h"; sourceTree = "<group>"; };
 		48B87EC89DB285EDA8EE1EDE9CDE3F58 /* Unbox-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Unbox-prefix.pch"; sourceTree = "<group>"; };
-		49C1F8898AE450E8EB3AB09898BC4FF9 /* Pods_ERNiftyFoundation_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ERNiftyFoundation_Example.framework; path = "Pods-ERNiftyFoundation_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49C1F8898AE450E8EB3AB09898BC4FF9 /* Pods_ERNiftyFoundation_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ERNiftyFoundation_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FB3F3B54C528AD40D31FE40F1D7786 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		4BA901FDC19BCD57BEA41ECF3D584984 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		4EDAB9D99B96665D636005EEC4ADE693 /* Pods-ERNiftyFoundation_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ERNiftyFoundation_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -405,16 +406,16 @@
 		5AA73AF63A25FDF3FE712C373348334D /* ERNiftyFoundation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ERNiftyFoundation.xcconfig; sourceTree = "<group>"; };
 		5B7B3BF98DDDEA8B9B0CFF436A42E962 /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Source/WebSocket.swift; sourceTree = "<group>"; };
 		5BF3154BEED630095EB0CE9AC8C97D01 /* Optional+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Optional+Unbox.swift"; path = "Sources/Optional+Unbox.swift"; sourceTree = "<group>"; };
-		5C3C4CF49D336C681B76360DFD94C6B1 /* Unbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Unbox.framework; path = Unbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C3C4CF49D336C681B76360DFD94C6B1 /* Unbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Unbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCA3576050EE2465E88C7D8A0C29F59 /* ERTargetMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ERTargetMode.swift; path = ERNiftyFoundation/Source/Classes/ERTargetMode.swift; sourceTree = "<group>"; };
 		5D2FB90D5B6C01ADC8EF646FB16CDDE6 /* Unboxable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Unboxable.swift; path = Sources/Unboxable.swift; sourceTree = "<group>"; };
 		5D6084554D6D43A2C5A6CE45B4303993 /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationDelegate.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
-		5E9F629F8A098C1E47296311486A9C1C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E9F629F8A098C1E47296311486A9C1C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE953741AEE2D36E5FEC1B0D4FC5018 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NVActivityIndicatorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6064B44584E2BD066FDFC087673A424F /* ERNiftyExtensions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ERNiftyExtensions.xcconfig; sourceTree = "<group>"; };
 		636E06DD2A0103B9543EAA795AF13AEB /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A5A2AA40DF6D4185AC590737E852CF /* NVActivityIndicatorAnimationBallPulseRise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallPulseRise.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationBallPulseRise.swift; sourceTree = "<group>"; };
-		66FA879A9797CBC71F4C741A4FDC3181 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PhoneNumberKit.framework; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66FA879A9797CBC71F4C741A4FDC3181 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhoneNumberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6719BE4B839E195AB48F467382D042FA /* NVActivityIndicatorAnimationBallRotateChase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallRotateChase.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationBallRotateChase.swift; sourceTree = "<group>"; };
 		67B77628B7FB473BAE359627633F113C /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallSpinFadeLoader.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationBallSpinFadeLoader.swift; sourceTree = "<group>"; };
 		67D57C3314816829F368D0217E45C8AF /* Pods-ERNiftyFoundation_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ERNiftyFoundation_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -427,7 +428,7 @@
 		6F24103455551934894344A59AA9FD5B /* NVActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorPresenter.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Presenter/NVActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
 		72341C49D1CE2858979A5265D4D50D07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		7307392FE6008A0C0EFB02078F5B8B63 /* ERNiftyFoundation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ERNiftyFoundation-dummy.m"; sourceTree = "<group>"; };
-		73399D5B355D58795DA535439E1C9E79 /* Pods-ERNiftyFoundation_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ERNiftyFoundation_Example.modulemap"; sourceTree = "<group>"; };
+		73399D5B355D58795DA535439E1C9E79 /* Pods-ERNiftyFoundation_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ERNiftyFoundation_Example.modulemap"; sourceTree = "<group>"; };
 		7440D6FC6370E6FAAA8B043CD934C4FF /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		746FAA1277E78EBFF9DED55406B51E1B /* UnboxableKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxableKey.swift; path = Sources/UnboxableKey.swift; sourceTree = "<group>"; };
 		7553909C1F035CD09B91A608FB79CACA /* UIColor+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Nifty.swift"; path = "ERNiftyExtensions/Classes/UIColor+Nifty.swift"; sourceTree = "<group>"; };
@@ -438,7 +439,7 @@
 		7D0E5DA89C3FCC1961BD509DC871AF37 /* NVActivityIndicatorAnimationLineScalePulseOut.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationLineScalePulseOut.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationLineScalePulseOut.swift; sourceTree = "<group>"; };
 		7D9D7B61DFB208CE3F58851A41CD5DE2 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
 		7E2CD405C953D27809348193DA6D4B90 /* ERAPIParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ERAPIParameterEncoding.swift; path = ERNiftyFoundation/Source/Classes/ERAPIParameterEncoding.swift; sourceTree = "<group>"; };
-		7FE376BA225A74CDFDEA10AAF9024AF9 /* ERNiftyExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ERNiftyExtensions.framework; path = ERNiftyExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE376BA225A74CDFDEA10AAF9024AF9 /* ERNiftyExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ERNiftyExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		801979A138CCFC112C0473ED6AC13D57 /* ERAPIManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ERAPIManager.swift; path = ERNiftyFoundation/Source/Classes/ERAPIManager.swift; sourceTree = "<group>"; };
 		8155EFEC9033963AFC2EA0C3F14F945F /* Unbox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Unbox-umbrella.h"; sourceTree = "<group>"; };
 		836A3580B44C19C62544C346DBFBFD8C /* Array+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Nifty.swift"; path = "ERNiftyExtensions/Classes/Array+Nifty.swift"; sourceTree = "<group>"; };
@@ -459,7 +460,7 @@
 		930258259B19BF475EDB0AC8955C3520 /* NSRegularExpression+Swift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSRegularExpression+Swift.swift"; path = "PhoneNumberKit/NSRegularExpression+Swift.swift"; sourceTree = "<group>"; };
 		931311B5B6161204C491692F10A5331A /* JSONSerialization+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JSONSerialization+Unbox.swift"; path = "Sources/JSONSerialization+Unbox.swift"; sourceTree = "<group>"; };
 		9383FD3AC6155EB1E2A130E87CF2CA1E /* CALayer+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CALayer+Nifty.swift"; path = "ERNiftyExtensions/Classes/CALayer+Nifty.swift"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94316E7413DCEEC17633BF1F80A730B4 /* NVActivityIndicatorAnimationPacman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationPacman.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationPacman.swift; sourceTree = "<group>"; };
 		943A8A5BFC483CB3035652883A2E4D66 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		95377167E10462336463DD1D4F758416 /* CLLocation+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CLLocation+Nifty.swift"; path = "ERNiftyExtensions/Classes/CLLocation+Nifty.swift"; sourceTree = "<group>"; };
@@ -468,7 +469,7 @@
 		9984013AE5DBA9785AA23BFAA75557EA /* Pods-ERNiftyFoundation_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ERNiftyFoundation_Example-dummy.m"; sourceTree = "<group>"; };
 		9AF1605B60FD3BBDAF78ACACE73075D4 /* UIViewController+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Nifty.swift"; path = "ERNiftyExtensions/Classes/UIViewController+Nifty.swift"; sourceTree = "<group>"; };
 		9BC13DA61BBD04958AD03714E9A490CB /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BD42DF39D5688A75C6122E361C41E96 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		9BD42DF39D5688A75C6122E361C41E96 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		9BF382880A46C591C78604EE0B7AFEF7 /* ERGlobals.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ERGlobals.swift; path = ERNiftyFoundation/Source/Classes/ERGlobals.swift; sourceTree = "<group>"; };
 		9D10699DD2FAC4FAB10A73E1B739D9A9 /* CGFloat+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGFloat+Unbox.swift"; path = "Sources/CGFloat+Unbox.swift"; sourceTree = "<group>"; };
 		A1D33B29D7ABE22202B88D4CCF6CFD04 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
@@ -477,7 +478,7 @@
 		A37BA1A95D8933046D7EF43200FE1029 /* IndexPath+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IndexPath+Nifty.swift"; path = "ERNiftyExtensions/Classes/IndexPath+Nifty.swift"; sourceTree = "<group>"; };
 		A436ABD5ED47BAF9EB4CA2E0A956B8BC /* ERNiftyExtensions-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ERNiftyExtensions-umbrella.h"; sourceTree = "<group>"; };
 		A5123F6E74AFC4C2224BBD0EA9D22E81 /* Wrap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Wrap.swift; path = Sources/Wrap.swift; sourceTree = "<group>"; };
-		A698CDDFF56514E481E44F96B22B087C /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Starscream.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A698CDDFF56514E481E44F96B22B087C /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA6D6EBC2BF72694D17E1CA613978778 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		AA8DF72D53D9BFC80FF7D17307766418 /* UnboxPath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxPath.swift; path = Sources/UnboxPath.swift; sourceTree = "<group>"; };
 		AAD964126A19D6E07627F8DE2166B82D /* MetadataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataManager.swift; path = PhoneNumberKit/MetadataManager.swift; sourceTree = "<group>"; };
@@ -488,7 +489,7 @@
 		B08A025DA0935DA5EB4E5661F56F447C /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		B1D2EC12134902653FD96565C2A397EB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		B2CEF482B31FEF93AFB0B9DD6726B353 /* NVActivityIndicatorView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NVActivityIndicatorView-dummy.m"; sourceTree = "<group>"; };
-		B37621BE61A0B5E3EA8D7C2AFB5BAEAB /* ERNiftyFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ERNiftyFoundation.framework; path = ERNiftyFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B37621BE61A0B5E3EA8D7C2AFB5BAEAB /* ERNiftyFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ERNiftyFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B45C7B85379F936FE2AFB411606D8962 /* NVActivityIndicatorAnimationBallScaleMultiple.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallScaleMultiple.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationBallScaleMultiple.swift; sourceTree = "<group>"; };
 		B51B866773DB734DA75FC15E6D00E4AA /* UITextField+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Nifty.swift"; path = "ERNiftyExtensions/Classes/UITextField+Nifty.swift"; sourceTree = "<group>"; };
 		B663AE3CC3F1A6E187D6984604840836 /* ERScreenSize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ERScreenSize.swift; path = ERNiftyFoundation/Source/Classes/ERScreenSize.swift; sourceTree = "<group>"; };
@@ -521,19 +522,19 @@
 		D549E6747B81BEA8BF09426F43A10573 /* Pods-ERNiftyFoundation_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ERNiftyFoundation_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D5F78319394F5AF702A0BA652B28E553 /* Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Unbox.swift; path = Sources/Unbox.swift; sourceTree = "<group>"; };
 		D673539670162E2B09B56A2B627337A0 /* UInt32+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UInt32+Unbox.swift"; path = "Sources/UInt32+Unbox.swift"; sourceTree = "<group>"; };
-		D75A37F186D0E74015FC6212271B9E92 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Starscream.modulemap; sourceTree = "<group>"; };
+		D75A37F186D0E74015FC6212271B9E92 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Starscream.modulemap; sourceTree = "<group>"; };
 		D974711AE10D31852AB83A1EBC2BC437 /* Pods-ERNiftyFoundation_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ERNiftyFoundation_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DA8B4A4D591D61751708FBB1D2632433 /* Wrap-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Wrap-dummy.m"; sourceTree = "<group>"; };
 		DAC1A02F206BFBE005505C352AE626F9 /* Wrap-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Wrap-umbrella.h"; sourceTree = "<group>"; };
 		DB8D41E19FDA82824B538A8D31B01FE5 /* Error+Nifty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Error+Nifty.swift"; path = "ERNiftyExtensions/Classes/Error+Nifty.swift"; sourceTree = "<group>"; };
 		DC6B1DB848DF93DC357EABB37A9F1E55 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
-		DD2902CE8D87C47B0AB4D777B8310687 /* Wrap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Wrap.framework; path = Wrap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2902CE8D87C47B0AB4D777B8310687 /* Wrap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wrap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE7AF45DA212C394DEB0DCEC93786FBD /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallClipRotateMultiple.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationBallClipRotateMultiple.swift; sourceTree = "<group>"; };
 		DF1F1D8ACAE718225948A9554A385031 /* UnboxableByTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxableByTransform.swift; path = Sources/UnboxableByTransform.swift; sourceTree = "<group>"; };
 		DF2E10CC0F74FFFB7834E2C3E5BC5723 /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
 		E30C78E2835CAAC123965ECD6AAEBF01 /* Pods-ERNiftyFoundation_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ERNiftyFoundation_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		E3E2B417CFBF022DA214722A97B52746 /* PhoneNumberKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumberKit.swift; path = PhoneNumberKit/PhoneNumberKit.swift; sourceTree = "<group>"; };
-		E4705F1B9FFFDE57C3D3E200356DDCC1 /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
+		E4705F1B9FFFDE57C3D3E200356DDCC1 /* PhoneNumberKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PhoneNumberKit.modulemap; sourceTree = "<group>"; };
 		E49962EF9947D7A32A8D8986344F4F33 /* SSLSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = Source/SSLSecurity.swift; sourceTree = "<group>"; };
 		E4EDA09EE21244450CC7B39B2AD63C8B /* Int64+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Int64+Unbox.swift"; path = "Sources/Int64+Unbox.swift"; sourceTree = "<group>"; };
 		E626DD9778A52141E3EF3B0CECBE5CA4 /* NVActivityIndicatorAnimationBallTrianglePath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallTrianglePath.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationBallTrianglePath.swift; sourceTree = "<group>"; };
@@ -541,21 +542,22 @@
 		E67EB43EB10DA9B6A60E4D8A8E62EDBE /* Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Source/Compression.swift; sourceTree = "<group>"; };
 		E6A5F3C2B8CC80195C7FD4DD4D3CA8E2 /* UnboxContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxContainer.swift; path = Sources/UnboxContainer.swift; sourceTree = "<group>"; };
 		EB834F726BDCE7DCDB7D37A00A2D19A4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EEA24F6242090D70B08C224CB12141A9 /* NVActivityIndicatorView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = NVActivityIndicatorView.modulemap; sourceTree = "<group>"; };
+		EEA24F6242090D70B08C224CB12141A9 /* NVActivityIndicatorView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = NVActivityIndicatorView.modulemap; sourceTree = "<group>"; };
 		F09E71C3CF8682C9FD73BB24C1CFDACA /* UnboxError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnboxError.swift; path = Sources/UnboxError.swift; sourceTree = "<group>"; };
 		F100AD8B00B17EB64715569F1466F0D5 /* NVActivityIndicatorAnimationBallPulseSync.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationBallPulseSync.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationBallPulseSync.swift; sourceTree = "<group>"; };
 		F18CE40C9D7FF611D5DA07E8B03167C2 /* NVActivityIndicatorAnimationSemiCircleSpin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationSemiCircleSpin.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationSemiCircleSpin.swift; sourceTree = "<group>"; };
 		F1C521C915EADF3A226B9A9D3D364576 /* PhoneNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PhoneNumber.swift; path = PhoneNumberKit/PhoneNumber.swift; sourceTree = "<group>"; };
+		F3095E9B1F5DD55A00AC2299 /* ERAPNManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ERAPNManager.swift; path = ERNiftyFoundation/Source/Classes/ERAPNManager.swift; sourceTree = "<group>"; };
 		F37B3C23C1C1D02D6F26F32B159A8AF5 /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorViewable.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Presenter/NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
 		F4381A0E77FB763EAEF56B0021646D2F /* Decimal+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Decimal+Unbox.swift"; path = "Sources/Decimal+Unbox.swift"; sourceTree = "<group>"; };
 		F4B6A0BE634CC18BA021FEC3A97AC6D9 /* Set+Unbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Set+Unbox.swift"; path = "Sources/Set+Unbox.swift"; sourceTree = "<group>"; };
 		F59216F86526F27A8B8554813F3AD8D7 /* Unbox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Unbox-dummy.m"; sourceTree = "<group>"; };
 		F699B9B4CF8E87DB8F4987E65330A1EE /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
-		F89638B7E4A595FA55CC34329E108EE5 /* Pods-ERNiftyFoundation_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ERNiftyFoundation_Tests.modulemap"; sourceTree = "<group>"; };
+		F89638B7E4A595FA55CC34329E108EE5 /* Pods-ERNiftyFoundation_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ERNiftyFoundation_Tests.modulemap"; sourceTree = "<group>"; };
 		F9C61B42B4CA952BFB8396174B03F6C8 /* NVActivityIndicatorAnimationLineScale.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationLineScale.swift; path = NVActivityIndicatorView/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationLineScale.swift; sourceTree = "<group>"; };
 		FB6E96375D0429072ACA1F589F6497B8 /* ERAPIError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ERAPIError.swift; path = ERNiftyFoundation/Source/Classes/ERAPIError.swift; sourceTree = "<group>"; };
 		FBA91865E2B7A3FBCD5CC9443F7C9673 /* ERDependencyExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ERDependencyExtensions.swift; path = ERNiftyFoundation/Source/Classes/ERDependencyExtensions.swift; sourceTree = "<group>"; };
-		FBF4CA0BADDA396065F9E6E8AF03666E /* Wrap.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Wrap.modulemap; sourceTree = "<group>"; };
+		FBF4CA0BADDA396065F9E6E8AF03666E /* Wrap.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Wrap.modulemap; sourceTree = "<group>"; };
 		FC179C0D55021C46300D9C5EEBA468A1 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		FD15A664C44BA9F7432A3780E3CFF315 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE88F3D2CC8806EB777C4113F7F3F427 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
@@ -786,7 +788,6 @@
 				3D4529538DC89E327575825D85E77D62 /* Validation.swift */,
 				DD70BD8F47F34D81095C9783F8803ABF /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -796,7 +797,6 @@
 				A5123F6E74AFC4C2224BBD0EA9D22E81 /* Wrap.swift */,
 				00F57E36FECCA247341FD57913C091C3 /* Support Files */,
 			);
-			name = Wrap;
 			path = Wrap;
 			sourceTree = "<group>";
 		};
@@ -847,7 +847,6 @@
 				36FEED6896D5A1A454E9CE7434BA9647 /* URL+Unbox.swift */,
 				FB6CEBB2DF58F4AEE400ABCEC6ED4A9D /* Support Files */,
 			);
-			name = Unbox;
 			path = Unbox;
 			sourceTree = "<group>";
 		};
@@ -931,6 +930,7 @@
 				7E2CD405C953D27809348193DA6D4B90 /* ERAPIParameterEncoding.swift */,
 				39FCD058118D1C4A71CF8E91F38A74AE /* ERAPIPathComponent.swift */,
 				36B4475286FED66EE0EB89B3516785DE /* ERAPIRequestMethod.swift */,
+				F3095E9B1F5DD55A00AC2299 /* ERAPNManager.swift */,
 				FBA91865E2B7A3FBCD5CC9443F7C9673 /* ERDependencyExtensions.swift */,
 				6D16AC6D8FF287575139AAF1E155BB7F /* ERDevice.swift */,
 				9BF382880A46C591C78604EE0B7AFEF7 /* ERGlobals.swift */,
@@ -1015,7 +1015,6 @@
 				5B7B3BF98DDDEA8B9B0CFF436A42E962 /* WebSocket.swift */,
 				ADA42F3E4FD95BE336F9873066BF7EF8 /* Support Files */,
 			);
-			name = Starscream;
 			path = Starscream;
 			sourceTree = "<group>";
 		};
@@ -1059,7 +1058,6 @@
 				9AF1605B60FD3BBDAF78ACACE73075D4 /* UIViewController+Nifty.swift */,
 				6CA893ABB2EA2CFDE4FA16487002A04B /* Support Files */,
 			);
-			name = ERNiftyExtensions;
 			path = ERNiftyExtensions;
 			sourceTree = "<group>";
 		};
@@ -1100,7 +1098,6 @@
 				0EB0C9B2B0E04DC6ED280DD51BA6F73A /* Support Files */,
 				FA2B7A6C6ADEA0D25A9C5AFADEB64177 /* UIKit */,
 			);
-			name = PhoneNumberKit;
 			path = PhoneNumberKit;
 			sourceTree = "<group>";
 		};
@@ -1110,7 +1107,6 @@
 				7DC6546AA2FF29B1D5F9B0FC4A3615B5 /* Presenter */,
 				8D055C2464B71BADB758C8C6EA5ADFC7 /* Support Files */,
 			);
-			name = NVActivityIndicatorView;
 			path = NVActivityIndicatorView;
 			sourceTree = "<group>";
 		};
@@ -1597,6 +1593,7 @@
 				1DB11904BC664608A54FCC36B9095DBC /* ERDependencyExtensions.swift in Sources */,
 				A1CEBE8F232A9D56833613364481C9BE /* ERDevice.swift in Sources */,
 				953A93CA435DAEAB83D8AE17461E6C3E /* ERGlobals.swift in Sources */,
+				F3095E9C1F5DD55A00AC2299 /* ERAPNManager.swift in Sources */,
 				12249F6768AC2292700451501338C7A8 /* ERModelType.swift in Sources */,
 				4B574E37D9A68CF74C3FE414D2E48B0D /* ERNiftyFoundation-dummy.m in Sources */,
 				DF9A7C85A3FFBABF76A3CD271D5BC6C8 /* ERScreenSize.swift in Sources */,

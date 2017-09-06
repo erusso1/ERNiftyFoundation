@@ -1,14 +1,18 @@
 PODS:
-  - Alamofire (4.5.0)
-  - ERNiftyExtensions (2.3.4)
-  - ERNiftyFoundation (1.0.2):
+  - Alamofire (4.5.1)
+  - Armchair (0.3.0)
+  - ERNiftyExtensions (2.3.7)
+  - ERNiftyFoundation (1.0.4):
     - Alamofire
+    - Armchair
     - ERNiftyExtensions
+    - Kingfisher
     - NVActivityIndicatorView
     - PhoneNumberKit
     - Starscream
     - Unbox
     - Wrap
+  - Kingfisher (3.12.2)
   - NVActivityIndicatorView (3.7.0):
     - NVActivityIndicatorView/Presenter (= 3.7.0)
   - NVActivityIndicatorView/Presenter (3.7.0)
@@ -30,9 +34,11 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
-  ERNiftyExtensions: c80f1b3ddd7f5249de93fe130d40d0c7b7ba31d3
-  ERNiftyFoundation: 1944cd00b288c417e0f6bbb263380ad23d5f93b7
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Armchair: c8eca9bdca868fd6f7155eee73ba70a1278b0655
+  ERNiftyExtensions: 4e4f4a542eee250f0cde7eeeb24c216c78c2e5a1
+  ERNiftyFoundation: 2f26c5120158027e9d71f3ec3245735d54f1dfb5
+  Kingfisher: 320626678acadfcf47008b3c6841cd882050737b
   NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
   PhoneNumberKit: 08aaf1968ea41a114327e9223cbb0391d76ae145
   Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f

@@ -19,4 +19,8 @@ extension UIStoryboard {
   public func viewController<T:UIViewController>(withIdentifier identifier:String) -> T? {
     return instantiateViewController(withIdentifier: identifier) as? T
   }
+  
+  public func viewController<T:UIViewController>() -> T? {
+    return instantiateViewController(withIdentifier: T.classString) as? T
+  }
 }

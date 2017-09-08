@@ -49,6 +49,8 @@ class LogInViewController: UIViewController {
   
   @IBOutlet fileprivate weak var termsTextView: ERTextView!
   
+  @IBOutlet fileprivate weak var textField: UITextField!
+  
   //**************************************************//
   
   // MARK: IBActions
@@ -65,6 +67,7 @@ class LogInViewController: UIViewController {
     fadeInContainerView()
     loadSocket()
     test()
+    testTextFieldSwitch()
     
   }
   
@@ -146,6 +149,19 @@ class LogInViewController: UIViewController {
     
     printPretty(b)
     
+  }
+  
+  private func testTextFieldSwitch() {
+    
+    afterDelay(10) {
+      
+      print("test text field")
+      
+      self.textField.keyboardType = .phonePad
+      self.textField.placeholder = "balls"
+      self.textField.resignFirstResponder()
+      self.textField.becomeFirstResponder()
+    }
   }
   
   //**************************************************//

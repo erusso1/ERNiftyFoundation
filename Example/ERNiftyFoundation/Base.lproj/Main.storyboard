@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="616"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="I8x-1T-E3e">
-                                                <rect key="frame" x="47" y="0.0" width="280" height="154"/>
+                                                <rect key="frame" x="47" y="0.0" width="280" height="208"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYw-Hy-Ttb">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
@@ -42,8 +42,14 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nmw-Nt-zI5">
+                                                        <rect key="frame" x="0.0" y="74" width="280" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                    </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="741" text="Meet like-minded personalities." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyv-AU-qe3">
-                                                        <rect key="frame" x="0.0" y="74" width="280" height="80"/>
+                                                        <rect key="frame" x="0.0" y="128" width="280" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="UIG-bb-Ub0"/>
                                                         </constraints>
@@ -113,6 +119,7 @@
                     <connections>
                         <outlet property="label" destination="gyv-AU-qe3" id="Fzh-OY-1pu"/>
                         <outlet property="termsTextView" destination="8mS-5x-yG2" id="geo-C2-rqW"/>
+                        <outlet property="textField" destination="Nmw-Nt-zI5" id="GNi-gM-rcA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fj-1h-FXh" sceneMemberID="firstResponder"/>

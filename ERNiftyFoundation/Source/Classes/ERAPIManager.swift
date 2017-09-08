@@ -177,6 +177,16 @@ extension ERAPIManager {
       response?(unboxed, nil)
     }
   }
+  
+  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ErrorCompletionHandler? = nil) {
+    
+    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
+      
+      guard alamofireResponse.isSuccess else { response?(alamofireResponse.error); return }
+      
+      response?(nil)
+    }
+  }
 }
 
 //**************************************************//

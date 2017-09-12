@@ -82,7 +82,7 @@ public class ERXibLoadableView: UIView {
         self.addSubview(view)
     }
     
-    func loadSubviews() {
+    public func loadSubviews() {
         preconditionFailure("This function is intended to be overriden by subclasses!")
     }
     

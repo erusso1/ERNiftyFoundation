@@ -68,7 +68,6 @@ class LogInViewController: UIViewController {
     loadSocket()
     test()
     testTextFieldSwitch()
-    
   }
   
   private func loadStrings() {

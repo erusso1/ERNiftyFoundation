@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ERXibLoadableView: UIView {
+open class ERXibLoadableView: UIView {
     
     //**************************************************//
     

@@ -150,7 +150,7 @@ extension ERAPIManager {
     }
   }
   
-  public static func request<T: Unboxable>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIModelResponse<T>? = nil) {
+  public static func request<T: ERModelType>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIModelResponse<T>? = nil) {
     
     Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
       
@@ -164,7 +164,7 @@ extension ERAPIManager {
     }
   }
   
-  public static func request<T: Unboxable>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIMultipleModelResponse<T>? = nil) {
+  public static func request<T: ERModelType>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIMultipleModelResponse<T>? = nil) {
     
     Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
       

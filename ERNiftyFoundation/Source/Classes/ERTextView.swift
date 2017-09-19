@@ -25,7 +25,7 @@ public class ERTextView: UITextView {
     
     paragraphStyle.alignment = .center
     
-    let string = NSMutableAttributedString(string: "By continuing I agree to the Template terms of use and privacy policy.", attributes: [NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName : UIColor.lightGray])
+    let string = NSMutableAttributedString(string: "By continuing I agree to the Template terms of use and privacy policy.", attributes: [.paragraphStyle : paragraphStyle, .foregroundColor : UIColor.lightGray])
     
     string.setAsLink(textToFind: "terms of use", linkURL: termsOfUseURL)
     
@@ -33,6 +33,6 @@ public class ERTextView: UITextView {
     
     self.attributedText = string
     
-    self.linkTextAttributes = [NSForegroundColorAttributeName : UIColor.lightGray, NSUnderlineStyleAttributeName : NSUnderlineStyle.styleSingle.rawValue]
+    self.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue : UIColor.lightGray, NSAttributedStringKey.underlineStyle.rawValue : NSUnderlineStyle.styleSingle.rawValue]
   }
 }

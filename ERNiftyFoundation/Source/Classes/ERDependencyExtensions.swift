@@ -29,8 +29,7 @@ extension Dictionary where Key == String, Value: Any {
     for (key, value) in self { dic[key] = value }
     
     do {
-      
-      let object:T = try unbox(dictionary: dic)
+        let object: T = try Unbox.unbox(dictionary: dic)
       return object
     }
       

@@ -35,7 +35,7 @@ extension String {
     
     let minHeight = font.pointSize + 4
     
-    let maxHeight = ceil((self as NSString).boundingRect(with: CGSize(width: width, height: CGFloat(Int.max)), options: [NSStringDrawingOptions.usesLineFragmentOrigin], attributes: [NSFontAttributeName : font], context: nil).height + 8.0)
+    let maxHeight = ceil((self as NSString).boundingRect(with: CGSize(width: width, height: CGFloat(Int.max)), options: [.usesLineFragmentOrigin], attributes: [.font : font], context: nil).height + 8.0)
     
     return max(maxHeight, minHeight)
   }

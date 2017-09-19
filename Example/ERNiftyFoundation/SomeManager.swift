@@ -27,10 +27,10 @@ struct SomeManager {
     
     let endpoint = ERAPIManager.endpoint(components: .posts, .id("oid:5982e7e20ade59030ade5903"))
     
-    ERAPIManager.request(on: endpoint) { (post: Post?, error) in
+    ERAPIManager.request(on: endpoint) { (post: User?, error) in
       
       guard let post = post else {return}
-      print("Here is the post - ID: \(post.id)  Content: \(post.content)")
+      print("Here is the post - ID: \(post)  Content: \(post)")
     }
   }
   

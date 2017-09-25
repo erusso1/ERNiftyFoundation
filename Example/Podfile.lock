@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.5.1)
   - Armchair (0.3.3)
   - DZNEmptyDataSet (1.8.1)
-  - ERNiftyExtensions (3.0.0)
+  - ERNiftyExtensions (3.0.1)
   - ERNiftyFoundation (2.0.0):
     - Alamofire
     - Armchair
@@ -20,7 +20,7 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (2.0.0)
   - PhoneNumberKit/UIKit (2.0.0):
     - PhoneNumberKit/PhoneNumberKitCore
-  - Starscream (2.1.1)
+  - Starscream (3.0.0)
   - Unbox (2.5.0)
   - Wrap (2.1.1)
 
@@ -35,14 +35,14 @@ SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Armchair: 2ab7261610e5618734c008f2943cb4bf1f13833e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  ERNiftyExtensions: 8d4737b94bf040b675bd3841f2e622429396c9d2
+  ERNiftyExtensions: 61e4ea252a539504e7b641b85de6e21893a0e6ab
   ERNiftyFoundation: 3efdbe7a2cc1123c2ac0504e570d70564dd6d059
   Kingfisher: b771785e9461ed4b8686d40e7145f9e58100cb24
   PhoneNumberKit: 073b3cef30c2a64ddcd623ea5953bc84bb5b3fc4
-  Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f
+  Starscream: 877369259cafa975ceaf2ce11eb9ef54ac51e195
   Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
   Wrap: 9cc7da7551bb81d0846cb3df9fb624c6c32d267d
 
-PODFILE CHECKSUM: 4b786035be98f07773fa1cb2b8f1744792fc6791
+PODFILE CHECKSUM: cc3ce8c9a210f408fdfc28b71846b57bad869d4c
 
 COCOAPODS: 1.3.1

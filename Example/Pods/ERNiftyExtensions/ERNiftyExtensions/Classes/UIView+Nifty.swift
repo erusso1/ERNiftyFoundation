@@ -8,6 +8,22 @@
 
 extension UIView {
   
+  public func viewController() -> UIViewController? {
+    
+    var nextResponder: UIResponder? = self
+    
+    repeat {
+      nextResponder = nextResponder?.next
+      
+      if let viewController = nextResponder as? UIViewController {
+        return viewController
+      }
+      
+    } while nextResponder != nil
+    
+    return nil
+  }
+  
   @nonobjc public class func fromNib<T : UIView>(_ nibNameOrNil: String? = nil) -> T? {
     var view: T?
     let name: String

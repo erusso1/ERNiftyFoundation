@@ -69,7 +69,8 @@ public final class ERSocketManager {
   // MARK: Append Headers
   
   public func appendHeaders(headers: [String: String]) {
-    socket.headers += headers
+    
+    
   }
   
   //**************************************************//
@@ -103,37 +104,37 @@ public final class ERSocketManager {
 
 extension ERSocketManager: WebSocketDelegate {
   
-  public func websocketDidConnect(socket: WebSocket) {
-   
-    print("The web socket has connected to \(socket.currentURL)")
-    
-    shouldReconnect = true
-    
-    connectCompletionHandler?()
-    connectCompletionHandler = nil
-  }
-  
-  public func websocketDidDisconnect(socket: WebSocket, error: NSError?) {
-    
-    print("The web socket has disconnected from \(socket.currentURL)")
-    
-    if let errorDescription = error?.localizedDescription, errorDescription != "" {
-      
-      print("Error: \(errorDescription)")
+    public func websocketDidConnect(socket: WebSocketClient) {
+        
+        print("The web socket has connected.")
+        
+        shouldReconnect = true
+        
+        connectCompletionHandler?()
+        connectCompletionHandler = nil
     }
-  }
   
-  public func websocketDidReceiveMessage(socket: WebSocket, text: String) {
-    
-    print("The web socket has received a message: \(text)")
-    
-    audioPlayer?.play()
-  }
+    public func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        
+        print("The web socket has disconnected.")
+        
+        if let errorDescription = error?.localizedDescription, errorDescription != "" {
+            
+            print("Error: \(errorDescription)")
+        }
+    }
   
-  public func websocketDidReceiveData(socket: WebSocket, data: Data) {
+    public func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        
+        print("The web socket has received a message: \(text)")
+        
+        audioPlayer?.play()
+    }
     
-    print("The web socket has received data: \(data)")
-  }
+    public func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        
+        print("The web socket has received data: \(data)")
+    }
 }
 
 extension ERSocketManager {

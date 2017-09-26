@@ -51,6 +51,7 @@
 		E391986C3C24A1D6A9702E6A /* Pods-ERNiftyFoundation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERNiftyFoundation_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERNiftyFoundation_Example/Pods-ERNiftyFoundation_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F306E13E1F2A9334008CD9D8 /* SomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeController.swift; sourceTree = "<group>"; };
 		F306E1431F2A938D008CD9D8 /* SomeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeManager.swift; sourceTree = "<group>"; };
+		F34982D11F79CB630028F573 /* PodPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = PodPlayground.playground; path = ../PodPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F3A83A801F29C5A200409341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3F90EE91F3455C200ADB1EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB0EF48DFCE8D080DDC6386E /* Pods-ERNiftyFoundation_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERNiftyFoundation_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ERNiftyFoundation_Tests/Pods-ERNiftyFoundation_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				F34982D11F79CB630028F573 /* PodPlayground.playground */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for ERNiftyFoundation */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -86,7 +88,9 @@
 				B280F4693030BBC1D1F243A3 /* Pods */,
 				81F76D733A6E59A2E76DB863 /* Frameworks */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;

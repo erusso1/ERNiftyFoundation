@@ -1070,7 +1070,9 @@
 				877D281851D934FCB6364FC1E36E17A7 /* Products */,
 				CB4D38962B8F03B9C8C4BBA2F21C10AD /* Targets Support Files */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		877D281851D934FCB6364FC1E36E17A7 /* Products */ = {
 			isa = PBXGroup;

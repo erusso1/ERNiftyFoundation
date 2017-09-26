@@ -12,6 +12,8 @@ import Unbox
 
 fileprivate typealias ERAPIRequestHeaders = [String: String]
 
+public typealias ERAPIStringResponse = (String?, Error?) -> Void
+
 public typealias ERAPIJSONResponse = (JSONObject?, Error?) -> Void
 
 public typealias ERAPIMultipleJSONResponse = ([JSONObject]?, Error?) -> Void
@@ -135,6 +137,16 @@ extension ERAPIManager {
       let JSON = alamofireResponse.result.value as? JSONObject
       
       response?(JSON, nil)
+    }
+  }
+  
+  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIStringResponse? = nil) {
+    
+    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseString() { alamofireResponse in
+      
+      guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
+
+      response?(alamofireResponse.result.value, alamofireResponse.error)
     }
   }
   

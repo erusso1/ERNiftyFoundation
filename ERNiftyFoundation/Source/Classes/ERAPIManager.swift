@@ -10,7 +10,19 @@ import Foundation
 import Alamofire
 import Unbox
 
-fileprivate typealias ERAPIRequestHeaders = [String: String]
+//**************************************************//
+
+// MARK: ERAPIResponseType
+
+public protocol ERAPIResponseType {}
+
+extension String: ERAPIResponseType {}
+
+extension Dictionary: ERAPIResponseType {}
+
+//**************************************************//
+
+public typealias ERAPIResponse<T: ERAPIResponseType> = (T?, Error?) -> Void
 
 public typealias ERAPIStringResponse = (String?, Error?) -> Void
 
@@ -93,34 +105,34 @@ extension ERAPIManager {
 
 // MARK: Authorization
 
-extension ERAPIManager {
-  
-  public static var authorizationToken: String?
-  
-  fileprivate static let authorizationTokenGenerationKey: String = "authorization_token_timestamp"
-  
-  fileprivate static var authorizationTokenGenerationDate: Date? {
-    
-    get {
-      
-      guard let timeInterval = UserDefaults.standard.value(forKey: authorizationTokenGenerationKey) as? TimeInterval else { return nil }
-      
-      return Date(timeIntervalSince1970: timeInterval)
-    }
-    
-    set {
-      
-      UserDefaults.standard.setValue(newValue, forKey: authorizationTokenGenerationKey)
-    }
-  }
-  
-  fileprivate static var authorizationHeaders: ERAPIRequestHeaders? {
-    
-    guard let token = authorizationToken else { return nil }
-    
-    return ["x-access-token" : token]
-  }
-}
+//extension ERAPIManager {
+//
+//  public static var authorizationToken: String?
+//
+//  fileprivate static let authorizationTokenGenerationKey: String = "authorization_token_timestamp"
+//
+//  fileprivate static var authorizationTokenGenerationDate: Date? {
+//
+//    get {
+//
+//      guard let timeInterval = UserDefaults.standard.value(forKey: authorizationTokenGenerationKey) as? TimeInterval else { return nil }
+//
+//      return Date(timeIntervalSince1970: timeInterval)
+//    }
+//
+//    set {
+//
+//      UserDefaults.standard.setValue(newValue, forKey: authorizationTokenGenerationKey)
+//    }
+//  }
+//
+//  fileprivate static var authorizationHeaders: ERAPIRequestHeaders? {
+//
+//    guard let token = authorizationToken else { return nil }
+//
+//    return ["x-access-token" : token]
+//  }
+//}
 
 //**************************************************//
 
@@ -128,74 +140,119 @@ extension ERAPIManager {
 
 extension ERAPIManager {
   
-  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIJSONResponse? = nil) {
-    
-    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
-      
+//  public static func request<T: ERAPIResponseType>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, headers: [String : String]? = nil, response: ERAPIResponse<T>? = nil) {
+//
+//    let utilityQueue = DispatchQueue.global(qos: .utility)
+//
+//    let tempRequest = Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: headers)
+//
+//    if T.self is String {
+//
+//      tempRequest.responseString(queue: utilityQueue) { alamofireResponse in
+//
+//        guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
+//
+//        guard let value = alamofireResponse.result.value else { response?(nil, alamofireResponse.error); return }
+//
+//        let string = value as! T
+//
+//        response?(string, alamofireResponse.error)
+//      }
+//    }
+//
+//    else if T.self is JSONObject {
+//
+//      tempRequest.responseJSON() { alamofireResponse in
+//
+//        guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
+//
+//        let JSON = alamofireResponse.result.value as? JSONObject
+//
+//        response?(JSON as! T, nil)
+//      }
+//    }
+//  }
+  
+
+  
+  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, headers: [String : String]? = nil, response: ERAPIJSONResponse? = nil) {
+
+    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: headers).responseJSON() { alamofireResponse in
+
       guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
 
       let JSON = alamofireResponse.result.value as? JSONObject
-      
+
       response?(JSON, nil)
     }
   }
-  
-  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIStringResponse? = nil) {
-    
-    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseString() { alamofireResponse in
-      
+
+  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, headers: [String : String]? = nil, response: ERAPIStringResponse? = nil) {
+
+    let utilityQueue = DispatchQueue.global(qos: .utility)
+
+    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: headers).responseString(queue: utilityQueue) { alamofireResponse in
+
       guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
 
       response?(alamofireResponse.result.value, alamofireResponse.error)
     }
   }
-  
-  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIMultipleJSONResponse? = nil) {
-    
-    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
-      
-      guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
-      
-      let JSONs = alamofireResponse.result.value as? [JSONObject]
-      
-      response?(JSONs, nil)
-    }
-  }
-  
-  public static func request<T: ERModelType>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIModelResponse<T>? = nil) {
-    
-    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
-      
-      guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
-      
-      let JSON = alamofireResponse.result.value as? JSONObject
-      
-      let unboxed: T? = JSON?.unboxedObject()
-      
-      response?(unboxed, nil)
-    }
-  }
-  
-  public static func request<T: ERModelType>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ERAPIMultipleModelResponse<T>? = nil) {
-    
-    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
-      
+
+  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, headers: [String : String]? = nil, response: ERAPIMultipleJSONResponse? = nil) {
+
+    let utilityQueue = DispatchQueue.global(qos: .utility)
+
+    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
+
       guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
 
       let JSONs = alamofireResponse.result.value as? [JSONObject]
-      
-      let unboxed: [T]? = JSONs?.unboxedObjects()
-      
+
+      response?(JSONs, nil)
+    }
+  }
+
+  public static func request<T: ERModelType>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, headers: [String : String]? = nil, response: ERAPIModelResponse<T>? = nil) {
+
+    let utilityQueue = DispatchQueue.global(qos: .utility)
+
+    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
+
+      guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
+
+      let JSON = alamofireResponse.result.value as? JSONObject
+
+      let unboxed: T? = JSON?.unboxedObject()
+
       response?(unboxed, nil)
     }
   }
-  
-  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, response: ErrorCompletionHandler? = nil) {
-    
-    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: authorizationHeaders).responseJSON() { alamofireResponse in
-      
+
+  public static func request<T: ERModelType>(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, headers: [String : String]? = nil, response: ERAPIMultipleModelResponse<T>? = nil) {
+
+    let utilityQueue = DispatchQueue.global(qos: .utility)
+
+    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
+
+      guard alamofireResponse.isSuccess else { response?(nil, alamofireResponse.error); return }
+
+      let JSONs = alamofireResponse.result.value as? [JSONObject]
+
+      let unboxed: [T]? = JSONs?.unboxedObjects()
+
+      response?(unboxed, nil)
+    }
+  }
+
+  public static func request(on endpoint: ERAPIEndpoint, method: ERAPIRequestMethod = .get, parameters: JSONObject? = nil, encoding: ERAPIParameterEncoding = .jsonBody, headers: [String : String]? = nil, response: ErrorCompletionHandler? = nil) {
+
+    let utilityQueue = DispatchQueue.global(qos: .utility)
+
+    Alamofire.request(endpoint.urlString, method: method.alamofireMethod, parameters: parameters, encoding: encoding.alamofireEncoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
+
       guard alamofireResponse.isSuccess else { response?(alamofireResponse.error); return }
-      
+
       response?(nil)
     }
   }

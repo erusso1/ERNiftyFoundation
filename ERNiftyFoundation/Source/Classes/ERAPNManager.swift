@@ -70,7 +70,7 @@ public final class ERAPNManager {
   
   // MARK: Completed APN Setup
   
-  func registeredForAPN(deviceToken: Data?) {
+  public func registeredForAPN(deviceToken: Data?) {
     
     guard let deviceToken = deviceToken else { self.setupCompletionHandler?(.noDeviceToken);  return }
     

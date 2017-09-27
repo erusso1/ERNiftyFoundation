@@ -9,7 +9,7 @@
 import Unbox
 import Wrap
 
-public protocol ERModelType: class, Equatable, Unboxable, WrapCustomizable {
+public protocol ERModelType: class, Unboxable, WrapCustomizable, ERAPIResponseType {
   
   /// Returns the unique identifier of the model object.
   var id: String { get }
@@ -33,4 +33,3 @@ extension ERModelType {
   public init(JSON: JSONObject) throws { try self.init(unboxer: Unboxer(dictionary: JSON)) }
 }
 
-public func ==<T: ERModelType>(lhs: T, rhs: T) -> Bool { return lhs.id == rhs.id }

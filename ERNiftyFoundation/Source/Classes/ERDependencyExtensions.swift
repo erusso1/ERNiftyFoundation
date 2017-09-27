@@ -12,7 +12,7 @@ import Unbox
 
 extension DataResponse {
   
-  public var isSuccess: Bool { return self.response?.statusCode == 200 && self.result.isSuccess }
+  public var isSuccess: Bool { return self.error == nil }
   
 //  public var error: ERAPIError {
 //    

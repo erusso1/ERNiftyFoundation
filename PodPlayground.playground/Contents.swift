@@ -27,7 +27,7 @@ func testAPI() {
     
     let endpoint = ERAPIManager.endpoint(components: .info)
     
-    ERAPIManager.request(on: endpoint) { (response: String?, error: Error?) in
+    ERAPIManager.request(on: endpoint) { (response: JSONObject?, error: Error?) in
         
         print(response ?? "No response :/")
     }
@@ -42,6 +42,16 @@ func getPosts() {
         print(posts ?? "No response :/")
     }
 }
+
+
+func testAlamofire() {
+    
+    Alamofire.request("http://google.com").responseJSON() { response in
+        
+    }
+}
+
+
 
 configureAPIManger()
 testAPI()

@@ -51,7 +51,8 @@ public final class ERSocketManager {
   
   private func setupSocket() {
     
-    socket = WebSocket(url: ERAPIManager.environment.webSocketURL)
+    guard let webSocketURL = ERAPIManager.environment.webSocketURL else {return}
+    socket = WebSocket(url: webSocketURL)
     socket.delegate = self
   }
   

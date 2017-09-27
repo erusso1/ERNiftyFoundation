@@ -9,7 +9,7 @@
 import Unbox
 import Wrap
 
-public protocol ERModelType: class, Unboxable, WrapCustomizable, ERAPIResponseType {
+public protocol ERModelType: class, Unboxable, WrapCustomizable {
   
   /// Returns the unique identifier of the model object.
   var id: String { get }

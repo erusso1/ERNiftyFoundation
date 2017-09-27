@@ -47,7 +47,7 @@ class LogInViewController: UIViewController {
   
   @IBOutlet fileprivate weak var label: UILabel!
   
-  @IBOutlet fileprivate weak var termsTextView: ERTextView!
+  @IBOutlet fileprivate weak var termsTextView: ERTermsOfUseTextView!
   
   @IBOutlet fileprivate weak var textField: UITextField!
   

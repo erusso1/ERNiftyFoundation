@@ -9,7 +9,7 @@
 import Foundation
 import ERNiftyExtensions
 
-public class ERTextView: UITextView {
+public class ERTermsOfUseTextView: UITextView {
 
   public override init(frame: CGRect, textContainer: NSTextContainer?) {
     super.init(frame: frame, textContainer: textContainer)

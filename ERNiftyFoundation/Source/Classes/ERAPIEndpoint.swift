@@ -15,12 +15,12 @@ public struct ERAPIEndpoint {
   
   private let baseURL: URL
   
-  internal init(baseURL: URL, components:ERAPIPathComponent...) {
+  public init(baseURL: URL = ERAPIManager.environment.apiURL, components:ERAPIPathComponent...) {
     self.baseURL = baseURL
     self.components = components
   }
   
-  internal init(baseURL: URL, components: [ERAPIPathComponent]) {
+  public init(baseURL: URL = ERAPIManager.environment.apiURL, components: [ERAPIPathComponent]) {
     self.baseURL = baseURL
     self.components = components
   }
@@ -33,4 +33,14 @@ public struct ERAPIEndpoint {
 extension ERAPIEndpoint: CustomStringConvertible {
   
   public var description: String { return "Endpoint: \(urlString)" }
+}
+
+extension ERAPIEndpoint: URLConvertible {
+  
+  public func asURL() throws -> URL {
+    
+    guard let url = self.url else { throw AFError.invalidURL(url: self.urlString) }
+    
+    return url
+  }
 }

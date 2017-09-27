@@ -25,7 +25,7 @@ struct SomeManager {
   
   static func getAllPosts() {
     
-    let endpoint = ERAPIManager.endpoint(components: .posts, .id("oid:5982e7e20ade59030ade5903"))
+    let endpoint = ERAPIEndpoint(components: .posts, .id("wefiblwenglk3j4nrglkwerng"))
     
     ERAPIManager.request(on: endpoint) { (post: User?, error) in
       

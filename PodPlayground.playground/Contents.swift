@@ -16,18 +16,16 @@ extension ERAPIPathComponent {
 
 func configureAPIManger() {
    
-    let dev = ERAPIEnvironment(type: .development, apiURL: "http://afternoon-coast-37174.herokuapp.com/", webSocketURL: "ws://afternoon-coast-37174.herokuapp.com/")
+    guard let development = try? ERAPIEnvironment(apiURL: "https://afternoon-coast-37174.herokuapp.com", webSocketURL: "ws://afternoon-coast-37174.herokuapp.com/ws") else {return}
     
-    let prod = dev
-    
-    ERAPIManager.configureFor(development: dev, production: prod)
+    ERAPIManager.configureFor(environment: development)
 }
 
 func testAPI() {
     
-    let endpoint = ERAPIManager.endpoint(components: .info)
+    let endpoint = ERAPIEndpoint(components: .info)
     
-    ERAPIManager.request(on: endpoint) { (response: JSONObject?, error: Error?) in
+    ERAPIManager.request(on: endpoint) { (response: String?, error: Error?) in
         
         print(response ?? "No response :/")
     }
@@ -35,23 +33,13 @@ func testAPI() {
 
 func getPosts() {
     
-    let endpoint = ERAPIManager.endpoint(components: .posts)
-    
+    let endpoint = ERAPIEndpoint(components: .posts)
+
     ERAPIManager.request(on: endpoint) { (posts: [JSONObject]?, error: Error?) in
         
         print(posts ?? "No response :/")
     }
 }
-
-
-func testAlamofire() {
-    
-    Alamofire.request("http://google.com").responseJSON() { response in
-        
-    }
-}
-
-
 
 configureAPIManger()
 testAPI()

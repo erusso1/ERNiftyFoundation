@@ -13,11 +13,6 @@ import Unbox
 extension DataResponse {
   
   public var isSuccess: Bool { return self.error == nil }
-  
-//  public var error: ERAPIError {
-//    
-//    return .networkFailure
-//  }
 }
 
 extension Dictionary where Key == String, Value: Any {

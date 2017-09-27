@@ -15,18 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-      
-      let development = ERAPIEnvironment(
-        type: .development,
-        apiURL: "https://afternoon-coast-37174.herokuapp.com",
-        webSocketURL: "ws://afternoon-coast-37174.herokuapp.com/ws"
-      )
-      
-      //let production = ERAPIEnvironment(type: .production, apiURL: URL(string: "")!, webSocketURL: URL(string: "")!)
+              
+        guard let development = try? ERAPIEnvironment(apiURL: "https://afternoon-coast-37174.herokuapp.com", webSocketURL: "ws://afternoon-coast-37174.herokuapp.com/ws") else {return true}
+        
+        //let production = ERAPIEnvironment(type: .production, apiURL: URL(string: "")!, webSocketURL: URL(string: "")!)
 
-      ERAPIManager.configureFor(development: development, production: development, usesLocalHost: true)
-      
-      return true
+        ERAPIManager.configureFor(environment: development)
+
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

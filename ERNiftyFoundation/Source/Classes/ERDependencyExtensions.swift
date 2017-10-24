@@ -59,3 +59,15 @@ extension Sequence where Iterator.Element == UnboxableDictionary {
     }
   }
 }
+
+extension DateIntervalFormatter: UnboxFormatter {
+  
+  public typealias UnboxRawValue = TimeInterval
+  
+  public typealias UnboxFormattedType = Date
+  
+  public func format(unboxedValue: TimeInterval) -> Date? {
+    
+    return Date(timeIntervalSince1970: unboxedValue)
+  }
+}

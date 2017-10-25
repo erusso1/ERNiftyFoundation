@@ -9,7 +9,7 @@
 import Unbox
 import Wrap
 
-public protocol ERModelType: Equatable, Unboxable, WrapCustomizable {
+public protocol ERModelType: Equatable, Unboxable, WrapCustomizable, CustomDebugStringConvertible {
   
   /// Returns the unique identifier of the model object.
   var id: String { get }
@@ -34,3 +34,18 @@ extension ERModelType {
 }
 
 public func ==<T: ERModelType>(lhs: T, rhs: T) -> Bool { return lhs.id == rhs.id }
+
+extension ERModelType {
+  
+  public var debugDescription: String {
+    
+    if let json = self.JSON {
+      
+      let data = try! JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+      let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+      return string as! String
+    }
+      
+    else { return "\(self)" }
+  }
+}

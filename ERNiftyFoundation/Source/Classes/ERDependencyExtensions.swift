@@ -58,6 +58,25 @@ extension Sequence where Iterator.Element == UnboxableDictionary {
       return nil
     }
   }
+  
+  public func unboxedObjects<T: UnboxableWithContext>(with context: T.UnboxContext) -> [T]? {
+    
+    guard let dics = self as? [UnboxableDictionary] else {return nil}
+    
+    do {
+      
+      let objects:[T] = try unbox(dictionaries: dics, context: context)
+      return objects
+    }
+      
+    catch {
+      print("*****************************************")
+      print("")
+      print("Error unboxing \(T.self) - Error: \(error) JSON: \(self)")
+      print("")
+      return nil
+    }
+  }
 }
 
 extension DateIntervalFormatter: UnboxFormatter {

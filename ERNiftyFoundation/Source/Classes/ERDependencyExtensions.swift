@@ -24,7 +24,27 @@ extension Dictionary where Key == String, Value: Any {
     for (key, value) in self { dic[key] = value }
     
     do {
-        let object: T = try Unbox.unbox(dictionary: dic)
+      let object: T = try Unbox.unbox(dictionary: dic)
+      return object
+    }
+      
+    catch {
+      print("*****************************************")
+      print("")
+      print("Error unboxing \(T.self) - Error: \(error) JSON: \(self)")
+      print("")
+      return nil
+    }
+  }
+  
+  public func unboxedObject<T: UnboxableWithContext>(withContext context: T.UnboxContext) -> T? {
+    
+    var dic = JSONObject()
+    
+    for (key, value) in self { dic[key] = value }
+    
+    do {
+      let object: T = try Unbox.unbox(dictionary: dic, context: context)
       return object
     }
       
@@ -59,7 +79,7 @@ extension Sequence where Iterator.Element == UnboxableDictionary {
     }
   }
   
-  public func unboxedObjects<T: UnboxableWithContext>(with context: T.UnboxContext) -> [T]? {
+  public func unboxedObjects<T: UnboxableWithContext>(withContext context: T.UnboxContext) -> [T]? {
     
     guard let dics = self as? [UnboxableDictionary] else {return nil}
     

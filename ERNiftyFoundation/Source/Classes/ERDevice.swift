@@ -18,6 +18,8 @@ public enum ERDevice {
   
   case iPhone6Or7Plus
   
+  case iPhoneX
+  
   case iPad
   
   case unknown
@@ -48,6 +50,8 @@ public enum ERDevice {
       else if ERScreenSize.maxLength == 667.0 { return .iPhone6Or7 }
       
       else if ERScreenSize.maxLength == 736.0 { return .iPhone6Or7Plus }
+        
+      else if ERScreenSize.maxLength == 812.0 { return .iPhoneX }
       
       else { return .unknown }
       

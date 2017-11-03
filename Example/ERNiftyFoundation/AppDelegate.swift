@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let production = ERAPIEnvironment(type: .production, apiURL: URL(string: "")!, webSocketURL: URL(string: "")!)
 
         ERAPIManager.configureFor(environment: development)
+        print(ERDevice.current == .iPhoneX)
 
         return true
     }

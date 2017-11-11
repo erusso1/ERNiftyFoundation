@@ -100,7 +100,7 @@ public func wrap<T>(_ objects: [T], context: Any? = nil, dateFormatter: DateForm
  *  See the documentation for the dictionary-based `wrap()` function for more information
  */
 public func wrap<T>(_ objects: [T], writingOptions: JSONSerialization.WritingOptions? = nil, context: Any? = nil, dateFormatter: DateFormatter? = nil) throws -> Data {
-    let dictionaries: [WrappedDictionary] = try wrap(objects, context: context)
+	let dictionaries: [WrappedDictionary] = try wrap(objects, context: context, dateFormatter: dateFormatter)
     return try JSONSerialization.data(withJSONObject: dictionaries, options: writingOptions ?? [])
 }
 
@@ -262,7 +262,7 @@ public extension WrapCustomizable {
     /// Convert a given property name (assumed to be camelCased) to snake_case
     func convertPropertyNameToSnakeCase(propertyName: String) -> String {
         let regex = try! NSRegularExpression(pattern: "(?<=[a-z])([A-Z])|([A-Z])(?=[a-z])", options: [])
-        let range = NSRange(location: 0, length: propertyName.characters.count)
+        let range = NSRange(location: 0, length: propertyName.count)
         let camelCasePropertyName = regex.stringByReplacingMatches(in: propertyName, options: [], range: range, withTemplate: "_$1$2")
         return camelCasePropertyName.lowercased()
     }
@@ -463,7 +463,7 @@ private extension Wrapper {
         return wrappedArray
     }
     
-    func wrap<K: Hashable, V>(dictionary: [K : V]) throws -> WrappedDictionary {
+    func wrap<K, V>(dictionary: [K : V]) throws -> WrappedDictionary {
         var wrappedDictionary = WrappedDictionary()
         let wrapper = Wrapper(context: self.context, dateFormatter: self.dateFormatter)
         

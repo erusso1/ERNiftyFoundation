@@ -94,6 +94,13 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseString(queue: utilityQueue) { alamofireResponse in
 
+      if logsNetworkResponses {
+        print("*****************************************")
+        print("")
+        print(alamofireResponse.result.value)
+        print("")
+      }
+      
       response?(alamofireResponse.result.value, alamofireResponse.error)
     }
   }
@@ -101,6 +108,13 @@ extension ERAPIManager {
   public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIJSONResponse? = nil) {
     
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
+      
+      if logsNetworkResponses {
+        print("*****************************************")
+        print("")
+        print(alamofireResponse.result.value)
+        print("")
+      }
       
       let JSON = alamofireResponse.result.value as? JSONObject
       
@@ -112,6 +126,13 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
+      if logsNetworkResponses {
+        print("*****************************************")
+        print("")
+        print(alamofireResponse.result.value)
+        print("")
+      }
+      
       let JSONs = alamofireResponse.result.value as? [JSONObject]
 
       response?(JSONs, alamofireResponse.error)
@@ -122,6 +143,13 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
+      if logsNetworkResponses {
+        print("*****************************************")
+        print("")
+        print(alamofireResponse.result.value)
+        print("")
+      }
+      
       let JSON = alamofireResponse.result.value as? JSONObject
 
       let unboxed: T? = JSON?.unboxedObject()
@@ -134,6 +162,13 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
+      if logsNetworkResponses {
+        print("*****************************************")
+        print("")
+        print(alamofireResponse.result.value)
+        print("")
+      }
+      
       let JSONs = alamofireResponse.result.value as? [JSONObject]
 
       let unboxed: [T]? = JSONs?.unboxedObjects()
@@ -146,9 +181,21 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
+      if logsNetworkResponses {
+        print("*****************************************")
+        print("")
+        print(alamofireResponse.result.value)
+        print("")
+      }
+      
       response?(alamofireResponse.error)
     }
   }
+}
+
+extension ERAPIManager {
+
+  public static var logsNetworkResponses: Bool = false
 }
 
 //**************************************************//

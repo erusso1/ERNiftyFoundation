@@ -5,7 +5,7 @@
 //  Created by Ephraim Russo on 8/3/17.
 //
 //
-
+/*
 import Foundation
 import AVFoundation
 import Starscream
@@ -159,3 +159,4 @@ extension ERSocketManager {
     disconnect()
   }
 }
+*/

@@ -133,7 +133,7 @@ class LogInViewController: UIViewController {
   
   private func loadSocket() {
     
-    ERSocketManager.shared.connect()
+    //ERSocketManager.shared.connect()
   }
   
   private func test() {

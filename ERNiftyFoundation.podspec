@@ -45,11 +45,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'ERNiftyExtensions'
 
-#s.dependency 'Kingfisher'
-
   s.dependency 'PhoneNumberKit'
-
-  s.dependency 'Starscream'
 
   s.dependency 'Unbox'
 

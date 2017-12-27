@@ -18,6 +18,7 @@ public class ERTermsOfUseTextView: UITextView {
   
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+    backgroundColor = nil
   }
   
   public func configureFor(termsOfUseURL: URL, privacyPolicyURL: URL, productName: String, textColor: UIColor = .black) {
@@ -34,6 +35,6 @@ public class ERTermsOfUseTextView: UITextView {
     
     self.attributedText = string
     
-    self.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue : UIColor.lightGray, NSAttributedStringKey.underlineStyle.rawValue : NSUnderlineStyle.styleSingle.rawValue]
+    self.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue : textColor, NSAttributedStringKey.underlineStyle.rawValue : NSUnderlineStyle.styleSingle.rawValue]
   }
 }

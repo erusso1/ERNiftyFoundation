@@ -13,19 +13,20 @@ public class ERTermsOfUseTextView: UITextView {
 
   public override init(frame: CGRect, textContainer: NSTextContainer?) {
     super.init(frame: frame, textContainer: textContainer)
+    backgroundColor = nil
   }
   
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
   
-  public func configureFor(termsOfUseURL: URL, privacyPolicyURL: URL) {
+  public func configureFor(termsOfUseURL: URL, privacyPolicyURL: URL, productName: String) {
     
     let paragraphStyle = NSMutableParagraphStyle()
     
     paragraphStyle.alignment = .center
     
-    let string = NSMutableAttributedString(string: "By continuing I agree to the Template terms of use and privacy policy.", attributes: [.paragraphStyle : paragraphStyle, .foregroundColor : UIColor.lightGray])
+    let string = NSMutableAttributedString(string: "By continuing I agree to the \(productName) terms of use and privacy policy.", attributes: [.paragraphStyle : paragraphStyle, .foregroundColor : UIColor.lightGray])
     
     string.setAsLink(textToFind: "terms of use", linkURL: termsOfUseURL)
     

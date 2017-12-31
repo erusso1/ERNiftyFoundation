@@ -79,7 +79,7 @@ class LogInViewController: UIViewController {
     
     func loadTerms() {
       
-      termsTextView.configureFor(termsOfUseURL: URL(string: "http://natgeo.com")!, privacyPolicyURL: URL(string: "http://nshipster.com")!)
+      termsTextView.configureFor(termsOfUseURL: URL(string: "http://natgeo.com")!, privacyPolicyURL: URL(string: "http://nshipster.com")!, productName: "")
     }
     
     loadSubtitle()

@@ -42,8 +42,8 @@ extension ERModelType {
     if let json = self.JSON {
       
       let data = try! JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-      let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-      return string as! String
+      let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)!
+      return string as String
     }
       
     else { return "\(self)" }

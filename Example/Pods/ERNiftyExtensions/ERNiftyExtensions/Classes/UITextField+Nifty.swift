@@ -15,7 +15,7 @@ extension UITextField {
   
   public func validate(characters: Int? = nil) -> Bool {
     guard let input = self.text, input != "" else { return false }
-    if let char = characters { return input.characters.count >= char  ?  true : false }
+    if let char = characters { return input.count >= char  ?  true : false }
     return true
   }
 }

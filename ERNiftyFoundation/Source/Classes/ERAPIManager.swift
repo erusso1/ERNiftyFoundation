@@ -97,7 +97,7 @@ extension ERAPIManager {
       if logsNetworkResponses {
         print("*****************************************")
         print("")
-        print(alamofireResponse.result.value)
+        print(alamofireResponse.result.value?.debugDescription ?? "No string response")
         print("")
       }
       
@@ -112,7 +112,7 @@ extension ERAPIManager {
       if logsNetworkResponses {
         print("*****************************************")
         print("")
-        print(alamofireResponse.result.value)
+        print(alamofireResponse.result.value.debugDescription)
         print("")
       }
       
@@ -129,7 +129,7 @@ extension ERAPIManager {
       if logsNetworkResponses {
         print("*****************************************")
         print("")
-        print(alamofireResponse.result.value)
+        print(alamofireResponse.result.value.debugDescription)
         print("")
       }
       
@@ -146,7 +146,7 @@ extension ERAPIManager {
       if logsNetworkResponses {
         print("*****************************************")
         print("")
-        print(alamofireResponse.result.value)
+        print(alamofireResponse.result.value.debugDescription)
         print("")
       }
       
@@ -165,7 +165,7 @@ extension ERAPIManager {
       if logsNetworkResponses {
         print("*****************************************")
         print("")
-        print(alamofireResponse.result.value)
+        print(alamofireResponse.result.value.debugDescription)
         print("")
       }
       
@@ -184,7 +184,7 @@ extension ERAPIManager {
       if logsNetworkResponses {
         print("*****************************************")
         print("")
-        print(alamofireResponse.result.value)
+        print(alamofireResponse.result.value.debugDescription)
         print("")
       }
       

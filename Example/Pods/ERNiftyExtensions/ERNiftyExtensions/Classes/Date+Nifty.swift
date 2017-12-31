@@ -95,3 +95,8 @@ extension Date {
     return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
   }
 }
+
+extension Date {
+  
+  public var milisecondsSince1970: Int { return Int(self.timeIntervalSince1970*1000.0.rounded()) }
+}

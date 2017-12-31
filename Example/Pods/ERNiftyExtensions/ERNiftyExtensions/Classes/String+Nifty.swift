@@ -14,7 +14,7 @@ extension String {
   public var base64EncodedString: String? {return self.data(using: String.Encoding.utf8)?.base64EncodedString()}
   
   /// Returns the receiver's number of characters.
-  public var length: Int {return Int(self.characters.count)}
+  public var length: Int {return Int(self.count)}
   
   /// Returns a `true` if the receiver is in email format.
   public var isEmail: Bool {
@@ -54,10 +54,8 @@ extension String {
   
   /// Returns the character at the given index.
   public subscript (index: Int) -> Character {
-    return self[self.characters.index(self.startIndex, offsetBy: index)]
+    return self[self.index(self.startIndex, offsetBy: index)]
   }
-  
-  
 }
 
 extension UnicodeScalar {

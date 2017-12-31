@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ERNiftyFoundation'
-  s.version          = '2.1.8'
+  s.version          = '2.1.9'
   s.summary          = 'A library of dependencies, models, and managers useful to start any iOS project.'
 
 # This description is used to generate tags and improve search results.
@@ -38,10 +38,6 @@ Pod::Spec.new do |s|
   # s.frameworks = 'UIKit', 'MapKit'
 
   s.dependency 'Alamofire'
-
-  s.dependency 'Armchair'
-
-  s.dependency 'DZNEmptyDataSet'
 
   s.dependency 'ERNiftyExtensions'
 

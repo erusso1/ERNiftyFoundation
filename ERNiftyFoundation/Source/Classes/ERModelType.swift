@@ -28,7 +28,7 @@ extension ERModelType {
   
     do { return try Wrap.wrap(self) }
     
-    catch { printPretty("Cannot return JSON for \(self): \(error.localizedDescription)"); return nil }
+    catch { printPretty("Cannot return JSON for model with id: \(id) - error: \(error.localizedDescription)"); return nil }
   }
   
   /// Creates a new model object by unboxing the passed `JSON` dictionary.

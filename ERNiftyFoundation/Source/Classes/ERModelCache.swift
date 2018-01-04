@@ -14,7 +14,7 @@ public class ERModelCache {
   
   public static var logsCaching = false
   
-  public static var userDefaultsStore: UserDefaults = .standard
+  public static var userDefaultsStore: UserDefaults { return .standard }
   
   public static let shared: ERModelCache = {
     

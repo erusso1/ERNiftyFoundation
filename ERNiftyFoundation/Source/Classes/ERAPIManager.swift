@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireNetworkActivityLogger
 import Unbox
 
 //**************************************************//
@@ -195,7 +196,15 @@ extension ERAPIManager {
 
 extension ERAPIManager {
 
-  public static var logsNetworkResponses: Bool = false
+  public static var logsNetworkResponses: Bool = false {
+    
+    didSet {
+     
+      if logsNetworkResponses { NetworkActivityLogger.shared.startLogging() }
+      
+      else { NetworkActivityLogger.shared.stopLogging() }
+    }
+  }
 }
 
 //**************************************************//

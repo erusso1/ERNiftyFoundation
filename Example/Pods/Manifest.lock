@@ -1,12 +1,15 @@
 PODS:
   - Alamofire (4.6.0)
-  - Armchair (0.3.5)
-  - DZNEmptyDataSet (1.8.1)
-  - ERNiftyExtensions (3.0.9)
+  - AlamofireNetworkActivityLogger (2.2.0):
+    - Alamofire (~> 4.0)
+  - CommonCrypto (1.1)
+  - CryptoSwift (0.8.0)
+  - ERNiftyExtensions (3.1.0):
+    - CommonCrypto
+    - CryptoSwift
   - ERNiftyFoundation (2.2.1):
     - Alamofire
-    - Armchair
-    - DZNEmptyDataSet
+    - AlamofireNetworkActivityLogger
     - ERNiftyExtensions
     - PhoneNumberKit
     - Unbox
@@ -29,10 +32,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  Armchair: 0ab9237bc373e26245c7651acf193d85fb9c033a
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  ERNiftyExtensions: 39f75e0f6ca3f9c24a7864edec5a6bf630c6dfcc
-  ERNiftyFoundation: 8353684a12dfc5f26f0cff750d04b0787dd7e43c
+  AlamofireNetworkActivityLogger: a7ae1842988b3f6248a49213268375bd27b515f0
+  CommonCrypto: e18c8416332cca5efe80c197f2a522d471c42626
+  CryptoSwift: f81907430ebbe38b8404b4f6fb40f3c576a8755f
+  ERNiftyExtensions: d00730ae94496e8b28f3f16f0b30b39f047dc0c5
+  ERNiftyFoundation: 6de60773a357b2093f97762dfafa863ba5774cc2
   PhoneNumberKit: 62003f40ff75315fd3738286558bc365365ac222
   Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
   Wrap: 918fdb5157e4f701f9503b2633752d6f94616f84

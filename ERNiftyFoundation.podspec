@@ -39,9 +39,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'Alamofire'
 
-  s.dependency 'Armchair'
-
-  s.dependency 'DZNEmptyDataSet'
+  s.dependency 'AlamofireNetworkActivityLogger'
 
   s.dependency 'ERNiftyExtensions'
 

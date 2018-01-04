@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CryptoSwift
 
 extension String {
   
@@ -160,5 +161,23 @@ extension String {
     }
     
     return chars
+  }
+  
+  public func hashedPassword() -> String
+  {
+    func createHash(string: String) -> String {
+      
+      guard !string.isEmpty else {return ""}
+      
+      guard let data = string.data(using: .utf8) else {return ""}
+      
+      let digest = Digest.sha512(data.bytes)
+      
+      let output = digest.map({String(format: "%02x", $0)}).joined().uppercased()
+      
+      return output
+    }
+    
+    return createHash(string: createHash(string: self))
   }
 }

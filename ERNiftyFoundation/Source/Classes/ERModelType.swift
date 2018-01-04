@@ -23,6 +23,7 @@ public protocol ERModelType: Equatable, Unboxable, WrapCustomizable, CustomDebug
 
 extension ERModelType {
 
+  /// Returns the JSON dictionary computed by the `Wrap` framework. The encoded keys are determined by the `wrapKeyStyle` property, with a default set to `matchPropertyName`.
   public var JSON: JSONObject? {
   
     do { return try Wrap.wrap(self) }
@@ -30,6 +31,7 @@ extension ERModelType {
     catch { printPretty("Cannot return JSON for \(self): \(error.localizedDescription)"); return nil }
   }
   
+  /// Creates a new model object by unboxing the passed `JSON` dictionary.
   public init(JSON: JSONObject) throws { try self.init(unboxer: Unboxer(dictionary: JSON)) }
 }
 
@@ -48,4 +50,10 @@ extension ERModelType {
       
     else { return "\(self)" }
   }
+}
+
+extension ERModelType {
+  
+  /// The key style encoding type used by the `Wrap` framework. Default is set to `.matchPropertyName`.
+  public var wrapKeyStyle: WrapKeyStyle { return .matchPropertyName }
 }

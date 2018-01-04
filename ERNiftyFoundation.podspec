@@ -43,8 +43,6 @@ Pod::Spec.new do |s|
 
   s.dependency 'ERNiftyExtensions'
 
-  s.dependency 'PhoneNumberKit'
-
   s.dependency 'Unbox'
 
   s.dependency 'Wrap'

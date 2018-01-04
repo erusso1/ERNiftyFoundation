@@ -7,19 +7,12 @@ PODS:
   - ERNiftyExtensions (3.1.0):
     - CommonCrypto
     - CryptoSwift
-  - ERNiftyFoundation (2.2.1):
+  - ERNiftyFoundation (2.2.2):
     - Alamofire
     - AlamofireNetworkActivityLogger
     - ERNiftyExtensions
-    - PhoneNumberKit
     - Unbox
     - Wrap
-  - PhoneNumberKit (2.1.0):
-    - PhoneNumberKit/PhoneNumberKitCore (= 2.1.0)
-    - PhoneNumberKit/UIKit (= 2.1.0)
-  - PhoneNumberKit/PhoneNumberKitCore (2.1.0)
-  - PhoneNumberKit/UIKit (2.1.0):
-    - PhoneNumberKit/PhoneNumberKitCore
   - Unbox (2.5.0)
   - Wrap (3.0.0)
 
@@ -36,8 +29,7 @@ SPEC CHECKSUMS:
   CommonCrypto: e18c8416332cca5efe80c197f2a522d471c42626
   CryptoSwift: f81907430ebbe38b8404b4f6fb40f3c576a8755f
   ERNiftyExtensions: d00730ae94496e8b28f3f16f0b30b39f047dc0c5
-  ERNiftyFoundation: 6de60773a357b2093f97762dfafa863ba5774cc2
-  PhoneNumberKit: 62003f40ff75315fd3738286558bc365365ac222
+  ERNiftyFoundation: fbb0b3816a721237e27bfcb7bc59741650946be6
   Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
   Wrap: 918fdb5157e4f701f9503b2633752d6f94616f84
 

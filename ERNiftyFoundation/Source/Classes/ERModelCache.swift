@@ -12,7 +12,7 @@ public class ERModelCache {
   
   private static let defaultsKey = "model_cache"
   
-  public static var logsCaching = false
+  internal static var logsCaching = false
   
   public static var userDefaultsStore: UserDefaults { return .standard }
   
@@ -66,6 +66,8 @@ public class ERModelCache {
       list.append(model)
     }
     
+    if ERModelCache.logsCaching { printPretty("Retreived all \(T.self) models from cache") }
+    
     return list
   }
   
@@ -82,23 +84,12 @@ public class ERModelCache {
     
     guard let modelJSON = map[id] as? JSONObject else {
       
-      if ERModelCache.logsCaching {
-        print("*****************************************")
-        print("")
-        print("Model of type \(T.self) with id \(id) doesn't exist in cache.")
-        print("")
-      }
+      if ERModelCache.logsCaching { printPretty("Model of type \(T.self) with id \(id) doesn't exist in cache.") }
       
       return nil
     }
     
-    if ERModelCache.logsCaching {
-      
-      print("*****************************************")
-      print("")
-      print("Retreived model of type \(T.self) with id \(id) from cache.")
-      print("")
-    }
+    if ERModelCache.logsCaching { printPretty("Retreived model of type \(T.self) with id \(id) from cache.") }
     
     return modelJSON.unboxedObject()
   }
@@ -139,6 +130,8 @@ public class ERModelCache {
     }
     
     save(map: map, type: type)
+    
+    if ERModelCache.logsCaching { printPretty("Updated \(keys.count) \(T.self) models in cache") }
   }
   
   public func add<T: ERModelType>(model: T) {
@@ -152,6 +145,8 @@ public class ERModelCache {
     map[model.id] = dic
     
     save(map: map, type: T.self)
+    
+    if ERModelCache.logsCaching { printPretty("Updated \(T.self) model in cache") }
   }
   
   public func add<T: ERModelType>(models: [T]) {
@@ -168,6 +163,8 @@ public class ERModelCache {
     }
     
     save(map: map, type: T.self)
+    
+    if ERModelCache.logsCaching { printPretty("Updated \(models.count) \(T.self) models to cache") }
   }
   
   public func contains<T: ERModelType>(model: T) -> Bool { return containsModel(withId: model.id, ofType: T.self) }
@@ -190,5 +187,7 @@ public class ERModelCache {
     map.removeAll()
     
     save(map: map, type: type)
+    
+    if ERModelCache.logsCaching { printPretty("Cleared all \(type) models in cache") }
   }
 }

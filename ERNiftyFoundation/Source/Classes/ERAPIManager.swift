@@ -95,12 +95,7 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseString(queue: utilityQueue) { alamofireResponse in
 
-      if logsNetworkResponses {
-        print("*****************************************")
-        print("")
-        print(alamofireResponse.result.value?.debugDescription ?? "No string response")
-        print("")
-      }
+      if logsNetworkActivity { printPretty(alamofireResponse.result.value?.debugDescription ?? "No string response") }
       
       response?(alamofireResponse.result.value, alamofireResponse.error)
     }
@@ -110,12 +105,7 @@ extension ERAPIManager {
     
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
       
-      if logsNetworkResponses {
-        print("*****************************************")
-        print("")
-        print(alamofireResponse.result.value.debugDescription)
-        print("")
-      }
+      if logsNetworkActivity { printPretty(alamofireResponse.result.value.debugDescription) }
       
       let JSON = alamofireResponse.result.value as? JSONObject
       
@@ -127,12 +117,7 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
-      if logsNetworkResponses {
-        print("*****************************************")
-        print("")
-        print(alamofireResponse.result.value.debugDescription)
-        print("")
-      }
+      if logsNetworkActivity { printPretty(alamofireResponse.result.value.debugDescription) }
       
       let JSONs = alamofireResponse.result.value as? [JSONObject]
 
@@ -144,12 +129,7 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
-      if logsNetworkResponses {
-        print("*****************************************")
-        print("")
-        print(alamofireResponse.result.value.debugDescription)
-        print("")
-      }
+      if logsNetworkActivity { printPretty(alamofireResponse.result.value.debugDescription) }
       
       let JSON = alamofireResponse.result.value as? JSONObject
 
@@ -163,12 +143,7 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
-      if logsNetworkResponses {
-        print("*****************************************")
-        print("")
-        print(alamofireResponse.result.value.debugDescription)
-        print("")
-      }
+      if logsNetworkActivity { printPretty(alamofireResponse.result.value.debugDescription) }
       
       let JSONs = alamofireResponse.result.value as? [JSONObject]
 
@@ -182,12 +157,7 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
-      if logsNetworkResponses {
-        print("*****************************************")
-        print("")
-        print(alamofireResponse.result.value.debugDescription)
-        print("")
-      }
+      if logsNetworkActivity { printPretty(alamofireResponse.result.value.debugDescription) }
       
       response?(alamofireResponse.error)
     }
@@ -196,13 +166,13 @@ extension ERAPIManager {
 
 extension ERAPIManager {
 
-  public static var logsNetworkResponses: Bool = false {
+  public static var logsNetworkActivity: Bool = false {
     
     didSet {
      
-      if logsNetworkResponses { NetworkActivityLogger.shared.startLogging() }
+      if logsNetworkActivity { NetworkActivityLogger.shared.startLogging(); ERModelCache.logsCaching = true }
       
-      else { NetworkActivityLogger.shared.stopLogging() }
+      else { NetworkActivityLogger.shared.stopLogging(); ERModelCache.logsCaching = false }
     }
   }
 }

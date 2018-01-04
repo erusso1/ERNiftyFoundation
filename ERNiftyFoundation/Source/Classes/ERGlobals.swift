@@ -42,10 +42,10 @@ public func += <K, V> (left: inout [K:V], right: [K:V]) {
   }
 }
 
-public func printPretty(_ items: Any...) {
+public func printPretty(_ item: Any) {
 
   print("*****************************************")
   print("")
-  print(items)
+  print(item)
   print("")
 }

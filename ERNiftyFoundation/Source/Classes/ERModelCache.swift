@@ -13,8 +13,17 @@ public class ERModelCache {
   private static let defaultsKey = "model_cache"
   
   internal static var logsCaching = false
+    
+  public static var appGroupIdentifier: String? = nil
   
-  public static var userDefaultsStore: UserDefaults { return .standard }
+  public static var userDefaultsStore: UserDefaults {
+    
+    guard let identifier = appGroupIdentifier else { return .standard }
+    
+    guard let suite = UserDefaults(suiteName: identifier) else {return .standard }
+    
+    return suite
+  }
   
   public static let shared: ERModelCache = {
     

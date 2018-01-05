@@ -47,7 +47,7 @@ public class ERModelCache {
       
       let dic: JSONObject = [:]
       
-      ERModelCache.userDefaultsStore.set(dic, forKey: key)
+      ERModelCache.userDefaultsStore.set(dic, forKey: key); ERModelCache.userDefaultsStore.synchronize()
       
       return dic
     }
@@ -57,7 +57,7 @@ public class ERModelCache {
     
     let key = defaultsKeyForType(type: type)
     
-    ERModelCache.userDefaultsStore.set(map, forKey: key)
+    ERModelCache.userDefaultsStore.set(map, forKey: key); ERModelCache.userDefaultsStore.synchronize()
   }
   
   public func allModels<T: ERModelType>() -> [T] {

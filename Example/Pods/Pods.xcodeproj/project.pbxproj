@@ -211,6 +211,7 @@
 		ECE75FBFCDBB2646EE47C9CB528B1D9C /* BatchedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C3CFDF20780E6861B610F31D991BC9 /* BatchedCollection.swift */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEF39CFA87C039ABE45BF8CF49B4F93 /* Notifications.swift */; };
 		F2FC08E31D7AD3F2F086D14957CA7948 /* UnboxArrayContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C741F30FD7F1505E9D993B80F6627 /* UnboxArrayContainer.swift */; };
+		F30ACED82000A920007AE0F2 /* ERDateIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30ACED72000A920007AE0F2 /* ERDateIntervalFormatter.swift */; };
 		F399A11E1FFEB55400FE5D59 /* ERModelCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F399A11D1FFEB55400FE5D59 /* ERModelCache.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CF90BF08D98872E6C1617BE7C1B27 /* ResponseSerialization.swift */; };
 		F7E53FCB1BF84AD33AF40F70B6F44088 /* Array+Nifty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E39C07506D52C80B67F7DC60B10224 /* Array+Nifty.swift */; };
@@ -603,6 +604,7 @@
 		EFA0E2136885113BC6E98E82AD4D052B /* ERNiftyFoundation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ERNiftyFoundation-umbrella.h"; sourceTree = "<group>"; };
 		F0573F4C0BEDAA23280BCF94F66A31A6 /* SHA1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SHA1.swift; path = Sources/CryptoSwift/SHA1.swift; sourceTree = "<group>"; };
 		F2CB149205AFC047ABC11489B3D9A428 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		F30ACED72000A920007AE0F2 /* ERDateIntervalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = ERDateIntervalFormatter.swift; path = ERNiftyFoundation/Source/Classes/ERDateIntervalFormatter.swift; sourceTree = "<group>"; tabWidth = 4; };
 		F399A11D1FFEB55400FE5D59 /* ERModelCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; name = ERModelCache.swift; path = ERNiftyFoundation/Source/Classes/ERModelCache.swift; sourceTree = "<group>"; tabWidth = 2; };
 		F4772A5186142D77049F13B4A5842769 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4D8F63D876795BFC8212FABA82A7291 /* BlockModeOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockModeOptions.swift; path = Sources/CryptoSwift/BlockMode/BlockModeOptions.swift; sourceTree = "<group>"; };
@@ -772,6 +774,7 @@
 				26481649AF17ED937EFEA1FA88DE3D0E /* ERAPIManager.swift */,
 				BB487B18C4938B3501226917A36120EF /* ERAPIPathComponent.swift */,
 				78260E14FEC8E105CEB633B08F56470E /* ERAPNManager.swift */,
+				F30ACED72000A920007AE0F2 /* ERDateIntervalFormatter.swift */,
 				D33F01371A2BCAF2CA3580C8BA53FD5B /* ERDependencyExtensions.swift */,
 				0879B814E659114D3DAC2158BED0CE39 /* ERDevice.swift */,
 				689B3ED43757AA0E2FD26DEE18E98408 /* ERError.swift */,
@@ -1619,6 +1622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30ACED82000A920007AE0F2 /* ERDateIntervalFormatter.swift in Sources */,
 				0084668D3FB332ECACE3102F000E2609 /* ERAPIEndpoint.swift in Sources */,
 				E411BDCA6865C6DB3FB7C3361F652768 /* ERAPIEnvironment.swift in Sources */,
 				426E49818C6494AFAB5AD7EEB02623DD /* ERAPIManager.swift in Sources */,

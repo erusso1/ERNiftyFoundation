@@ -56,4 +56,11 @@ extension ERModelType {
   
   /// The key style encoding type used by the `Wrap` framework. Default is set to `.matchPropertyName`.
   public var wrapKeyStyle: WrapKeyStyle { return .matchPropertyName }
+  
+  public func wrap(propertyNamed propertyName: String, originalValue: Any, context: Any?, dateFormatter: DateFormatter?) throws -> Any? {
+    
+    guard let date = originalValue as? Date else {return nil}
+    
+    return ERDateIntervalFormatter.formatterType == .milliseconds ? date.milisecondsSince1970 : Int(date.timeIntervalSince1970.rounded())
+  }
 }

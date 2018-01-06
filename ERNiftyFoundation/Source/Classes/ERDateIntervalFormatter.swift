@@ -16,7 +16,16 @@ public enum ERDateIntervalFormatterType {
 
 public struct ERDateIntervalFormatter {
     
-    public static var formatterType: ERDateIntervalFormatterType = .milliseconds
+    public var formatterType: ERDateIntervalFormatterType = .milliseconds
+    
+    public init() {
+        
+    }
+    
+    public init(formatterType: ERDateIntervalFormatterType) {
+        
+        self.formatterType = formatterType
+    }
 }
 
 extension ERDateIntervalFormatter: UnboxFormatter {
@@ -29,11 +38,24 @@ extension ERDateIntervalFormatter: UnboxFormatter {
         
         let interval: TimeInterval
       
-        switch ERDateIntervalFormatter.formatterType {
+        switch formatterType {
         case .milliseconds: interval = (unboxedValue / 1000.0)
         case .seconds: interval = unboxedValue
         }
       
         return Date(timeIntervalSince1970: interval)
+    }
+}
+
+extension UnboxFormatter {
+    
+    public static var milliseconds: ERDateIntervalFormatter {
+        
+        return ERDateIntervalFormatter()
+    }
+    
+    public static var seconds: ERDateIntervalFormatter {
+        
+        return ERDateIntervalFormatter(formatterType: .seconds)
     }
 }

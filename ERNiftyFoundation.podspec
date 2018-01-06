@@ -23,8 +23,10 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'erusso1' => 'ephraim.s.russo@gmail.com' }
-  s.source           = { :git => 'https://github.com/erusso1/ERNiftyFoundation.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/erusso1/ERNiftyFoundation.git', :commit => "7d7a25036cb68bc59b678e00d6074bb87a5f9098" }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+
+  #:tag => s.version.to_s
 
   s.ios.deployment_target = '10.0'
 

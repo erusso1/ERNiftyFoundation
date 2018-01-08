@@ -34,11 +34,20 @@ public class ERModelCache {
   
   private func defaultsKeyForType<T: ERModelType>(type: T.Type) -> String { return "\(T.self)" }
   
+  private var allMapsInMemory: [String : JSONObject] = [:]
+  
   private func mapForType<T: ERModelType>(type: T.Type) -> JSONObject {
     
     let key = defaultsKeyForType(type: type)
     
-    if let dic =  ERModelCache.userDefaultsStore.object(forKey: key) as? JSONObject {
+    if let dic = allMapsInMemory[key] {
+      
+      return dic
+    }
+    
+    else if let dic =  ERModelCache.userDefaultsStore.object(forKey: key) as? JSONObject {
+      
+      allMapsInMemory[key] = dic
       
       return dic
     }
@@ -49,6 +58,8 @@ public class ERModelCache {
       
       ERModelCache.userDefaultsStore.set(dic, forKey: key); ERModelCache.userDefaultsStore.synchronize()
       
+      allMapsInMemory[key] = dic
+      
       return dic
     }
   }
@@ -56,6 +67,8 @@ public class ERModelCache {
   private func save<T: ERModelType>(map: JSONObject, type: T.Type) {
     
     let key = defaultsKeyForType(type: type)
+    
+    allMapsInMemory[key] = map
     
     ERModelCache.userDefaultsStore.set(map, forKey: key); ERModelCache.userDefaultsStore.synchronize()
   }

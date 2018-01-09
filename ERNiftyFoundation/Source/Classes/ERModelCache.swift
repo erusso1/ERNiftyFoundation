@@ -42,10 +42,14 @@ public class ERModelCache {
     
     if let dic = allMapsInMemory[key] {
       
+      if ERModelCache.logsCaching { printPretty("Loaded \(T.self) map from memory.") }
+      
       return dic
     }
     
     else if let dic =  ERModelCache.userDefaultsStore.object(forKey: key) as? JSONObject {
+      
+      if ERModelCache.logsCaching { printPretty("Loaded \(T.self) map from disk.") }
       
       allMapsInMemory[key] = dic
       
@@ -59,6 +63,8 @@ public class ERModelCache {
       ERModelCache.userDefaultsStore.set(dic, forKey: key); ERModelCache.userDefaultsStore.synchronize()
       
       allMapsInMemory[key] = dic
+      
+      if ERModelCache.logsCaching { printPretty("Initialized \(T.self) map in disk.") }
       
       return dic
     }
@@ -186,7 +192,7 @@ public class ERModelCache {
     
     save(map: map, type: T.self)
     
-    if ERModelCache.logsCaching { printPretty("Updated \(models.count) \(T.self) models to cache") }
+    if ERModelCache.logsCaching { printPretty("Updated \(models.count) \(T.self) models in cache") }
   }
   
   public func contains<T: ERModelType>(model: T) -> Bool { return containsModel(withId: model.id, ofType: T.self) }

@@ -12,7 +12,7 @@ public class ERModelCache {
   
   private static let defaultsKey = "model_cache"
   
-  internal static var logsCaching = false
+  public static var logsCaching = false
     
   public static var appGroupIdentifier: String? = nil
   
@@ -42,14 +42,14 @@ public class ERModelCache {
     
     if let dic = allMapsInMemory[key] {
       
-      if ERModelCache.logsCaching { printPretty("Loaded \(T.self) map from memory.") }
+      //if ERModelCache.logsCaching { printPretty("Loaded \(T.self) map from memory.") }
       
       return dic
     }
     
     else if let dic =  ERModelCache.userDefaultsStore.object(forKey: key) as? JSONObject {
       
-      if ERModelCache.logsCaching { printPretty("Loaded \(T.self) map from disk.") }
+      //if ERModelCache.logsCaching { printPretty("Loaded \(T.self) map from disk.") }
       
       allMapsInMemory[key] = dic
       
@@ -64,7 +64,7 @@ public class ERModelCache {
       
       allMapsInMemory[key] = dic
       
-      if ERModelCache.logsCaching { printPretty("Initialized \(T.self) map in disk.") }
+      //if ERModelCache.logsCaching { printPretty("Initialized \(T.self) map in disk.") }
       
       return dic
     }

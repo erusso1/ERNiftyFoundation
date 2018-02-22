@@ -206,6 +206,19 @@ public class ERModelCache {
     map.removeValue(forKey: model.id)
     
     save(map: map, type: T.self)
+    
+    if ERModelCache.logsCaching { printPretty("Removed \(T.self) model from cache") }
+  }
+  
+  public func remove<T: ERModelType>(models: [T]) {
+    
+    var map = mapForType(type: T.self)
+    
+    for model in models { map.removeValue(forKey: model.id) }
+    
+    save(map: map, type: T.self)
+    
+    if ERModelCache.logsCaching { printPretty("Remove \(models.count) \(T.self) models from cache") }
   }
   
   public func clearDataForType<T: ERModelType>(type: T.Type) {

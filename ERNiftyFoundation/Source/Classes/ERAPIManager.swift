@@ -95,7 +95,7 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseString(queue: utilityQueue) { alamofireResponse in
 
-      if logsNetworkActivity { printPretty(alamofireResponse.result.value?.debugDescription ?? "No string response") }
+      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
       
       response?(alamofireResponse.result.value, alamofireResponse.error)
     }
@@ -105,7 +105,7 @@ extension ERAPIManager {
     
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
       
-      if logsNetworkActivity { printPretty(alamofireResponse.result.value.debugDescription) }
+      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
       
       let JSON = alamofireResponse.result.value as? JSONObject
       
@@ -117,7 +117,7 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
-      if logsNetworkActivity { printPretty(alamofireResponse.result.value.debugDescription) }
+      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
       
       let JSONs = alamofireResponse.result.value as? [JSONObject]
 
@@ -129,7 +129,7 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
-      if logsNetworkActivity { printPretty(alamofireResponse.result.value.debugDescription) }
+      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
       
       let JSON = alamofireResponse.result.value as? JSONObject
 
@@ -143,7 +143,7 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
-      if logsNetworkActivity { printPretty(alamofireResponse.result.value.debugDescription) }
+      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
       
       let JSONs = alamofireResponse.result.value as? [JSONObject]
 
@@ -157,7 +157,7 @@ extension ERAPIManager {
 
     Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
 
-      if logsNetworkActivity { printPretty(alamofireResponse.result.value.debugDescription) }
+      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
       
       response?(alamofireResponse.error)
     }

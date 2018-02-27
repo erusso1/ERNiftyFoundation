@@ -32,7 +32,7 @@ public struct ERAPIEndpoint {
 
 extension ERAPIEndpoint: CustomStringConvertible {
   
-  public var description: String { return "Endpoint: \(urlString)" }
+  public var description: String { return urlString }
 }
 
 extension ERAPIEndpoint: URLConvertible {

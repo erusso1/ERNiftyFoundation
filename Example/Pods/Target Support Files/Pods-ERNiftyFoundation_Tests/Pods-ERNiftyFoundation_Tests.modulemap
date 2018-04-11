@@ -1,6 +1,0 @@
-framework module Pods_ERNiftyFoundation_Tests {
-  umbrella header "Pods-ERNiftyFoundation_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}

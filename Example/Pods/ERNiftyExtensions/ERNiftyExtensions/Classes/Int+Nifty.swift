@@ -16,4 +16,20 @@ extension Int {
   
   /// Returns a human readable currency string by taking the receiver as the number of cents USD.
   public var currencyString:String {return (Double(self)/100.0).currencyString}
+  
+  /// Returns a random integer between the closed range.
+  public static func random(between range: CountableClosedRange<Int>) -> Int
+  {
+    var offset = 0
+    
+    if range.lowerBound < 0   // allow negative ranges
+    {
+      offset = Swift.abs(range.lowerBound)
+    }
+    
+    let mini = UInt32(range.lowerBound + offset)
+    let maxi = UInt32(range.upperBound + offset + 1)
+    
+    return Int(mini + arc4random_uniform(maxi - mini)) - offset
+  }
 }

@@ -20,5 +20,38 @@ extension UILabel {
     self.layer.add(animation, forKey: "kCATransitionFade")
     self.text = text
   }
+  
+  /// The the line spacing to the passed `spacing` value in point. Only applies after the `text` property has been set.
+  public func setLineSpacing(_ spacing: CGFloat) {
+    
+    guard let text = self.text else {return}
+    
+    let attributedString = NSMutableAttributedString(string: text)
+    
+    // *** Create instance of `NSMutableParagraphStyle`
+    let paragraphStyle = NSMutableParagraphStyle()
+    
+    // *** set LineSpacing property in points ***
+    paragraphStyle.lineSpacing = spacing
+    
+    // *** Apply attribute to string ***
+    attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length-1))
+    
+    // *** Set Attributed String to your label ***
+    self.attributedText = attributedString;
+  }
+  
+  /// The the line spacing to the passed `spacing` value in point. Only applies after the `text` property has been set.
+  public func setCharacterSpacing(_ spacing: CGFloat) {
+    
+    guard let text = self.text else {return}
+    
+    let attributedString = NSMutableAttributedString(string: text)
+    
+    // *** Apply attribute to string ***
+    attributedString.addAttribute(.kern, value: spacing, range: NSRange(location: 0, length: attributedString.length-1))
+    
+    // *** Set Attributed String to your label ***
+    self.attributedText = attributedString;
+  }
 }
-

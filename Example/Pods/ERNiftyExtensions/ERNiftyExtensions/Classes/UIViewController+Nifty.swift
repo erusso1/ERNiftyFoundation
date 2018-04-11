@@ -53,7 +53,7 @@ extension UIViewController {
       
       guard let url = URL(string: UIApplicationOpenSettingsURLString) else {return}
       
-      UIApplication.shared.open(url, options: [:], completionHandler: nil)
+      NotificationCenter.default.post(name: .erNiftyOpenSettingsNotification, object: url)
     }
     
     alertController.addAction(cancelAction)
@@ -77,7 +77,7 @@ extension UIViewController {
     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
     let callAction = UIAlertAction(title: "Call", style: .default) { _ in
       guard let url = URL(string: "tel:\(phone)") else {return}
-      UIApplication.shared.open(url, options: [:], completionHandler: nil)
+      NotificationCenter.default.post(name: .erNiftyOpenCallNotification, object: url)      
     }
     controller.addAction(cancelAction)
     controller.addAction(callAction)

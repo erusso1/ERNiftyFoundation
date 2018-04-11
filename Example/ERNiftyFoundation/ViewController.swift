@@ -66,7 +66,7 @@ class LogInViewController: UIViewController {
     loadStrings()
     fadeInContainerView()
     loadSocket()
-    test()
+    //test()
     testTextFieldSwitch()
   }
   

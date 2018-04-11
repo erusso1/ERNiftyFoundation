@@ -10,7 +10,7 @@ import Foundation
 
 public class ERModelCache {
   
-  private static let defaultsKey = "model_cache"
+  private static let defaultsKey = "ERModelCache"
   
   public static var logsCaching = false
     
@@ -32,7 +32,7 @@ public class ERModelCache {
     return cache
   }()
   
-  private func defaultsKeyForType<T: ERModelType>(type: T.Type) -> String { return "\(T.self)" }
+  private func defaultsKeyForType<T: ERModelType>(type: T.Type) -> String { return "\(ERModelCache.defaultsKey).\(T.self)" }
   
   private var allMapsInMemory: [String : JSONObject] = [:]
   
@@ -47,7 +47,7 @@ public class ERModelCache {
       return dic
     }
     
-    else if let dic =  ERModelCache.userDefaultsStore.object(forKey: key) as? JSONObject {
+    else if let dic =  ERModelCache.userDefaultsStore.value(forKey: key) as? JSONObject {
       
       //if ERModelCache.logsCaching { printPretty("Loaded \(T.self) map from disk.") }
       
@@ -60,7 +60,7 @@ public class ERModelCache {
       
       let dic: JSONObject = [:]
       
-      ERModelCache.userDefaultsStore.set(dic, forKey: key); ERModelCache.userDefaultsStore.synchronize()
+      ERModelCache.userDefaultsStore.setValue(dic, forKey: key)
       
       allMapsInMemory[key] = dic
       
@@ -76,7 +76,7 @@ public class ERModelCache {
     
     allMapsInMemory[key] = map
     
-    ERModelCache.userDefaultsStore.set(map, forKey: key); ERModelCache.userDefaultsStore.synchronize()
+    ERModelCache.userDefaultsStore.setValue(map, forKey: key)
   }
   
   public func allModels<T: ERModelType>() -> [T] {
@@ -230,5 +230,21 @@ public class ERModelCache {
     save(map: map, type: type)
     
     if ERModelCache.logsCaching { printPretty("Cleared all \(type) models in cache") }
+  }
+  
+  public func clearAllData() {
+    
+    allMapsInMemory.removeAll()
+    
+    for key in ERModelCache.userDefaultsStore.dictionaryRepresentation().keys {
+      
+      if key.hasPrefix("ERModelCache.") {
+        
+        ERModelCache.userDefaultsStore.removeObject(forKey: key)
+      }
+    }
+    
+    if ERModelCache.logsCaching { printPretty("Cleared all data in cache") }
+
   }
 }

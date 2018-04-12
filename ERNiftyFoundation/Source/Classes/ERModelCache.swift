@@ -248,3 +248,12 @@ public class ERModelCache {
 
   }
 }
+
+extension ERModelType {
+  
+  public static func allModelsInCache() -> [Self] { return ERModelCache.shared.allModels() }
+  
+  public static func getModelInCacheWith(id: String) -> Self? { return ERModelCache.shared.getModelWith(id: id) }
+  
+  public static func getModelsInCacheWith(ids: [String]) -> [Self] { return ERModelCache.shared.getModelsWith(ids: ids) }
+}

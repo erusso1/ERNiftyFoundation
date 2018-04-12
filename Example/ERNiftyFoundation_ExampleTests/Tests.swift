@@ -63,9 +63,7 @@ class ERNiftyFoundation_ExampleTests: XCTestCase {
         
         ERModelCache.logsCaching = true
         
-        let allModels0: [SomeType] = ERModelCache.shared.allModels()
-        
-        print(allModels0)
+        ERModelCache.shared.clearAllData()
         
         let thing1 = SomeType(id: "1")
         
@@ -77,27 +75,20 @@ class ERNiftyFoundation_ExampleTests: XCTestCase {
         
         let allModels1: [SomeType] = ERModelCache.shared.allModels()
         
+        let allModelsB = SomeType.allModelsInCache()
+        
         XCTAssertTrue(allModels1.count == 1, "A")
+        
+        XCTAssertEqual(allModels1, allModelsB)
         
         let allModels2: [SomeOtherType] = ERModelCache.shared.allModels()
         
+        let modelC = SomeOtherType.getModelInCacheWith(id: "2")
+        
         XCTAssertTrue(allModels2.count == 1, "B")
         
-        printPretty(ERModelCache.userDefaultsStore.dictionaryRepresentation())
+        XCTAssertEqual(allModels2, [modelC!])
         
         ERModelCache.shared.clearAllData()
-        
-        printPretty(ERModelCache.userDefaultsStore.dictionaryRepresentation())
-
-//        let newModels1: [SomeType] = ERModelCache.shared.allModels()
-//
-//        XCTAssertTrue(newModels1.isEmpty, "C")
-//
-//        let newModels2: [SomeOtherType] = ERModelCache.shared.allModels()
-//
-//        XCTAssertTrue(newModels2.isEmpty, "D")
-//
-//        printPretty(ERModelCache.userDefaultsStore.dictionaryRepresentation())
-
     }    
 }

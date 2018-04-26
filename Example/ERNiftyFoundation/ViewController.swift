@@ -138,15 +138,15 @@ class LogInViewController: UIViewController {
   
   private func test() {
     
-    let u = User(id: "34fi8g34iuyb3foibvu34g", fullName: "Ephraim Russo")
+    //let u = User(id: "34fi8g34iuyb3foibvu34g", fullName: "Ephraim Russo")
     
-    guard let JSON = u.JSON else {return}
+    //guard let JSON = u.JSON else {return}
 
-    printPretty(JSON)
+    //printPretty(JSON)
 
-    guard let b = try? User(JSON: JSON) else {return}
+    //guard let b = try? User(JSON: JSON) else {return}
     
-    printPretty(b)
+    //printPretty(b)
     
   }
   

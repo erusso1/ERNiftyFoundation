@@ -7,77 +7,163 @@
 //
 
 import Foundation
+import ERNiftyExtensions
+import SwiftKeychainWrapper
 
 public class ERModelCache {
   
-  private static let defaultsKey = "ERModelCache"
+  //**************************************************//
+  
+  // MARK: Static Variables
   
   public static var logsCaching = false
     
   public static var appGroupIdentifier: String? = nil
-  
-  public static var userDefaultsStore: UserDefaults {
     
-    guard let identifier = appGroupIdentifier else { return .standard }
-    
-    guard let suite = UserDefaults(suiteName: identifier) else {return .standard }
-    
-    return suite
-  }
-  
   public static let shared: ERModelCache = {
     
     let cache = ERModelCache()
     
+    if FileManager.default.fileExists(atPath: cache.diskDirectoryURL.path) == false {
+      
+      do {
+        
+        try FileManager.default.createDirectory(at: cache.diskDirectoryURL, withIntermediateDirectories: false, attributes: nil)
+        
+        if ERModelCache.logsCaching { print("Successfully created the disk folder for ERModelCache") }
+      }
+        
+      catch {  print("An error ocurred creating the disk folder for ERModelCache: \(error)") }
+    }
+  
     return cache
   }()
   
-  private func defaultsKeyForType<T: ERModelType>(type: T.Type) -> String { return "\(ERModelCache.defaultsKey).\(T.self)" }
+  //**************************************************//
   
+  // MARK: Private Methods
+  
+  private func fileNameForType<T: ERModelType>(type: T.Type) -> String { return "\(T.self)" }
+  
+  private func diskURLForType<T: ERModelType>(type: T.Type) -> URL { return diskDirectoryURL.appendingPathComponent(fileNameForType(type: type)) }
+ 
   private var allMapsInMemory: [String : JSONObject] = [:]
   
   private func mapForType<T: ERModelType>(type: T.Type) -> JSONObject {
     
-    let key = defaultsKeyForType(type: type)
+    let fileName = fileNameForType(type: type)
     
-    if let dic = allMapsInMemory[key] {
+    // The map already exists in memory.
+    if let dic = allMapsInMemory[fileName] {
       
       //if ERModelCache.logsCaching { printPretty("Loaded \(T.self) map from memory.") }
       
       return dic
     }
-    
-    else if let dic =  ERModelCache.userDefaultsStore.value(forKey: key) as? JSONObject {
       
-      //if ERModelCache.logsCaching { printPretty("Loaded \(T.self) map from disk.") }
-      
-      allMapsInMemory[key] = dic
-      
-      return dic
-    }
-      
+    // Check if the map exists on disk.
     else {
       
-      let dic: JSONObject = [:]
+      let url = diskURLForType(type: type)
       
-      ERModelCache.userDefaultsStore.setValue(dic, forKey: key)
+      if FileManager.default.fileExists(atPath: url.path) {
+        
+        guard let encrypted = try? Data(contentsOf: url) else {return [:]}
+        
+        guard let key = KeychainWrapper.standard.string(forKey: "\(fileName)-Disk-Key") else {return [:]}
+        
+        guard let iv = KeychainWrapper.standard.string(forKey: "\(fileName)-Disk-IV") else {return [:]}
+        
+        let decrypted = encrypted.decryptedAES(withKey: key, iv: iv)
+        
+        guard let dic = try? JSONSerialization.jsonObject(with: decrypted, options: []) as? JSONObject else {return [:]}
+        
+        allMapsInMemory[fileName] = dic
+        
+        if dic != nil { print("Successfully decrypted map for type: \(type)") }
+        
+        return dic ?? [:]
+      }
       
-      allMapsInMemory[key] = dic
-      
-      //if ERModelCache.logsCaching { printPretty("Initialized \(T.self) map in disk.") }
-      
-      return dic
+      // Create an empty map on disk.
+      else {
+        
+        let dic: JSONObject = [:]
+        
+        let data = try! JSONSerialization.data(withJSONObject: dic, options: [])
+        
+        if FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil) {
+          
+          print("Successfully created empty map for type: \(type) on disk")
+        }
+        
+        allMapsInMemory[fileName] = dic
+        
+        return dic
+      }
     }
+    
+//    else if let dic = ERModelCache.userDefaultsStore.value(forKey: key) as? JSONObject {
+//
+//      //if ERModelCache.logsCaching { printPretty("Loaded \(T.self) map from disk.") }
+//
+//      allMapsInMemory[key] = dic
+//
+//      return dic
+//    }
+//
+//    else {
+//
+//      let dic: JSONObject = [:]
+//
+//      ERModelCache.userDefaultsStore.setValue(dic, forKey: key)
+//
+//      allMapsInMemory[key] = dic
+//
+//      //if ERModelCache.logsCaching { printPretty("Initialized \(T.self) map in disk.") }
+//
+//      return dic
+//    }
   }
   
   private func save<T: ERModelType>(map: JSONObject, type: T.Type) {
     
-    let key = defaultsKeyForType(type: type)
+    let fileName = fileNameForType(type: type)
+
+    allMapsInMemory[fileName] = map
     
-    allMapsInMemory[key] = map
+    let encryptionKey: String
     
-    ERModelCache.userDefaultsStore.setValue(map, forKey: key)
+    let iv: String
+    
+    if let existingKey = KeychainWrapper.standard.string(forKey: "\(fileName)-Disk-Key") { encryptionKey = existingKey }
+    
+    else { encryptionKey = String.random(length: 32); KeychainWrapper.standard.set(encryptionKey, forKey: "\(fileName)-Disk-Key") }
+    
+    if let existingIV = KeychainWrapper.standard.string(forKey: "\(fileName)-Disk-IV") { iv = existingIV }
+    
+    else { iv = String.random(length: 16); KeychainWrapper.standard.set(iv, forKey: "\(fileName)-Disk-IV") }
+    
+    guard let rawData = try? JSONSerialization.data(withJSONObject: map, options: []) else {return}
+  
+    let encrypted = rawData.encrptedAES(withKey: encryptionKey, iv: iv)
+    
+    let url = diskURLForType(type: type)
+
+    do {
+      
+      try encrypted.write(to: url, options: .completeFileProtection)
+      
+      if ERModelCache.logsCaching { printPretty("Saved all models in memory to disk") }
+      
+    }
+    
+    catch { print("An error ocurred writing the encrypted data to \(url) - \(error)") }
   }
+  
+  //**************************************************//
+  
+  // MARK: Data Retreival
   
   public func allModels<T: ERModelType>() -> [T] {
     
@@ -140,6 +226,10 @@ public class ERModelCache {
     return array
   }
   
+  //**************************************************//
+  
+  // MARK: Data Addition
+  
   public func swap<T: ERModelType>(modelJSON: JSONObject, type: T.Type) {
     
     let keys = Array<String>(modelJSON.keys)
@@ -195,9 +285,17 @@ public class ERModelCache {
     if ERModelCache.logsCaching { printPretty("Updated \(models.count) \(T.self) models in cache") }
   }
   
+  //**************************************************//
+  
+  // MARK: Data Checking
+  
   public func contains<T: ERModelType>(model: T) -> Bool { return containsModel(withId: model.id, ofType: T.self) }
   
   public func containsModel<T: ERModelType>(withId id: String, ofType type: T.Type) -> Bool { return mapForType(type: type)[id] != nil }
+  
+  //**************************************************//
+  
+  // MARK: Data Removal
   
   public func remove<T: ERModelType>(model: T) {
     
@@ -221,6 +319,10 @@ public class ERModelCache {
     if ERModelCache.logsCaching { printPretty("Remove \(models.count) \(T.self) models from cache") }
   }
   
+  //**************************************************//
+  
+  // MARK: Data Clearing
+  
   public func clearDataForType<T: ERModelType>(type: T.Type) {
     
     var map = mapForType(type: type)
@@ -229,28 +331,38 @@ public class ERModelCache {
     
     save(map: map, type: type)
     
-    if ERModelCache.logsCaching { printPretty("Cleared all \(type) models in cache") }
+    if ERModelCache.logsCaching { printPretty("Successfully cleared all \(type) models in cache") }
   }
   
   public func clearAllData() {
     
     allMapsInMemory.removeAll()
+  
+    guard FileManager.default.fileExists(atPath: diskDirectoryURL.path) else {return}
     
-    for key in ERModelCache.userDefaultsStore.dictionaryRepresentation().keys {
+    do {
       
-      if key.hasPrefix("ERModelCache.") {
-        
-        ERModelCache.userDefaultsStore.removeObject(forKey: key)
-      }
+      try FileManager.default.removeItem(at: diskDirectoryURL)
+      
+      if ERModelCache.logsCaching { printPretty("Successfully cleared all data in cache") }
+      
     }
     
-    if ERModelCache.logsCaching { printPretty("Cleared all data in cache") }
-
+    catch { print("An error ocurred trying to clear all data from the disk: \(error)") }
   }
+  
+  //**************************************************//
+}
+
+extension ERModelCache {
+  
+  fileprivate var docomuentsDirectoryURL: URL { return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] }
+  
+  fileprivate var diskDirectoryURL: URL { return docomuentsDirectoryURL.appendingPathComponent("ERModelCache") }
 }
 
 extension ERModelType {
-  
+    
   public static func allModelsInCache() -> [Self] { return ERModelCache.shared.allModels() }
   
   public static func getModelInCacheWith(id: String) -> Self? { return ERModelCache.shared.getModelWith(id: id) }

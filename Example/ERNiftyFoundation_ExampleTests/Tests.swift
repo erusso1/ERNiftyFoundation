@@ -62,33 +62,33 @@ class ERNiftyFoundation_ExampleTests: XCTestCase {
     func testModelCache() {
         
         ERModelCache.logsCaching = true
+
+        let thing = SomeType(id: "1")
         
-        ERModelCache.shared.clearAllData()
+        let thing2 = SomeType(id: "2")
         
-        let thing1 = SomeType(id: "1")
+        let wing = SomeOtherType(id: "3")
         
-        let thing2 = SomeOtherType(id: "2")
-        
-        ERModelCache.shared.add(model: thing1)
+        ERModelCache.shared.add(model: thing)
         
         ERModelCache.shared.add(model: thing2)
         
-        let allModels1: [SomeType] = ERModelCache.shared.allModels()
+        ERModelCache.shared.add(model: wing)
         
-        let allModelsB = SomeType.allModelsInCache()
+        XCTAssertEqual(SomeType.allModelsInCache().count, 2)
         
-        XCTAssertTrue(allModels1.count == 1, "A")
+        XCTAssertEqual(SomeOtherType.allModelsInCache().count, 1)
         
-        XCTAssertEqual(allModels1, allModelsB)
+        XCTAssertEqual(thing, ERModelCache.shared.getModelWith(id: "1"))
         
-        let allModels2: [SomeOtherType] = ERModelCache.shared.allModels()
+        XCTAssertEqual(thing2, ERModelCache.shared.getModelWith(id: "2"))
         
-        let modelC = SomeOtherType.getModelInCacheWith(id: "2")
-        
-        XCTAssertTrue(allModels2.count == 1, "B")
-        
-        XCTAssertEqual(allModels2, [modelC!])
+        XCTAssertEqual(wing, ERModelCache.shared.getModelWith(id: "3"))
         
         ERModelCache.shared.clearAllData()
-    }    
+        
+        XCTAssertEqual(SomeType.allModelsInCache().count, 0)
+        
+        XCTAssertEqual(SomeOtherType.allModelsInCache().count, 0)
+    }
 }

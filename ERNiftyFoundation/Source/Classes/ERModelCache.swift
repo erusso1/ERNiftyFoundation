@@ -12,30 +12,25 @@ import SwiftKeychainWrapper
 
 public class ERModelCache {
   
+  public enum PersistenceLevel {
+    
+    case disk
+    
+    case memory
+  }
+  
   //**************************************************//
   
   // MARK: Static Variables
   
   public static var logsCaching = false
     
-  public static var appGroupIdentifier: String? = nil
-    
+  public static var persistenceLevel: PersistenceLevel = .disk
+  
   public static let shared: ERModelCache = {
     
     let cache = ERModelCache()
     
-    if FileManager.default.fileExists(atPath: cache.diskDirectoryURL.path) == false {
-      
-      do {
-        
-        try FileManager.default.createDirectory(at: cache.diskDirectoryURL, withIntermediateDirectories: false, attributes: nil)
-        
-        if ERModelCache.logsCaching { print("Successfully created the disk folder for ERModelCache") }
-      }
-        
-      catch {  print("An error ocurred creating the disk folder for ERModelCache: \(error)") }
-    }
-  
     return cache
   }()
   
@@ -64,19 +59,23 @@ public class ERModelCache {
     // Check if the map exists on disk.
     else {
       
+      func createEmptyMap() -> JSONObject { let dic: JSONObject = [:]; allMapsInMemory[fileName] = dic; return dic }
+      
+      guard ERModelCache.persistenceLevel == .disk else {return createEmptyMap()}
+      
       let url = diskURLForType(type: type)
       
       if FileManager.default.fileExists(atPath: url.path) {
         
-        guard let encrypted = try? Data(contentsOf: url) else {return [:]}
+        guard let encrypted = try? Data(contentsOf: url) else {return createEmptyMap()}
         
-        guard let key = KeychainWrapper.standard.string(forKey: "\(fileName)-Disk-Key") else {return [:]}
+        guard let key = KeychainWrapper.standard.string(forKey: "\(fileName)-Disk-Key") else {return createEmptyMap()}
         
-        guard let iv = KeychainWrapper.standard.string(forKey: "\(fileName)-Disk-IV") else {return [:]}
+        guard let iv = KeychainWrapper.standard.string(forKey: "\(fileName)-Disk-IV") else {return createEmptyMap()}
         
         let decrypted = encrypted.decryptedAES(withKey: key, iv: iv)
         
-        guard let dic = try? JSONSerialization.jsonObject(with: decrypted, options: []) as? JSONObject else {return [:]}
+        guard let dic = try? JSONSerialization.jsonObject(with: decrypted, options: []) as? JSONObject else {return createEmptyMap()}
         
         allMapsInMemory[fileName] = dic
         
@@ -85,22 +84,8 @@ public class ERModelCache {
         return dic ?? [:]
       }
       
-      // Create an empty map on disk.
-      else {
-        
-        let dic: JSONObject = [:]
-        
-        let data = try! JSONSerialization.data(withJSONObject: dic, options: [])
-        
-        if FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil) {
-          
-          print("Successfully created empty map for type: \(type) on disk")
-        }
-        
-        allMapsInMemory[fileName] = dic
-        
-        return dic
-      }
+      // Create an empty map.
+      else { return createEmptyMap() }
     }
     
 //    else if let dic = ERModelCache.userDefaultsStore.value(forKey: key) as? JSONObject {
@@ -132,6 +117,8 @@ public class ERModelCache {
 
     allMapsInMemory[fileName] = map
     
+    guard ERModelCache.persistenceLevel == .disk else {return}
+    
     let encryptionKey: String
     
     let iv: String
@@ -149,16 +136,61 @@ public class ERModelCache {
     let encrypted = rawData.encrptedAES(withKey: encryptionKey, iv: iv)
     
     let url = diskURLForType(type: type)
-
-    do {
+    
+    func writeToFile() {
       
-      try encrypted.write(to: url, options: .completeFileProtection)
-      
-      if ERModelCache.logsCaching { printPretty("Saved all models in memory to disk") }
-      
+      do {
+        
+        try encrypted.write(to: url, options: .completeFileProtection)
+        
+        if ERModelCache.logsCaching { printPretty("Saved all models in memory to disk") }
+      }
+        
+      catch { print("An error ocurred writing the encrypted data to \(url) - \(error)") }
     }
     
-    catch { print("An error ocurred writing the encrypted data to \(url) - \(error)") }
+    // Check if disk directory exists.
+    if FileManager.default.fileExists(atPath: diskDirectoryURL.path) {
+      
+      // Check if model file exists.
+      if FileManager.default.fileExists(atPath: url.path) { writeToFile() }
+      
+      // Create model file.
+      else if FileManager.default.createFile(atPath: url.path, contents: nil, attributes: nil) {
+        
+        if ERModelCache.logsCaching { print("Successfully created file for type: \(type) on disk") }
+        
+        // Write to file.
+        writeToFile()
+      }
+        
+      else { print("Unable to create file for type: \(type) on disk") }
+    }
+    
+    else {
+      
+      do {
+        
+        // Create directory.
+        try FileManager.default.createDirectory(atPath: diskDirectoryURL.path, withIntermediateDirectories: false, attributes: nil)
+        
+        if ERModelCache.logsCaching { print("Successfully created persistence folder on disk") }
+        
+        // Create model file.
+        if FileManager.default.createFile(atPath: url.path, contents: nil, attributes: nil) {
+          
+          if ERModelCache.logsCaching { print("Successfully created file for type: \(type) on disk") }
+          
+          // Write to file.
+          writeToFile()
+        }
+          
+        else { print("Unable to create file for type: \(type) on disk") }
+        
+      }
+        
+      catch { print("An error ocrred creating the persistence folder on disk: \(error)") }
+    }
   }
   
   //**************************************************//

@@ -59,9 +59,13 @@ class ERNiftyFoundation_ExampleTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testModelCache() {
+    func testDiskModelCache() {
         
         ERModelCache.logsCaching = true
+        
+        ERModelCache.persistenceLevel = .disk
+        
+        XCTAssertEqual(SomeType.allModelsInCache().count, 0)
 
         let thing = SomeType(id: "1")
         
@@ -86,9 +90,40 @@ class ERNiftyFoundation_ExampleTests: XCTestCase {
         XCTAssertEqual(wing, ERModelCache.shared.getModelWith(id: "3"))
         
         ERModelCache.shared.clearAllData()
+
+        XCTAssertEqual(SomeType.allModelsInCache().count, 0)
+
+        XCTAssertEqual(SomeOtherType.allModelsInCache().count, 0)
+    }
+    
+    func testMemoryModelCache() {
+        
+        ERModelCache.logsCaching = true
+
+        ERModelCache.persistenceLevel = .memory
         
         XCTAssertEqual(SomeType.allModelsInCache().count, 0)
         
-        XCTAssertEqual(SomeOtherType.allModelsInCache().count, 0)
+        let thing = SomeType(id: "1")
+        
+        let thing2 = SomeType(id: "2")
+        
+        let wing = SomeOtherType(id: "3")
+        
+        ERModelCache.shared.add(model: thing)
+        
+        ERModelCache.shared.add(model: thing2)
+        
+        ERModelCache.shared.add(model: wing)
+        
+        XCTAssertEqual(SomeType.allModelsInCache().count, 2)
+        
+        XCTAssertEqual(SomeOtherType.allModelsInCache().count, 1)
+        
+        XCTAssertEqual(thing, ERModelCache.shared.getModelWith(id: "1"))
+        
+        XCTAssertEqual(thing2, ERModelCache.shared.getModelWith(id: "2"))
+        
+        XCTAssertEqual(wing, ERModelCache.shared.getModelWith(id: "3"))
     }
 }

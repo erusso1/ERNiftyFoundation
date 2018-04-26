@@ -18,5 +18,18 @@ extension UITextField {
     if let char = characters { return input.count >= char  ?  true : false }
     return true
   }
+
+  public func setCharacterSpacing(_ spacing: CGFloat) {
+    
+    guard let text = self.text else {return}
+    
+    let attributedString = NSMutableAttributedString(string: text)
+    
+    // *** Apply attribute to string ***
+    attributedString.addAttribute(.kern, value: spacing, range: NSRange(location: 0, length: attributedString.length-1))
+    
+    // *** Set Attributed String to your label ***
+    self.attributedText = attributedString;
+  }
 }
 

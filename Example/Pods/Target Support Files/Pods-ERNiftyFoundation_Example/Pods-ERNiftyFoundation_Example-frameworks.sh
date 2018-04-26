@@ -149,6 +149,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ERNiftyExtensions/ERNiftyExtensions.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ERNiftyFoundation/ERNiftyFoundation.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Unbox/Unbox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Wrap/Wrap.framework"
 fi
@@ -159,6 +160,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ERNiftyExtensions/ERNiftyExtensions.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ERNiftyFoundation/ERNiftyFoundation.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Unbox/Unbox.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Wrap/Wrap.framework"
 fi

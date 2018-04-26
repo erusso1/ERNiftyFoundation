@@ -6,6 +6,8 @@
 //
 //
 
+import CryptoSwift
+
 extension Data {
   
   public var hexadecimal: String {
@@ -15,5 +17,17 @@ extension Data {
     }
     
     return token
+  }
+  
+  public func encrptedAES(withKey key: String, iv: String) -> Data {
+    
+    let encrypted = try! AES(key: key.bytes, blockMode: .CBC(iv: iv.bytes), padding: .pkcs7).encrypt([UInt8](self))    
+    return Data(encrypted)
+  }
+  
+  public func decryptedAES(withKey key: String, iv: String) -> Data {
+    
+    let decrypted = try! AES(key: key.bytes, blockMode: .CBC(iv: iv.bytes), padding: .pkcs7).decrypt([UInt8](self))
+    return Data(decrypted)
   }
 }

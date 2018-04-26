@@ -159,3 +159,18 @@ extension UIView {
     }
 }
 
+extension UIView {
+    
+    public func constrainToBoundsOfSuperView() {
+        
+        guard let containingView = self.superview else {return}
+        
+        let attributes: [NSLayoutAttribute] = [.top, .bottom, .left, .right]
+        
+        attributes.forEach { attribute in
+            
+            NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .equal, toItem: containingView, attribute: attribute, multiplier: 1, constant: 0).isActive = true            
+        }
+    }
+}
+

@@ -183,4 +183,21 @@ extension String {
     
     return createHash(string: createHash(string: self))
   }
+  
+  public static func random(length: Int) -> String {
+    
+    let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    
+    let len = UInt32(letters.count)
+    
+    var randomString = ""
+    
+    for _ in 0 ..< length {
+      let rand = arc4random_uniform(len)
+      var nextChar = String(letters[Int(rand)])
+      randomString += nextChar
+    }
+    
+    return randomString
+  }
 }

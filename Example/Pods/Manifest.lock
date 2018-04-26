@@ -1,18 +1,20 @@
 PODS:
-  - Alamofire (4.7.1)
+  - Alamofire (4.7.2)
   - AlamofireNetworkActivityLogger (2.3.0):
     - Alamofire (~> 4.6)
   - CommonCrypto (1.1)
   - CryptoSwift (0.9.0)
-  - ERNiftyExtensions (3.2.0):
+  - ERNiftyExtensions (3.2.4):
     - CommonCrypto
     - CryptoSwift
-  - ERNiftyFoundation (2.4.2):
+  - ERNiftyFoundation (2.4.5):
     - Alamofire
     - AlamofireNetworkActivityLogger
     - ERNiftyExtensions
+    - SwiftKeychainWrapper
     - Unbox
     - Wrap
+  - SwiftKeychainWrapper (3.0.1)
   - Unbox (2.5.0)
   - Wrap (3.0.0)
 
@@ -26,6 +28,7 @@ SPEC REPOS:
     - CommonCrypto
     - CryptoSwift
     - ERNiftyExtensions
+    - SwiftKeychainWrapper
     - Unbox
     - Wrap
 
@@ -34,12 +37,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   AlamofireNetworkActivityLogger: 6f3076652ab7fa6c819b59be08ea038d339e36d8
   CommonCrypto: e18c8416332cca5efe80c197f2a522d471c42626
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
-  ERNiftyExtensions: 56fc4413787fc267a7a1e4848986642f28016ba1
-  ERNiftyFoundation: 3f22cdb53f918ba4297ecd7a8fcb3c4e3480c9f5
+  ERNiftyExtensions: 0ce97dfba968c2eef1f744e76c1d5e1aafe3295a
+  ERNiftyFoundation: b2f29df452c13fa56e56e5e8f672ae7740f191d2
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
   Wrap: 918fdb5157e4f701f9503b2633752d6f94616f84
 

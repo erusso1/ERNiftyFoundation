@@ -368,8 +368,14 @@ public class ERModelCache {
   
   public func clearAllData() {
     
+    for fileName in allMapsInMemory.keys {
+      
+      KeychainWrapper.standard.removeObject(forKey: "\(fileName)-Disk-Key")
+      KeychainWrapper.standard.removeObject(forKey: "\(fileName)-Disk-IV")
+    }
+    
     allMapsInMemory.removeAll()
-  
+    
     guard FileManager.default.fileExists(atPath: diskDirectoryURL.path) else {return}
     
     do {
@@ -388,9 +394,9 @@ public class ERModelCache {
 
 extension ERModelCache {
   
-  fileprivate var docomuentsDirectoryURL: URL { return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] }
+  fileprivate var documentsDirectoryURL: URL { return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] }
   
-  fileprivate var diskDirectoryURL: URL { return docomuentsDirectoryURL.appendingPathComponent("ERModelCache") }
+  fileprivate var diskDirectoryURL: URL { return documentsDirectoryURL.appendingPathComponent("ERModelCache") }
 }
 
 extension ERModelType {

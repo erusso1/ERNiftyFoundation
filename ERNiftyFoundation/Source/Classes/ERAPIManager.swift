@@ -38,13 +38,13 @@ public struct ERAPIManager { }
 // MARK: Configuration
 
 extension ERAPIManager {
-  
-   public fileprivate(set) static var environment: ERAPIEnvironment!
-  
-  public static func configureFor(environment: ERAPIEnvironment) {
     
-    self.environment = environment
-  }
+    public fileprivate(set) static var environment: ERAPIEnvironment!
+    
+    public static func configureFor(environment: ERAPIEnvironment) {
+        
+        self.environment = environment
+    }
 }
 
 //**************************************************//
@@ -85,96 +85,96 @@ extension ERAPIManager {
 // MARK: Requests
 
 extension ERAPIManager {
-  
-  fileprivate static var utilityQueue: DispatchQueue { return .global(qos: .utility) }
+    
+    fileprivate static var utilityQueue: DispatchQueue { return .global(qos: .utility) }
 }
 
 extension ERAPIManager {
-
-  public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIStringResponse? = nil) {
-
-    Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseString(queue: utilityQueue) { alamofireResponse in
-
-      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
-      
-      response?(alamofireResponse.result.value, alamofireResponse.error)
-    }
-  }
-  
-  public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIJSONResponse? = nil) {
     
-    Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
-      
-      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
-      
-      let JSON = alamofireResponse.result.value as? JSONObject
-      
-      response?(JSON, alamofireResponse.error)
+    public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIStringResponse? = nil) {
+        
+        Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseString(queue: utilityQueue) { alamofireResponse in
+            
+            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + alamofireResponse.result.value.debugDescription) }
+            
+            response?(alamofireResponse.result.value, alamofireResponse.error)
+        }
     }
-  }
-
-  public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIMultipleJSONResponse? = nil) {
-
-    Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
-
-      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
-      
-      let JSONs = alamofireResponse.result.value as? [JSONObject]
-
-      response?(JSONs, alamofireResponse.error)
+    
+    public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIJSONResponse? = nil) {
+        
+        Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
+            
+            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + alamofireResponse.result.value.debugDescription) }
+            
+            let JSON = alamofireResponse.result.value as? JSONObject
+            
+            response?(JSON, alamofireResponse.error)
+        }
     }
-  }
-
-  public static func request<T: ERModelType>(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIModelResponse<T>? = nil) {
-
-    Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
-
-      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
-      
-      let JSON = alamofireResponse.result.value as? JSONObject
-
-      let unboxed: T? = JSON?.unboxedObject()
-
-      response?(unboxed, alamofireResponse.error)
+    
+    public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIMultipleJSONResponse? = nil) {
+        
+        Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
+            
+            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + alamofireResponse.result.value.debugDescription) }
+            
+            let JSONs = alamofireResponse.result.value as? [JSONObject]
+            
+            response?(JSONs, alamofireResponse.error)
+        }
     }
-  }
-
-  public static func request<T: ERModelType>(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIMultipleModelResponse<T>? = nil) {
-
-    Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
-
-      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
-      
-      let JSONs = alamofireResponse.result.value as? [JSONObject]
-
-      let unboxed: [T]? = JSONs?.unboxedObjects()
-
-      response?(unboxed, alamofireResponse.error)
+    
+    public static func request<T: ERModelType>(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIModelResponse<T>? = nil) {
+        
+        Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
+            
+            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + alamofireResponse.result.value.debugDescription) }
+            
+            let JSON = alamofireResponse.result.value as? JSONObject
+            
+            let unboxed: T? = JSON?.unboxedObject()
+            
+            response?(unboxed, alamofireResponse.error)
+        }
     }
-  }
-
-  public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ErrorCompletionHandler? = nil) {
-
-    Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
-
-      if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) " + alamofireResponse.result.value.debugDescription) }
-      
-      response?(alamofireResponse.error)
+    
+    public static func request<T: ERModelType>(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIMultipleModelResponse<T>? = nil) {
+        
+        Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
+            
+            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + alamofireResponse.result.value.debugDescription) }
+            
+            let JSONs = alamofireResponse.result.value as? [JSONObject]
+            
+            let unboxed: [T]? = JSONs?.unboxedObjects()
+            
+            response?(unboxed, alamofireResponse.error)
+        }
     }
-  }
+    
+    public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ErrorCompletionHandler? = nil) {
+        
+        Alamofire.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).response { alamofireResponse in
+            
+            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + String(alamofireResponse.response?.statusCode ?? 0)) }
+            
+            response?(alamofireResponse.error)
+        }
+    }
 }
 
 extension ERAPIManager {
-
-  public static var logsNetworkActivity: Bool = false {
     
-    didSet {
-     
-      if logsNetworkActivity { NetworkActivityLogger.shared.startLogging(); ERModelCache.logsCaching = true }
-      
-      else { NetworkActivityLogger.shared.stopLogging(); ERModelCache.logsCaching = false }
+    public static var logsNetworkActivity: Bool = false {
+        
+        didSet {
+            
+            if logsNetworkActivity { NetworkActivityLogger.shared.startLogging(); ERModelCache.logsCaching = true }
+                
+            else { NetworkActivityLogger.shared.stopLogging(); ERModelCache.logsCaching = false }
+        }
     }
-  }
 }
 
 //**************************************************//

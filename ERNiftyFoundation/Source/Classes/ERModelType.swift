@@ -61,6 +61,6 @@ extension ERModelType {
     
     guard let date = originalValue as? Date else {return nil}
     
-    return ERDateIntervalFormatter.formatterType == .milliseconds ? date.milisecondsSince1970 : Int(date.timeIntervalSince1970.rounded())
+    return ERDateIntervalFormatter.formatterType == .milliseconds ? Int(date.timeIntervalSince1970*1000.0.rounded()) : Int(date.timeIntervalSince1970.rounded())
   }
 }

@@ -12,31 +12,15 @@ public struct ERAPIEnvironment {
   
   public let apiURL: URL
   
-  public let webSocketURL: URL?
-  
-  public init(apiURL: URL, webSocketURL: URL? = nil) {
+  public init(apiURL: URL) {
     self.apiURL = apiURL
-    self.webSocketURL = webSocketURL
   }
   
-  public init(apiURL: String, webSocketURL: String? = nil) throws {
+  public init?(apiURL: String) {
     
-    guard let apiURL = URL(string: apiURL) else { throw ERError.invalidApiURL}
-    
-    var webSocketInitURL: URL?
-
-    if let string = webSocketURL { webSocketInitURL = URL(string: string) }
+    guard let apiURL = URL(string: apiURL) else { return nil }
     
     self.apiURL = apiURL
-    self.webSocketURL = webSocketInitURL
-  }
-}
 
-extension ERAPIEnvironment {
-  
-  /// THe local host environment. It points the `apiURL` to `http://localhost:8080` and the webSocketURL to `ws://localhost:8080/ws`.
-  public static func localHost() throws -> ERAPIEnvironment {
-    
-    return try ERAPIEnvironment(apiURL: "http://localhost:8080", webSocketURL: "ws://localhost:8080/ws")
-  }
+    }
 }

@@ -170,9 +170,9 @@ extension ERAPIManager {
         
         didSet {
             
-            if logsNetworkActivity { NetworkActivityLogger.shared.startLogging(); ERModelCache.logsCaching = true }
+            if logsNetworkActivity { NetworkActivityLogger.shared.startLogging() }
                 
-            else { NetworkActivityLogger.shared.stopLogging(); ERModelCache.logsCaching = false }
+            else { NetworkActivityLogger.shared.stopLogging() }
         }
     }
 }

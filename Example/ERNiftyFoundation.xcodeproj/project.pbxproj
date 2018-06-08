@@ -50,7 +50,6 @@
 		E391986C3C24A1D6A9702E6A /* Pods-ERNiftyFoundation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ERNiftyFoundation_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ERNiftyFoundation_Example/Pods-ERNiftyFoundation_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F306E13E1F2A9334008CD9D8 /* SomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeController.swift; sourceTree = "<group>"; };
 		F306E1431F2A938D008CD9D8 /* SomeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomeManager.swift; sourceTree = "<group>"; };
-		F34982D11F79CB630028F573 /* PodPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = PodPlayground.playground; path = ../PodPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F3A783B3207EB14D003ECEB1 /* ERNiftyFoundation_ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ERNiftyFoundation_ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A783B5207EB14D003ECEB1 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		F3A783B7207EB14E003ECEB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,7 +81,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				F34982D11F79CB630028F573 /* PodPlayground.playground */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for ERNiftyFoundation */,
 				F3A783B4207EB14D003ECEB1 /* ERNiftyFoundation_ExampleTests */,
@@ -307,11 +305,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ERNiftyFoundation_Example/Pods-ERNiftyFoundation_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityLogger/AlamofireNetworkActivityLogger.framework",
-				"${BUILT_PRODUCTS_DIR}/CommonCrypto/CommonCrypto.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/ERNiftyExtensions/ERNiftyExtensions.framework",
 				"${BUILT_PRODUCTS_DIR}/ERNiftyFoundation/ERNiftyFoundation.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Unbox/Unbox.framework",
 				"${BUILT_PRODUCTS_DIR}/Wrap/Wrap.framework",
 			);
@@ -319,11 +313,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityLogger.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CommonCrypto.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ERNiftyExtensions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ERNiftyFoundation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Unbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Wrap.framework",
 			);

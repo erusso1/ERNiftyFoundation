@@ -60,13 +60,12 @@ extension Dictionary where Key == String, Value: Any {
 
 extension Sequence where Iterator.Element == UnboxableDictionary {
   
-  public func unboxedObjects<T:Unboxable>() -> [T]? {
+  public func unboxedObjects<T:Unboxable>(allowInvalidElements: Bool = true) -> [T]? {
     
     guard let dics = self as? [UnboxableDictionary] else {return nil}
     
     do {
-      
-      let objects:[T] = try unbox(dictionaries: dics)
+      let objects:[T] = try unbox(dictionaries: dics, allowInvalidElements: allowInvalidElements)
       return objects
     }
       
@@ -79,13 +78,13 @@ extension Sequence where Iterator.Element == UnboxableDictionary {
     }
   }
   
-  public func unboxedObjects<T: UnboxableWithContext>(withContext context: T.UnboxContext) -> [T]? {
+  public func unboxedObjects<T: UnboxableWithContext>(withContext context: T.UnboxContext, allowInvalidElements: Bool = true) -> [T]? {
     
     guard let dics = self as? [UnboxableDictionary] else {return nil}
     
     do {
       
-      let objects:[T] = try unbox(dictionaries: dics, context: context)
+      let objects:[T] = try unbox(dictionaries: dics, context: context, allowInvalidElements: allowInvalidElements)
       return objects
     }
       

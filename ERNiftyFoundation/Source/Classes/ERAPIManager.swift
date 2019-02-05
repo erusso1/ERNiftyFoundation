@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import CodableAlamofire
 import AlamofireNetworkActivityLogger
 import Unbox
 
@@ -27,6 +28,8 @@ public typealias ERAPIModelResponse<T: ERModelType> = (T?, Error?) -> Void
 
 public typealias ERAPIMultipleModelResponse<T: ERModelType> = ([T]?, Error?) -> Void
 
+public typealias ERAPIDecodableResponse<T: Decodable> = (T?, Error?) -> Void
+
 //**************************************************//
 
 // MARK: Declaration
@@ -42,11 +45,31 @@ extension ERAPIManager {
     public fileprivate(set) static var environment: ERAPIEnvironment!
     
     public fileprivate(set) static var customSessionManager: SessionManager?
+    
+    public static var requestParameterEncoder: JSONEncoder!
+    
+    public static var responseBodyDecoder: JSONDecoder!
 
-    public static func configureFor(environment: ERAPIEnvironment, customSessionManager: SessionManager? = nil) {
+    public static func configureFor(environment: ERAPIEnvironment, requestParameterEncoder: JSONEncoder = JSONEncoder(), responseBodyDecoder: JSONDecoder = JSONDecoder(), customSessionManager: SessionManager? = nil) {
         
         self.environment = environment
         self.customSessionManager = customSessionManager
+        self.requestParameterEncoder = requestParameterEncoder
+        self.responseBodyDecoder = responseBodyDecoder
+    }
+    
+    public static var logsNetworkActivity: Bool = false {
+        
+        didSet {
+            
+            if logsNetworkActivity {
+                
+                NetworkActivityLogger.shared.level = .debug
+                NetworkActivityLogger.shared.startLogging()
+            }
+                
+            else { NetworkActivityLogger.shared.stopLogging() }
+        }
     }
 }
 
@@ -101,9 +124,7 @@ extension ERAPIManager {
     
     public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIStringResponse? = nil) {
         
-        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseString(queue: utilityQueue) { alamofireResponse in
-            
-            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + alamofireResponse.result.value.debugDescription) }
+        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseString(queue: utilityQueue) { alamofireResponse in
             
             response?(alamofireResponse.result.value, alamofireResponse.error)
         }
@@ -111,9 +132,7 @@ extension ERAPIManager {
     
     public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIJSONResponse? = nil) {
         
-        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
-            
-            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + alamofireResponse.result.value.debugDescription) }
+        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON(queue: utilityQueue) { alamofireResponse in
             
             let JSON = alamofireResponse.result.value as? JSONObject
             
@@ -123,9 +142,7 @@ extension ERAPIManager {
     
     public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIMultipleJSONResponse? = nil) {
         
-        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
-            
-            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + alamofireResponse.result.value.debugDescription) }
+        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON(queue: utilityQueue) { alamofireResponse in
             
             let JSONs = alamofireResponse.result.value as? [JSONObject]
             
@@ -135,9 +152,7 @@ extension ERAPIManager {
     
     public static func request<T: ERModelType>(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIModelResponse<T>? = nil) {
         
-        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
-            
-            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + alamofireResponse.result.value.debugDescription) }
+        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON(queue: utilityQueue) { alamofireResponse in
             
             let JSON = alamofireResponse.result.value as? JSONObject
             
@@ -147,11 +162,32 @@ extension ERAPIManager {
         }
     }
     
+    public static func request<T: Decodable>(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIDecodableResponse<T>? = nil) {
+        
+        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseDecodableObject(queue: utilityQueue, decoder: responseBodyDecoder) { (alamofireResponse: DataResponse<T>)  in
+            
+            response?(alamofireResponse.result.value, alamofireResponse.result.error)
+        }
+    }
+    
+    public static func request<E: Encodable, T: Decodable>(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: E, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIDecodableResponse<T>? = nil) {
+        
+        let params: Parameters?
+        
+        do {
+            
+            let data = try requestParameterEncoder.encode(parameters)
+            params = try JSONSerialization.jsonObject(with: data, options: []) as? Parameters
+        }
+        
+        catch { response?(nil, AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))); return }
+        
+        self.request(on: endpoint, method: method, parameters: params, encoding: encoding, headers: headers, response: response)
+    }
+    
     public static func request<T: ERModelType>(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ERAPIMultipleModelResponse<T>? = nil) {
         
-        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON(queue: utilityQueue) { alamofireResponse in
-            
-            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + alamofireResponse.result.value.debugDescription) }
+        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseJSON(queue: utilityQueue) { alamofireResponse in
             
             let JSONs = alamofireResponse.result.value as? [JSONObject]
             
@@ -163,24 +199,9 @@ extension ERAPIManager {
     
     public static func request(on endpoint: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, response: ErrorCompletionHandler? = nil) {
         
-        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).response { alamofireResponse in
-            
-            if logsNetworkActivity { printPretty("Response to \(method.rawValue) on \(endpoint) - " + String(alamofireResponse.response?.statusCode ?? 0)) }
+        sessionManager.request(endpoint, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().response { alamofireResponse in
             
             response?(alamofireResponse.error)
-        }
-    }
-}
-
-extension ERAPIManager {
-    
-    public static var logsNetworkActivity: Bool = false {
-        
-        didSet {
-            
-            if logsNetworkActivity { NetworkActivityLogger.shared.startLogging() }
-                
-            else { NetworkActivityLogger.shared.stopLogging() }
         }
     }
 }

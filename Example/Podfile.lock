@@ -1,10 +1,13 @@
 PODS:
-  - Alamofire (4.7.2)
+  - Alamofire (4.8.1)
   - AlamofireNetworkActivityLogger (2.3.0):
     - Alamofire (~> 4.6)
-  - ERNiftyFoundation (2.4.9):
+  - CodableAlamofire (1.1.0):
+    - Alamofire (~> 4.0)
+  - ERNiftyFoundation (2.6.0):
     - Alamofire
     - AlamofireNetworkActivityLogger
+    - CodableAlamofire
     - Unbox
     - Wrap
   - Unbox (3.0.0)
@@ -17,6 +20,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireNetworkActivityLogger
+    - CodableAlamofire
     - Unbox
     - Wrap
 
@@ -25,9 +29,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AlamofireNetworkActivityLogger: 6f3076652ab7fa6c819b59be08ea038d339e36d8
-  ERNiftyFoundation: e430f074312ff0865ac59147070f81e57ca83684
+  CodableAlamofire: e2d2edcec7cf413f7862c30c8fa98eded27a83f9
+  ERNiftyFoundation: 3816497a3854e4af17f172d302bf09ccfe5d0e94
   Unbox: 9ed33b2a31f7a8a049f54b94d40c4a52a28c4d9d
   Wrap: 918fdb5157e4f701f9503b2633752d6f94616f84
 
